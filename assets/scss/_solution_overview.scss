@@ -1,0 +1,247 @@
+.inner-page-banner {
+  .videos-section {
+    .video-box {
+      img {
+        width: 100%;
+      }
+      .video-overlay-text {
+        bottom: 14rem;
+        /*    max-width: 1017px;
+        top: 144px; */
+        /*  @include below(md) {
+            padding-right: 144px;
+        } */
+        /*   @include below(sm1) {
+          padding-right: 20px;
+        } */
+        /*    .video-btn {
+          margin-top: 40px;
+        } */
+      }
+    }
+    .video-pagination {
+      bottom: 0px;
+      /*     @include below(sm1) {
+        bottom: 80px;
+      } */
+    }
+  }
+}
+.solution-sec {
+  padding-bottom: 0;
+  .sec-heading {
+    padding-bottom: 15px;
+  }
+}
+.twocolumnimgSec {
+  overflow: hidden;
+  position: relative;
+
+  .twocolumnimgSecRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    &.gap50 {
+      gap: 5rem;
+      .singlecol {
+        flex: 0 0 calc(50% - 2.5rem);
+      }
+    }
+    .singlecol {
+      position: relative;
+      flex: 0 0 calc(50% - 1.5rem);
+      box-sizing: border-box;
+      overflow: hidden;
+      border-radius: 8px;
+
+      @include below(sm1) {
+        flex: 1 1 100%;
+      }
+
+      img {
+        transition: 0.5s ease;
+        width: 100%;
+        height: 100%;
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+      .location {
+        position: absolute;
+        left: 3rem;
+        bottom: 3rem;
+        color: #fff !important;
+        font-size: 2.4rem;
+        font-weight: 500;
+        line-height: 2.2rem;
+        z-index: 9;
+        width: calc(100% - 6rem);
+      }
+    }
+    &.withSlider {
+      flex-wrap: unset;
+
+      gap: 0;
+      .singlecol {
+        width: auto;
+        flex: 0 0 auto;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
+  &.img-overlay {
+    .singlecol {
+      &:after {
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        content: " ";
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 70%, #000 100%);
+        opacity: 0.6;
+        pointer-events: none;
+        left: 0;
+      }
+    }
+  }
+}
+.SustainabilitysolutionSec {
+  @include below(sm1) {
+    padding-bottom: 80px;
+  }
+}
+.custom-arrow-prev,
+.custom-arrow-next {
+  width: 45px;
+  height: 45px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100px;
+  position: absolute;
+  border: 1px solid #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  display: block;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 15px;
+    height: 2px;
+    background: #fff;
+    transform: translateY(-50%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+  }
+}
+.custom-arrow-next {
+  right: 8px;
+
+  &::before {
+    left: 14px;
+  }
+
+  &::after {
+    right: 13px;
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+/* PREV ← (Left arrow) */
+.custom-arrow-prev {
+  left: 8px;
+
+  &::before {
+    right: 14px;
+  }
+
+  &::after {
+    left: 13px;
+    transform: translateY(-50%) rotate(-135deg);
+  }
+}
+.custom-arrow-prev:hover,
+.custom-arrow-next:hover {
+  background: #fff;
+  border-color: #fff;
+
+  &::before {
+    background: #10233b;
+  }
+
+  &::after {
+    border-color: #10233b;
+  }
+}
+.slider-padding {
+  overflow: hidden;
+}
+
+.light-mode {
+  .custom-arrow-prev,
+  .custom-arrow-next {
+    border: 1px solid #10233b;
+
+    &::before {
+      background: #10233b;
+    }
+
+    &::after {
+      border-top: 2px solid #10233b;
+      border-right: 2px solid #10233b;
+    }
+  }
+  .custom-arrow-prev:hover,
+  .custom-arrow-next:hover {
+    background: #10233b;
+    border-color: #10233b;
+
+    &::before {
+      background: #fff;
+    }
+
+    &::after {
+      border-color: #fff;
+    }
+  }
+}
+
+@include below(sm1) {
+  .custom-arrow-prev.mob-none,
+  .custom-arrow-next.mob-none {
+    display: none;
+  }
+}
+
+.twocolumnimgSec .twocolumnimgSecRow {
+  .watch-cta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    img {
+      width: 100%;
+      transition: 0.5s ease;
+      margin: 0 auto;
+      width: 70px;
+    }
+  }
+}
+.box-left-text p {
+  font-size: 1.5Crem;
+}

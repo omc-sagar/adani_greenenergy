@@ -1,0 +1,163 @@
+﻿@using Sitecore.Data.Items;
+@using Sitecore.Resources.Media;
+
+@{
+
+    var dataSourceId = RenderingContext.CurrentOrNull.Rendering.DataSource;
+    var dataSourceItem = Sitecore.Context.Database.GetItem(dataSourceId);
+    if (dataSourceItem != null)
+    {
+        var rc = Sitecore.Mvc.Presentation.RenderingContext.CurrentOrNull;
+        var colourTheme = "";
+        if (rc != null)
+        {
+            var parms = rc.Rendering.Parameters;
+            colourTheme = parms["styleType"];
+        }
+        var childItems = dataSourceItem.GetChildren();
+        string fileUrl = string.Empty;
+        Sitecore.Data.Fields.LinkField ctaField = dataSourceItem.Fields["CTA"];
+
+        if (ctaField != null)
+        {
+            //if (ctaField.TargetItem != null && ctaField.TargetItem.Paths.IsMediaItem)
+            //if(fileUrl != "")
+            {
+                fileUrl = INACommonFunctions.GetUrlFromLinkField(ctaField);
+            }
+        }
+
+        <section class="gallery-sec">
+            <div class="gallery-bg">
+                @{
+                    var bgimgUrlDesk = ""; var bgimgUrlMob = ""; var bgimageBlurMob = "";
+                    var bgimgAlt = "";
+                    var bgimgTitle = "";
+                    var bgimageBlurDesk = "";
+                    Sitecore.Data.Fields.ImageField bgimageFieldDesk = dataSourceItem.Fields["DeskBgImage"];
+                    Sitecore.Data.Fields.ImageField bgimageFieldMob = dataSourceItem.Fields["MobBgImage"];
+                    if (bgimageFieldDesk != null && bgimageFieldDesk.MediaItem != null)
+                    {
+                        MediaItem image = new MediaItem(bgimageFieldDesk.MediaItem);
+                        bgimageBlurDesk = HashingUtils.ProtectAssetUrl(MediaManager.GetMediaUrl(image));
+                        bgimgUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+                        bgimgAlt = image.Alt;
+                        bgimgTitle = image.Title;
+                    }
+                    if (bgimageFieldMob != null && bgimageFieldMob.MediaItem != null)
+                    {
+                        MediaItem image = new MediaItem(bgimageFieldDesk.MediaItem);
+                        bgimageBlurMob = HashingUtils.ProtectAssetUrl(MediaManager.GetMediaUrl(image));
+                        bgimgUrlMob = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+
+                    }
+                }
+                <picture>
+                    <source media="(min-width:1600px)" srcset="@bgimgUrlDesk">
+                    <source media="(min-width:1200px)" srcset="@bgimgUrlDesk">
+                    <source media="(min-width:768px)" srcset="@bgimgUrlDesk">
+                    <source media="(max-width:720px)" srcset="@bgimgUrlMob">
+                    <img src="@bgimgUrlDesk" alt="@bgimgAlt" title="@bgimgTitle" width="1920" height="905" loading="lazy">
+                </picture>
+            </div>
+            <div class="gallery-container">
+
+                <div class="gallery-top">
+                    <div class="bg-box"></div>
+                     <div class="gallery-title-div">
+                      <div class="gallery-title-sec">
+                    <p class="gallery-title headingAnimation">@Html.Raw(dataSourceItem.Fields["Heading"])</p>
+                    <h3 class="gallery-heading headingAnimation">@Html.Raw(dataSourceItem.Fields["Description"])</h3>
+                    </div>
+                    @{
+
+
+                        //if (ctaField != null)
+                        //{
+
+
+                        //    if (ctaField.TargetItem != null && ctaField.TargetItem.Paths.IsMediaItem)
+                        //    {
+
+                        //        MediaItem mediaItem = new MediaItem(ctaField.TargetItem);
+                        //        fileUrl = MediaManager.GetMediaUrl(mediaItem);
+                        //    }
+                        //    else
+                        //    {
+                        //        fileUrl = Sitecore.Links.LinkManager.GetItemUrl(ctaField.TargetItem);
+                        //    }
+                        //}
+                        if (!string.IsNullOrEmpty(fileUrl))
+                        {
+                            <div class="gallery-btn headingAnimation">
+                                <a href="@fileUrl" target="@ctaField.Target">@ctaField.Text</a>
+                            </div>
+                        }
+
+                    }
+                    </div>
+                </div>
+                @if (childItems.Any())
+                {
+                    foreach (Item child in childItems.Cast<Item>())
+                    {
+                        var imgUrlDesk = ""; var imgUrlMob = ""; var imgAlt = ""; var imgTitle = "";
+                        Sitecore.Data.Fields.ImageField imageFieldDesk = child.Fields["PosterImageDesktop"];
+                        Sitecore.Data.Fields.ImageField imageFieldMob = child.Fields["PosterImageMobile"];
+
+
+
+                        if (imageFieldDesk != null && imageFieldDesk.MediaItem != null)
+                        {
+                            MediaItem image = new MediaItem(imageFieldDesk.MediaItem);
+                            imgUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+                            imgAlt = image.Alt;
+                            imgTitle = image.Title;
+                        }
+                        if (imageFieldMob != null && imageFieldMob.MediaItem != null)
+                        {
+                            MediaItem image = new MediaItem(imageFieldMob.MediaItem);
+                            imgUrlMob = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+
+                        }
+                        var fileUrlDesktop = INACommonFunctions.GetFileLinkFromFileField(child, "VideoDesktop");
+                        var fileUrlMobile = INACommonFunctions.GetFileLinkFromFileField(child, "VideoMobile");
+
+                        Sitecore.Data.Fields.LinkField videoLinkField = child.Fields["FullVideo"];
+                        var videolinkURL = INACommonFunctions.GetUrlFromLinkField(videoLinkField);
+                        var videoUrl = "";
+                        if (videolinkURL != string.Empty)
+                        {
+                            videoUrl = INACommonFunctions.GetUrlFromLinkField(videoLinkField);
+                        }
+                            <div class="gallery-img">
+                                <!--     <picture>
+                       <source media="(min-width:1600px)" srcset="assets/images/home/gallery-image.jpg">
+                       <source media="(max-width:720px)" srcset="assets/images/home/gallery-mob.jpg">
+                       <img src="assets/images/home/gallery-image.jpg" alt="" title="" width="1300" height="552"
+                          loading="lazy">
+                    </picture> -->
+                                @*<video data-video-desktop="@fileUrlDesktop"
+                        data-video-mobile="@fileUrlMobile" class="" poster=""
+                        data-poster-desktop="@imgUrlDesk"
+                        data-poster-mobile="@imgUrlMob" width="1365" height="550" loading="lazy"
+                        loop preload playsinline webkit-playsinline muted autoplay></video>*@
+
+                                <video data-video-desktop="@fileUrlDesktop"
+                                       data-video-mobile="@fileUrlMobile" class="" poster=""
+                                       data-poster-desktop="@imgUrlDesk"
+                                       data-poster-mobile="@imgUrlMob" width="1365" height="550" loading="lazy"
+                                       loop preload playsinline webkit-playsinline muted autoplay></video>
+
+                                <a href="@videoUrl" data-fancybox="videos">
+                                    <img src="/images/play_circle.svg" class="play-btn" alt="" width="60" height="60"
+                                         loading="lazy">
+                                </a>
+                            </div>
+                    }
+                }
+
+            </div>
+        </section>
+    }
+}

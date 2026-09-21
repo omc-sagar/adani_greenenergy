@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adani</title>
+    <!--<link rel="stylesheet" href="dist/plugin/css/fullpage.min.css?v=24" />-->
+    <link rel="stylesheet" type="text/css" href="dist/plugin/css/customPluginbundle.css">
+    <!--    <link rel="stylesheet" href="dist/plugin/css/swiper-bundle.min.css" /> -->
+    <!--<link rel="stylesheet" href="dist/plugin/css/jquery.mCustomScrollbar.css" />-->
+    <!-- <link rel="stylesheet" type="text/css" href="dist/plugin/css/jquery.fancybox.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="dist/css/bundle.css">
+</head>
+
+<body>
+    <header>
+        <div class="com_container">
+            <div class="headerWrapper">
+                <div class="logo"><a href="/"><img src="dist/images/logo.svg" alt="Logo" loading="lazy" /></a></div>
+                <div class="carbon-mode">
+                    <div class="carbon-mode-row">
+                        <ul class="colorModeToggleStyle color-theme-tab">
+                            <li data-theme="light-mode" class="active"><svg xmlns="http://www.w3.org/2000/svg" width="9"
+                                    height="16" viewBox="0 0 9 16" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.14014 7.39068C0.0695858 7.46802 0.0486445 7.57759 0.0822601 7.67555C0.115876 7.77351 0.200938 7.84174 0.302705 7.85321L2.48729 8.09949L1.06174 15.412C1.03772 15.5337 1.0946 15.6538 1.1999 15.7101C1.3052 15.7664 1.43487 15.7437 1.51548 15.6533L7.94574 8.60468C8.0163 8.52735 8.03724 8.41777 8.00362 8.31981C7.97001 8.22185 7.88494 8.15363 7.78318 8.14215L5.5986 7.89588L7.02604 0.581807C7.05006 0.460139 6.99318 0.340011 6.88788 0.28372C6.78258 0.227429 6.65291 0.250124 6.57229 0.340537L0.14014 7.39068ZM0.895495 7.3639L6.32017 1.41906L5.01908 8.08463C5.00359 8.16106 5.02053 8.23937 5.06508 8.30125C5.10963 8.36313 5.17561 8.40255 5.25024 8.41097L7.19398 8.63009L1.76911 14.5767L3.0702 7.91112C3.08569 7.83469 3.06875 7.75637 3.0242 7.69449C2.97964 7.63261 2.91366 7.59319 2.83903 7.58478L0.895297 7.36565L0.895495 7.3639Z"
+                                        fill="white" />
+                                </svg></li>
+                            <li data-theme="dark-mode"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="16"
+                                    viewBox="0 0 9 16" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.14014 7.39068C0.0695858 7.46802 0.0486445 7.57759 0.0822601 7.67555C0.115876 7.77351 0.200938 7.84174 0.302705 7.85321L2.48729 8.09949L1.06174 15.412C1.03772 15.5337 1.0946 15.6538 1.1999 15.7101C1.3052 15.7664 1.43487 15.7437 1.51548 15.6533L7.94574 8.60468C8.0163 8.52735 8.03724 8.41777 8.00362 8.31981C7.97001 8.22185 7.88494 8.15363 7.78318 8.14215L5.5986 7.89588L7.02604 0.581807C7.05006 0.460139 6.99318 0.340011 6.88788 0.28372C6.78258 0.227429 6.65291 0.250124 6.57229 0.340537L0.14014 7.39068ZM0.895495 7.3639L6.32017 1.41906L5.01908 8.08463C5.00359 8.16106 5.02053 8.23937 5.06508 8.30125C5.10963 8.36313 5.17561 8.40255 5.25024 8.41097L7.19398 8.63009L1.76911 14.5767L3.0702 7.91112C3.08569 7.83469 3.06875 7.75637 3.0242 7.69449C2.97964 7.63261 2.91366 7.59319 2.83903 7.58478L0.895297 7.36565L0.895495 7.3639Z"
+                                        fill="black" />
+                                </svg></li>
+                        </ul>
+                        <span class="carbon-text">Switch to Low Carbon Mode</span>
+                    </div>
+                </div>
+                <div class="search-bar mob-search-icon"><span><a href="javascript:;"><img
+                                src="dist/images/search-icon.svg" alt="searc-icon" loading="lazy" /></a></span></div>
+                <div id="nav-icon3"><span></span><span></span><span></span><span></span></div>
+                <div class="left-menu">
+                    <div class="nav-main">
+                        <nav>
+                            <ul class="nav-wrap">
+                                <li class="dropdown-menu">
+                                    <a href="#" title="" target="" class="has-child ">About Us</a>
+                                    <div class="sub-menu dropdown-menu">
+                                        <ul>
+                                            <li><a href="#" title="About Us" target="" class=" ">The Adani Group</a>
+                                            </li>
+                                            <li><a href="#" title="" target="" class=" ">Chairman's Office</a></li>
+                                            <li><a href="#" title="" target="" class=" ">Leadership</a></li>
+                                            <li><a href="#" title="" target="" class=" ">Our Journey</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="mega-menu-list">
+                                    <a href="#" title="" target="" class="has-child ">Solutions</a>
+                                    <div class="sub-menu mega-menu">
+                                        <div class="mega-wrapper">
+                                            <div class=" img-menu-column">
+
+                                                <picture>
+
+                                                    <source media="(max-width:766px)"
+                                                        srcset="assets/images/menu-img.jpg">
+                                                    <img src="assets/images/menu-img.jpg" alt="" title="" width="680"
+                                                        height="396" loading="lazy">
+                                                </picture>
+
+                                            </div>
+                                            <div class="main-menu-column">
+                                                <div class="menu-column ">
+                                                    <div class="column-head ">
+                                                        <span><a href="#" title="" target="" class=" ">Focus
+                                                                Areas</a></span>
+                                                    </div>
+                                                    <ul class="">
+                                                        <li><a href="#">Climate Change</a></li>
+                                                        <li><a href="#">Energy Management</a></li>
+                                                        <li><a href="#">Emission Management</a></li>
+                                                        <li><a href="#">Air Emissions</a></li>
+                                                        <li><a href="#">Water Management​</a></li>
+                                                        <li><a href="#">Waste Management</a></li>
+                                                        <li><a href="#">Biodiversity Management</a></li>
+                                                    </ul>
+
+
+                                                </div>
+                                                <div class="menu-column ">
+                                                    <div class="column-head ">
+                                                        <span><a href="#" title="" target="" class=" ">Social
+                                                                Responsibility</a></span>
+                                                    </div>
+                                                    <ul class="">
+                                                        <li><a href="#">Our People</a></li>
+                                                        <li><a href="#">Human Rights</a></li>
+                                                        <li><a href="#">Secure Operations</a></li>
+                                                        <li><a href="#">Sustainable Supply Chain</a></li>
+                                                        <li><a href="#">Community Development</a></li>
+                                                        <li><a href="#">Infrastructure Development</a></li>
+                                                        <li><a href="#">Education</a></li>
+                                                        <li><a href="#">Health</a></li>
+                                                        <li><a href="#">Sports</a></li>
+
+                                                    </ul>
+
+
+                                                </div>
+                                                <div class="menu-column ">
+                                                    <div class="column-head "><span><a href="#" title="" target=""
+                                                                class=" ">Disclosures</a></span></div>
+                                                    <ul>
+                                                        <li><a href="#">Reports</a></li>
+                                                        <li><a href="#">Policies</a></li>
+                                                        <li><a href="#">UN SDG Alliance</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="dropdown-menu2">
+                                    <a href="#" title="" target="" class="has-child ">Sustainability</a>
+                                    <div class="sub-menu mega-menu">
+                                        <div class="mega-wrapper">
+                                            <div class="menu-column no-heading-links">
+                                                <div class="column-head ">
+                                                    <span><a href="#" title="" target="" class=" ">Climate
+                                                            Action</a></span>
+                                                </div>
+                                                <div class="column-head nav-sub-head">
+                                                    <span><a href="#" title="" target=""
+                                                            class=" ">Decarbonisation</a></span>
+                                                </div>
+                                                <div class="column-head nav-sub-head">
+                                                    <span><a href="#" title="" target="" class=" ">Emissions
+                                                            Management</a></span>
+                                                </div>
+                                                <div class="column-head nav-sub-head">
+                                                    <span><a href="#" title="" target="" class=" ">Water
+                                                            Management</a></span>
+                                                </div>
+                                                <div class="column-head nav-sub-head">
+                                                    <span><a href="#" title="" target="" class=" ">Waste
+                                                            Management</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="menu-column no-heading-links">
+                                                <div class="column-head ">
+                                                    <span><a href="#" title="" target="" class=" ">Occupational Health
+                                                            Safety
+                                                            OHS</a></span>
+                                                </div>
+                                                <div class="column-head nav-sub-head">
+                                                    <span><a href="#" title="" target="" class=" ">Employee
+                                                            Well-Being</a></span>
+                                                </div>
+                                                <div class="column-head nav-sub-head">
+                                                    <span><a href="#" title="" target="" class=" ">Nurturing
+                                                            Community</a></span>
+                                                </div>
+                                                <div class="column-head nav-sub-head">
+                                                    <span><a href="#" title="" target="" class=" ">Women
+                                                            Empowerment</a></span>
+                                                </div>
+                                                <div class="column-head nav-sub-head">
+                                                    <span><a href="#" title="" target="" class=" ">Circular
+                                                            Economy</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="menu-column no-heading-links">
+                                                <div class="column-head ">
+                                                    <span><a href="#" title="" target="" class=" ">Board Structure and
+                                                            Governance</a></span>
+                                                </div>
+                                                <div class="column-head nav-sub-head">
+                                                    <span><a href="#" title="" target="" class=" ">Risk
+                                                            Management</a></span>
+                                                </div>
+                                                <div class="column-head nav-sub-head">
+                                                    <span><a href="#" title="" target="_blank" class=" ">Group ESG
+                                                            Report</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <a href="#" title="" target="" class=" ">Investors</a>
+                                </li>
+                                <li class="dropdown-menu">
+                                    <a href="#" title="" target="" class="has-child ">Newsroom</a>
+                                    <div class="sub-menu dropdown-menu">
+                                        <ul>
+                                            <li><a href="#" title="" target="" class=" ">Media Releases</a></li>
+                                            <li><a href="#" title="" target="" class=" ">Media Kit</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <a href="#" title="" target="" class=" ">Careers</a>
+                                </li>
+                                <li class="color-theme accessibility-tab">
+                                    <span data-theme=""><a href="javascript:;">
+                                            <img src="dist/images/accessibility_new-icon.svg" alt="color-icon"
+                                                loading="lazy" />
+                                            <span class="mob-text">Accessibility</span></a>
+                                    </span>
+                                    <div class="disability-dropdown">
+                                        <div class="disability-container">
+                                            <div class="wrap-container">
+                                                <div class="heading">Accessibility Adjustments</div>
+                                                <div class="subheading">Choose the right accessibility profile for you
+                                                </div>
+                                            </div>
+                                            <div class="disability-btns-container">
+                                                <div class="list-contianer themechnage">
+                                                    <ul class="color-theme-tab color-theme-tab-style">
+                                                        <li data-theme="light-mode" class="active">OFF</li>
+                                                        <li data-theme="dark-mode">ON</li>
+                                                    </ul>
+                                                    <div class="themechangecontent">
+                                                        <p class="title">Dark Mode</p>
+                                                        <p class="discription">This is an energy conscious mode</p>
+                                                    </div>
+
+                                                </div>
+                                                <div class="list-contianer themechnage">
+                                                    <ul class="color-theme-tab-style ">
+                                                        <li class="active">OFF</li>
+                                                        <li>ON</li>
+                                                    </ul>
+                                                    <div class="themechangecontent">
+                                                        <p class="title">Read Aloud</p>
+                                                        <p class="discription">Reading the website out loud for you</p>
+                                                    </div>
+
+                                                </div>
+                                                <div class="list-contianer themechnage">
+                                                    <ul class="font-list active font-chnage-style">
+                                                        <li data-font="font-decrease"> <span class="bottom"></span></li>
+                                                        <li data-font="font-default" class="active"> 100%</li>
+                                                        <li data-font="font-increase"> <span class="top"></span></li>
+                                                    </ul>
+                                                    <div class="themechangecontent">
+                                                        <p class="title">Font Size</p>
+                                                        <p class="discription">Select preferred reading size</p>
+                                                    </div>
+                                                </div>
+                                                <div class="reset-btn">
+                                                    <a class="gradient-button" id="resetButton">Reset Settings</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="language">
+                                        <div class="language-dropdown">
+                                            <button href="#" role="button" data-value=""
+                                                class="language-button"><span>Eng<span
+                                                        class="show-mobile">(Language)</span>
+                                                </span></button>
+                                            <ul class="language-list language-switcher">
+                                                <li data-value="" class="language-item">ENG</li>
+                                                <li data-value="hi-in" class="language-item">हिन्दी</li>
+                                                <li data-value="gu-in" class="language-item">ગુજરાતી</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="search-bar mob-hide"><span><a href="javascript:;"><img
+                                                src="dist/images/search-icon.svg" alt="searc-icon"
+                                                loading="lazy" /></a></span></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="right-menu" style="display:none;">
+                        <nav class="right-links">
+                            <ul>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="search-bar-wrapper">
+        <div class="close-search-bar"><img src="dist/images/close.svg" alt="search" title="search" loading="lazy" />
+        </div>
+        <div class="serach-bar-container">
+            <div class="search-bar-wrap">
+                <div class="search-bar-box">
+                    <input type="text" name="searchbar" data-knomoretext="Know More" data-searchingtext="Searching..."
+                        id="GlobalSearchInput" class="no-special-chars" placeholder="Search here..." />
+                    <div class="search-btns">
+                        <button class="search-icon"><img src="dist/images/search.svg" alt="search-icon" title="Search"
+                                loading="lazy" /></button>
+                    </div>
+                    <div class="search-dropdown" id="showSearchDiv"></div>
+                </div>
+                <div class="search-popular-keywords">
+                    <div class="keywords-heading">Popular Pages</div>
+                    <div class="popular-key-wrap">
+                        <ul>
+                            <li><a href="#" title="" target="" class=" ">About Adani Group</a></li>
+                            <li><a href="#" title="" target="" class=" ">Businesses</a></li>
+                            <li><a href="#" title="" target="" class=" ">Sports</a></li>
+                            <li><a href="#" title="" target="" class=" ">Sustainability</a></li>
+                            <li><a href="#" title="" target="" class=" ">Adani Foundation</a></li>
+                            <li><a href="#" title="" target="" class=" ">Investors</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <section id="section-videos" class="center-text">
+                <div class="videos-section">
+                    <div class="video-wrapper HomeVideoSlider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="video-box image-box">
+
+                                    <picture>
+                                        <source media="(max-width: 768px)"
+                                            srcset="assets/images/spotlight/green-credit-mob.jpg">
+                                        <source media="(max-width: 992px)"
+                                            srcset="assets/images/spotlight/green-credit-tab.jpg">
+                                        <source media="(max-width: 1200px)"
+                                            srcset="assets/images/spotlight/green-credit-desk.jpg">
+                                        <img src="assets/images/spotlight/green-credit.jpg" alt="" title=""
+                                            importance="high" fetchpriority="high" loading="eager" width="1920"
+                                            height="681" data-speed="0.8">
+                                    </picture>
+                                    <div class="video-overlay-text text-white ">
+                                        <h1 class="video-text">Carbon Credits</h1>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="video-pagination banner-pagination">
+                            <div class="video-prev"></div>
+                            <div class="video-next"></div>
+                        </div>
+                    </div>
+
+                    <div class="breadcrumb-wrapper">
+                        <div class="breadcrumb">
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <img src="assets/images/breadcrumb/home-icon.svg" alt="home-icon"
+                                            title="home-icon" loading="lazy">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        Solutions
+                                    </a>
+                                </li>
+                                <li><span>Carbon Credits</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </section>
+
+            <section class="sustain-sec   about-textgradient-sec parallax-section">
+                <div class="sustain-bg">
+                    <picture>
+                        <source media="(min-width:1600px)" srcset="assets/images/green-credit/overview-bg.jpg">
+                        <source media="(min-width:769px)" srcset="assets/images/green-credit/overview-bg.jpg">
+                        <source media="(max-width:768px)" srcset="assets/images/green-credit/overview-bg.jpg">
+                        <img src="assets/images/green-credit/overview-bg.jpg" alt="" title="" loading="lazy"
+                            width="1920" height="387" class="parallax-img excludeMainBaner">
+                    </picture>
+                </div>
+                <div class="sustain-container">
+                    <div class="sustain-head">
+                        <h3 class="normal-text50 ">
+                            Leverage our expertise in high-quality carbon projects<br> to strategically select credits
+                            that
+                            contribute to a <br>climate-resilient future.
+                        </h3>
+
+                    </div>
+
+                </div>
+            </section>
+            <section class="sec-padding bg-white z-index-9">
+                <div class="container">
+                    <div class="heading-sec text-left">
+                        <h2 class="heading-top headingAnimation">Our Vision</h2>
+
+                    </div>
+                    <div class="threeBoxWithArrow mg-t-50">
+
+                        <div class="threeBoxWithArrowRow">
+                            <div class="threeBoxWithArrowCol dark-green">
+                                <div class="threeBoxWithArrowColInner">
+                                    <div class="threeBoxIcon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="61"
+                                            viewBox="0 0 60 61" fill="none">
+                                            <path id="data_table"
+                                                d="M6.05812 60.8511C4.33187 60.8511 2.89062 60.2729 1.73438 59.1167C0.578125 57.9604 0 56.5192 0 54.7929V6.9092C0 5.18295 0.578125 3.7417 1.73438 2.58545C2.89062 1.4292 4.33187 0.851074 6.05812 0.851074H53.9419C55.6681 0.851074 57.1094 1.4292 58.2656 2.58545C59.4219 3.7417 60 5.18295 60 6.9092V54.7929C60 56.5192 59.4219 57.9604 58.2656 59.1167C57.1094 60.2729 55.6681 60.8511 53.9419 60.8511H6.05812ZM3.75 19.5936H56.25V6.9092C56.25 6.3317 56.0097 5.80264 55.5291 5.32201C55.0484 4.84139 54.5194 4.60107 53.9419 4.60107H6.05812C5.48062 4.60107 4.95156 4.84139 4.47094 5.32201C3.99031 5.80264 3.75 6.3317 3.75 6.9092V19.5936ZM3.75 38.3586H56.25V23.3436H3.75V38.3586ZM6.05812 57.1011H53.9419C54.5194 57.1011 55.0484 56.8608 55.5291 56.3801C56.0097 55.8995 56.25 55.3705 56.25 54.7929V42.1086H3.75V54.7929C3.75 55.3705 3.99031 55.8995 4.47094 56.3801C4.95156 56.8608 5.48062 57.1011 6.05812 57.1011ZM10.3847 15.1151V9.05795H16.4419V15.1151H10.3847ZM10.3847 33.8801V27.822H16.4419V33.8801H10.3847ZM10.3847 52.6442V46.587H16.4419V52.6442H10.3847Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                    <div class="threeBoxIconContent">
+
+                                        <p class="content-p">To provide impact of exceptional quality.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="threeBoxWithArrowCol normal-green">
+                                <div class="threeBoxWithArrowColInner">
+                                    <div class="threeBoxIcon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="79" height="61"
+                                            viewBox="0 0 79 61" fill="none">
+                                            <path
+                                                d="M6.72463 60.8511C4.99838 60.8511 3.55713 60.2729 2.40088 59.1167C1.24463 57.9604 0.666504 56.5192 0.666504 54.7929V6.9092C0.666504 5.18295 1.24463 3.7417 2.40088 2.58545C3.55713 1.4292 4.99838 0.851074 6.72463 0.851074H54.6084C56.3346 0.851074 57.7759 1.4292 58.9321 2.58545C60.0884 3.7417 60.6665 5.18295 60.6665 6.9092V54.7929C60.6665 56.5192 60.0884 57.9604 58.9321 59.1167C57.7759 60.2729 56.3346 60.8511 54.6084 60.8511H6.72463ZM4.4165 19.5936H56.9165V6.9092C56.9165 6.3317 56.6762 5.80264 56.1956 5.32201C55.7149 4.84139 55.1859 4.60107 54.6084 4.60107H6.72463C6.14713 4.60107 5.61807 4.84139 5.13744 5.32201C4.65682 5.80264 4.4165 6.3317 4.4165 6.9092V19.5936ZM4.4165 38.3586H56.9165V23.3436H4.4165V38.3586ZM6.72463 57.1011H54.6084C55.1859 57.1011 55.7149 56.8608 56.1956 56.3801C56.6762 55.8995 56.9165 55.3705 56.9165 54.7929V42.1086H4.4165V54.7929C4.4165 55.3705 4.65682 55.8995 5.13744 56.3801C5.61807 56.8608 6.14713 57.1011 6.72463 57.1011ZM11.0512 15.1151V9.05795H17.1084V15.1151H11.0512ZM11.0512 33.8801V27.822H17.1084V33.8801H11.0512ZM11.0512 52.6442V46.587H17.1084V52.6442H11.0512Z"
+                                                fill="white" />
+                                            <path
+                                                d="M76.2148 60.8511L65.6016 50.2375C64.4383 51.198 63.1004 51.9497 61.5881 52.4926C60.0758 53.0355 58.5113 53.3069 56.8946 53.3069C52.918 53.3069 49.5525 51.9301 46.7981 49.1766C44.0437 46.423 42.6665 43.0583 42.6665 39.0825C42.6665 35.1071 44.0433 31.7412 46.7969 28.9849C49.5505 26.229 52.9153 24.8511 56.8911 24.8511C60.8666 24.8511 64.2325 26.2282 66.9889 28.9826C69.7448 31.7369 71.1228 35.1024 71.1228 39.079C71.1228 40.7406 70.8439 42.3276 70.2863 43.8399C69.7283 45.3522 68.984 46.6675 68.0533 47.7858L78.6665 58.3988L76.2148 60.8511ZM56.8946 49.8176C59.8925 49.8176 62.4317 48.7772 64.5121 46.6964C66.5929 44.616 67.6333 42.0769 67.6333 39.079C67.6333 36.0811 66.5929 33.542 64.5121 31.4616C62.4317 29.3808 59.8925 28.3404 56.8946 28.3404C53.8967 28.3404 51.3576 29.3808 49.2771 31.4616C47.1963 33.542 46.1559 36.0811 46.1559 39.079C46.1559 42.0769 47.1963 44.616 49.2771 46.6964C51.3576 48.7772 53.8967 49.8176 56.8946 49.8176Z"
+                                                fill="white" />
+                                            <rect x="46" y="28.4116" width="22" height="22" rx="11" fill="#004F84" />
+                                        </svg>
+                                    </div>
+                                    <div class="threeBoxIconContent">
+
+                                        <p class="content-p">To safeguard fairness, responsibility, and openness.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="threeBoxWithArrowCol light-green">
+                                <div class="threeBoxWithArrowColInner">
+                                    <div class="threeBoxIcon"><svg xmlns="http://www.w3.org/2000/svg" width="49"
+                                            height="61" viewBox="0 0 49 61" fill="none">
+                                            <path id="verified_user"
+                                                d="M20.9735 40.9685L37.9455 24.1688L34.5239 20.7819L20.9735 34.1956L14.1919 27.4828L10.7703 30.8697L20.9735 40.9685ZM24.3335 60.8511C17.4124 58.9828 11.6823 54.9502 7.1431 48.7535C2.60336 42.5568 0.333496 35.6289 0.333496 27.9698V9.74469L24.3335 0.851074L48.3335 9.74469V27.9698C48.3335 35.6289 46.0636 42.5568 41.5239 48.7535C36.9847 54.9502 31.2546 58.9828 24.3335 60.8511ZM24.3335 55.844C29.8802 54.1019 34.4668 50.6176 38.0935 45.3912C41.7202 40.1648 43.5335 34.3577 43.5335 27.9698V13.0033L24.3335 5.90644L5.1335 13.0033V27.9698C5.1335 34.3577 6.94683 40.1648 10.5735 45.3912C14.2002 50.6176 18.7868 54.1019 24.3335 55.844Z"
+                                                fill="white" />
+                                        </svg></div>
+                                    <div class="threeBoxIconContent">
+
+                                        <p class="content-p">To empower communities across India.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="verticalSliderSec bg-white">
+                <div class="verticalSliderSecGap">
+                    <div class="verticalSliderSec-inner bg-green">
+
+                        <h2 class="sec-heading headingAnimation">Our Solutions</h2>
+                        <div class="threeColWithImg mg-t-60 mg-b-100">
+                            <h3 class="heading textAnimation">For Nature</h3>
+                            <div class="threeColWithImgRow ">
+
+                                <div class="threeColWithImgCol boxAnimation">
+                                    <a href="">
+                                        <div class="threeColWithImgColInner">
+                                            <div class="imgdiv">
+                                                <img src="assets/images/green-credit/1.jpg" alt="" loading="lazy"
+                                                    width="482" height="289">
+                                            </div>
+                                            <h3 class="title">Land management</h3>
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="threeColWithImgCol boxAnimation">
+                                    <a href="">
+                                        <div class="threeColWithImgColInner">
+                                            <div class="imgdiv">
+                                                <img src="assets/images/green-credit/2.jpg" alt="" loading="lazy"
+                                                    width="482" height="289">
+                                            </div>
+                                            <h3 class="title">Agroforestry</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="threeColWithImgCol boxAnimation">
+                                    <a href="">
+                                        <div class="threeColWithImgColInner">
+                                            <div class="imgdiv">
+                                                <img src="assets/images/green-credit/3.jpg" alt="" loading="lazy"
+                                                    width="482" height="289">
+                                            </div>
+                                            <h3 class="title">Wetland conservation</h3>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="twocolumnimgSec mg-b-100">
+                            <h3 class="heading textAnimation">For Society</h3>
+                            <div class="twocolumnimgSecRow single-row">
+                                <div class="singlecol boxAnimation">
+                                    <a href="">
+                                        <div class="imgdiv">
+                                            <picture>
+                                                <source media="(max-width:991px)"
+                                                    srcset="assets/images/green-credit/4.jpg">
+                                                <img src="assets/images/green-credit/4.jpg" alt="" title=""
+                                                    loading="lazy" width="739" height="289">
+                                            </picture>
+                                        </div>
+                                        <p class="title">Providing clean cooking energy</p>
+                                    </a>
+                                </div>
+                                <div class="singlecol boxAnimation">
+                                    <a href="">
+                                        <div class="imgdiv">
+                                            <picture>
+                                                <source media="(max-width:991px)"
+                                                    srcset="assets/images/green-credit/5.jpg">
+                                                <img src="assets/images/green-credit/5.jpg" alt="" title=""
+                                                    loading="lazy" width="739" height="289">
+                                            </picture>
+                                        </div>
+                                        <p class="title">Creating employment opportunities across communities</p>
+                                    </a>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="twocolumnimgSec">
+                            <h3 class="heading textAnimation">For Technology</h3>
+                            <div class="twocolumnimgSecRow single-row">
+                                <div class="singlecol boxAnimation">
+                                    <a href="">
+                                        <div class="imgdiv">
+                                            <picture>
+                                                <source media="(max-width:991px)"
+                                                    srcset="assets/images/green-credit/6.jpg">
+                                                <img src="assets/images/green-credit/6.jpg" alt="" title=""
+                                                    loading="lazy" width="739" height="289">
+                                            </picture>
+                                        </div>
+                                        <p class="title">Providing clean cooking energy</p>
+                                    </a>
+                                </div>
+                                <div class="singlecol boxAnimation">
+                                    <a href="">
+                                        <div class="imgdiv">
+                                            <picture>
+                                                <source media="(max-width:991px)"
+                                                    srcset="assets/images/green-credit/7.jpg">
+                                                <img src="assets/images/green-credit/7.jpg" alt="" title=""
+                                                    loading="lazy" width="739" height="289">
+                                            </picture>
+                                        </div>
+                                        <p class="title">Creating employment opportunities across communities</p>
+                                    </a>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+            <section class="energy-sec sec-padding ">
+                <div class="transition-bg">
+                    <picture>
+                        <source media="(min-width:1600px)" srcset="assets/images/green-credit/backgraound.jpg">
+                        <source media="(min-width:1200px)" srcset="assets/images/green-credit/backgraound.jpg">
+                        <source media="(min-width:768px)" srcset="assets/images/green-credit/backgraound.jpg">
+                        <source media="(max-width:720px)" srcset="assets/images/green-credit/backgraound.jpg">
+                        <img src="assets/images/green-credit/backgraound.jpg" alt="" title="" loading="lazy">
+                    </picture>
+                </div>
+                <div class="container">
+                    <div class="transition-journery-wrap">
+                        <div class="heading-sec">
+                            <h2 class="heading-top headingAnimation">How It Works</h2>
+                        </div>
+                        <div class="transition-video zoominAnim">
+                            <picture>
+                                <source media="(min-width:1600px)" srcset="assets/images/green-credit/video.png">
+                                <source media="(min-width:1200px)" srcset="assets/images/green-credit/video.png">
+                                <source media="(min-width:768px)" srcset="assets/images/green-credit/video.png">
+                                <source media="(max-width:720px)" srcset="assets/images/green-credit/video.png">
+                                <img src="assets/images/green-credit/video.png" alt="" title="" loading="lazy"
+                                    width="1300" height="551">
+                            </picture>
+                            <div class="watch-cta">
+                                <a href="https://www.youtube.com/watch?v=Ol5mAIPofY8" data-fancybox="videos"><img
+                                        src="assets/images/about-us/play_circle.svg" alt="" loading="lazy" width="72"
+                                        height="73"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="sec-padding  bg-gray columnAnimation">
+                <div class="container">
+                    <div class="announcements-sec">
+                        <div class="announcements-header-sec justify-content-center">
+                            <h2 class="sec-heading headingAnimation">A Glimpse of Our Projects</h2>
+
+                        </div>
+
+                        <div class="announcements-content-sec">
+                            <div class="announcements-content-wrapper sustainabilitySlider ">
+                                <div class="announcements-content-row slider-row swiper-wrapper">
+
+                                    <div class="announcements-content-col swiper-slide">
+                                        <div class="announcements-content-col-inner columnAnimation-single">
+                                            <a href="">
+                                                <div class="announcements-img">
+                                                    <img src="assets/images/green-credit/8.jpg" alt="" loading="lazy">
+                                                </div>
+                                                <div class="announcements-content ">
+                                                    <h4 class="announcements-title">Khavda, Gujarat</h4>
+                                                </div>
+                                                <p class="icon-text"><img
+                                                        src="assets/images/green-credit/energy_savings.svg" alt=""> 2000
+                                                    MW
+                                                </p>
+                                            </a>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="announcements-content-col swiper-slide">
+                                        <div class="announcements-content-col-inner columnAnimation-single">
+                                            <a href="">
+                                                <div class="announcements-img">
+                                                    <img src="assets/images/green-credit/9.jpg" alt="" loading="lazy">
+                                                </div>
+                                                <div class="announcements-content">
+                                                    <h4 class="announcements-title">Kamuthi, Tamil Nadu</h4>
+                                                </div>
+                                                <p class="icon-text"><img
+                                                        src="assets/images/green-credit/energy_savings.svg" alt=""> 2000
+                                                    MW
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="announcements-content-col swiper-slide">
+                                        <div class="announcements-content-col-inner columnAnimation-single">
+                                            <a href="">
+                                                <div class="announcements-img">
+                                                    <img src="assets/images/green-credit/10.jpg" alt="" loading="lazy">
+                                                </div>
+                                                <div class="announcements-content">
+                                                    <h4 class="announcements-title">Chitrakoot, Uttar Pradesh</h4>
+                                                </div>
+                                                <p class="icon-text"><img
+                                                        src="assets/images/green-credit/energy_savings.svg" alt=""> 2000
+                                                    MW
+                                                </p>
+                                            </a>
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <footer>
+                <div class="footer-bg">
+                    <div class="footer-upper">
+                        <div class="footer-wrapper">
+                            <div class="footer-left">
+                                <div class="footer-logo"> <a href="/">
+                                        <img class="darkmode-logo" src="dist/images/footer-Logo.svg" alt="" title="">
+                                        <img class="lightmode-logo" src="dist/images/footer-Logo.svg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="footer-content">
+                                    <p>Adani Green Energy Ltd. (AGEL), India’s largest renewable energy company, is at
+                                        the
+                                        forefront of accelerating the clean
+                                        energy transition. AGEL develops, owns, and operates utility-scale,
+                                        grid-connected solar,
+                                        wind, wind-solar hybrid, and
+                                        storage solutions. It has an operating portfolio of over 15.5 GW, spread across
+                                        12 Indian
+                                        states. AGEL has set a target
+                                        of achieving 50 GW by 2030, aligned with India’s decarbonization goals and
+                                        committed to
+                                        advancing a sustainable future
+                                        for all.</p>
+                                </div>
+
+                                <div class="footer-social-links">
+                                    <ul>
+
+                                        <li><a href=""><img src="dist/images/facebook.svg" alt="Facebook"
+                                                    title="Facebook" loading="lazy"></a></li>
+                                        <li><a href=""><img src="dist/images/insta.svg" alt="Instagram"
+                                                    title="Instagram" loading="lazy"></a></li>
+                                        <li><a href=""><img src="dist/images/youtube.svg" alt="Youtube" title="Youtube"
+                                                    loading="lazy"></a>
+                                        </li>
+                                        <li><a href=""><img src="dist/images/linkedIn.svg" alt="LinkedIn"
+                                                    title="LinkedIn" loading="lazy"></a></li>
+                                        <li><a href=""><img src="dist/images/twitter.svg" alt="Twitter" title="Twitter"
+                                                    loading="lazy"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="footer-right">
+                                <div class="footer-col-links">
+                                    <div class="footer-head has-child">About Us</div>
+                                    <ul class="footer-sub-link">
+                                        <li><a href="">About AGEL</a></li>
+                                        <li><a href="">Leadership Message</a></li>
+                                        <li><a href="">Chairman's Message</a></li>
+                                        <li><a href="">Board of Directors</a></li>
+                                    </ul>
+                                </div>
+                                <div class="footer-col-links">
+                                    <div class="footer-head has-child">Solutions</div>
+                                    <ul class="footer-sub-link">
+                                        <li><a href="">Solar Power</a></li>
+                                        <li><a href="">Wind Power​</a></li>
+                                        <li><a href="">Hybrid Power​</a></li>
+                                        <li><a href="">Storage Solutions</a></li>
+                                        <li><a href="">Carbon credits</a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="footer-col-links">
+                                    <div class="footer-head has-child">Sustainability​</div>
+                                    <ul class="footer-sub-link">
+                                        <li><a href="">Overview</a></li>
+                                        <li><a href="">Environment</a></li>
+                                        <li><a href="">Communities</a></li>
+                                        <li><a href="">Governance</a></li>
+                                    </ul>
+                                </div>
+                                <div class="footer-col-links no-heading-links">
+                                    <div class="footer-head"><a href="">Investors</a></div>
+                                    <div class="footer-head"><a href="">Newsroom</a></div>
+                                    <div class="footer-head"><a href="">Careers</a>​</div>
+                                    <div class="footer-head"><a href="">Contact Us</a></div>
+                                    <div class="footer-head"><a href="">Downloads</a></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-policy">
+                    <div class="footer-container com_container">
+                        <div class="footer-wrap">
+                            <div class="footer-copyright">© 2025 Adani Group</div>
+                            <div class="footer-links">
+                                <ul>
+                                    <li><a href="">Legal Disclaimer</a> </li>
+                                    <li><a href="">Privacy Policy</a></li>
+                                    <li><a href="">Terms & Conditions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!--    <script type="text/javascript" src="dist/plugin/js/jquery-3.7.1.min.js"></script>
+   <script type="text/javascript" src="dist/plugin/js/swiper-bundle.min.js"></script> -->
+
+
+    <script type="text/javascript" src="dist/plugin/js/customPluginbundle.js"></script>
+    <!--    <script type="text/javascript" src="dist/plugin/js/gsap.min.js"></script>
+   <script type="text/javascript" src="dist/plugin/js/ScrollTrigger.min.js"></script>
+   <script type="text/javascript" src="dist/plugin/js/ScrollSmoother.min.js"></script>
+   <script type="text/javascript" src="dist/plugin/js/ScrollToPlugin.min.js"></script> -->
+    <!-- <script type="text/javascript" src="dist/plugin/js/jquery.fancybox.min.js"></script> -->
+    <script type="text/javascript" src="dist/js/customJsbundle.js"></script>
+
+    <!--   <script type="text/javascript" src="dist/plugin/js/SplitText.js"></script> -->
+
+
+
+
+    <script type="text/javascript" src="dist/js/custom.js"></script>
+    <!--  <script src="https://d3js.org/d3.v7.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+
+
+</body>
+
+</html>

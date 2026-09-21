@@ -1,0 +1,312 @@
+.with-title {
+  .profile-subtext {
+    font-weight: 300 !important;
+    font-size: 2.2rem !important;
+
+    line-height: 2.8rem !important;
+
+    &:before {
+      content: unset !important;
+    }
+  }
+  .sub-title {
+    font-weight: 400;
+    font-size: 2.6rem;
+
+    line-height: 3.4rem;
+    letter-spacing: 0%;
+    margin-bottom: 40px;
+  }
+}
+.alternate-sec-row {
+  display: flex;
+  row-gap: 50px;
+  flex-direction: column;
+}
+
+.new-sustain-head {
+  .new-sub-heading {
+    color: #007aff;
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    line-height: 7rem;
+    text-transform: uppercase;
+  }
+  .new-sub-maain-heading {
+    color: #fff;
+    font-weight: 300;
+    font-size: 4rem;
+    letter-spacing: 2px;
+    line-height: normal;
+    @include below(sm) {
+      font-size: 3.4rem;
+      line-height: normal;
+    }
+  }
+  .new-sub-heading-bold {
+    margin-top: 5rem;
+    color: #fff;
+    font-weight: 600;
+    font-size: 3.6rem;
+    letter-spacing: 2px;
+    line-height: normal;
+    margin-bottom: 2rem;
+    @include below(sm) {
+      margin-top: 3.5rem;
+      font-size: 2.8rem;
+      line-height: normal;
+    }
+  }
+}
+
+.threecolumnimgSec {
+  overflow: hidden;
+  position: relative;
+  .threecolumnimgSec-title {
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 100%;
+    margin-bottom: 2rem;
+  }
+  .threecolumnimgSecRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    row-gap: 5.8rem;
+
+    .singlecol {
+      position: relative;
+      flex: 0 0 calc((100% - 6rem) / 3);
+      box-sizing: border-box;
+
+      border-radius: 8px;
+      @include below(sm1) {
+        flex: 0 0 calc((100% - 6rem) / 2);
+      }
+      @include below(sm) {
+        flex: 1 1 100%;
+      }
+      .imgdiv {
+        overflow: hidden;
+        border-radius: 10px;
+      }
+      img {
+        transition: 0.5s ease;
+        width: 100%;
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+      .title {
+        font-weight: 400;
+        font-size: 2.6rem;
+        line-height: 3.4rem;
+        letter-spacing: 0px;
+        padding-top: 2.5rem;
+        text-decoration: none;
+        color: #fff;
+      }
+      a {
+        text-decoration: none;
+      }
+      .description {
+        font-weight: 300;
+        font-size: 2.2rem;
+        line-height: 2.8rem;
+        margin-top: 2rem;
+        color: $whitecolor;
+      }
+    }
+  }
+}
+
+.achievement-sec.sustain-imgtext-wrap {
+  .achievement-wrapper {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    .heading-sec {
+      @include below(sm1) {
+        text-align: center;
+      }
+      .heading-top {
+        font-size: 5rem;
+        font-weight: 600;
+        color: #fff !important;
+        margin-bottom: 1rem;
+        @include below(sm1) {
+          padding-bottom: 2rem;
+        }
+        @include below(sm) {
+          font-size: 3.8rem;
+          line-height: normal;
+        }
+      }
+      p {
+        color: #fff !important;
+        font-size: 3.6rem;
+        font-weight: 400;
+        @include below(sm) {
+          font-size: 3rem;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+.sustain-starts {
+  .statsbox {
+    text-align: center;
+  }
+}
+.box-center-text {
+  margin-top: 25px;
+
+  p {
+    font-size: 3.6rem;
+    font-weight: 400;
+    text-align: center;
+    @include below(sm) {
+      font-size: 3rem;
+      line-height: normal;
+    }
+  }
+}
+.stats-sub-heading {
+  font-size: 3.6rem;
+  margin-top: 10px;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+.font36 {
+  font-size: 3.6rem;
+}
+.box-description-ul {
+  margin-left: 30px;
+  margin-top: 20px;
+
+  li {
+    font-size: 2.2rem;
+    font-weight: 300;
+    line-height: 100%;
+    margin-bottom: 5px;
+    position: relative;
+    color: #fff;
+    &:before {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: 8px;
+      width: 6px; /* bullet size */
+      height: 6px; /* bullet size */
+      background-color: #fff; /* color */
+      border-radius: 50%; /* circle */
+    }
+  }
+}
+.sustain-features-sec {
+  @include below(tb2) {
+    padding: 4rem 0px !important;
+  }
+  .achievement-head {
+    padding-bottom: 8rem;
+    .heading-top {
+      margin-bottom: 1rem;
+    }
+    .normal-p {
+      color: $primary;
+    }
+  }
+  .sustain-features-counter {
+    .number-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      row-gap: 10rem;
+      justify-content: space-around;
+      @include below(sm) {
+        row-gap: 6rem !important;
+      }
+      .number-col {
+        flex: 0 0 calc((100% - 3rem) / 3);
+        box-sizing: border-box;
+        overflow: hidden;
+        @include below(tb2) {
+          flex: 0 0 calc((100% - 3rem) / 2);
+        }
+        @include below(sm) {
+          flex: 0 0 100%; // 1 column
+        }
+        .number-icon {
+          margin-bottom: 2rem;
+          height: 75px;
+          display: flex;
+          img {
+            margin: 0 auto;
+          }
+        }
+        .heading-sec {
+          .main-heading {
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: $primary;
+          }
+          p {
+            color: #000;
+            text-align: center;
+
+            font-size: 2rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 3.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+.KeyFinancialHighlights.bg-light-blue {
+  .financialDatacolInner {
+    gap: 4rem;
+  }
+  .financialDataName {
+    font-size: 2.6rem !important;
+  }
+  h5 {
+    text-align: center;
+    font-size: 2.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 3.4rem; /* 130.769% */
+    color: #fff;
+  }
+}
+
+.light-mode {
+  .threecolumnimgSec .threecolumnimgSecRow .singlecol {
+    .title {
+      color: $primary;
+    }
+    .description {
+      color: $primary;
+    }
+  }
+  .new-sustain-head {
+    .new-sub-maain-heading {
+      color: $primary;
+    }
+    .new-sub-heading-bold {
+      color: $primary;
+    }
+  }
+  .box-description-ul li:before {
+    background-color: $primary;
+  }
+}
+
+.light-mode {
+  .new-sustain-head .new-sub-heading {
+    color: #6493b1;
+  }
+}

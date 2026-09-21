@@ -1,0 +1,217 @@
+.disclosure-wrapper {
+  .heading-sec {
+    text-align: left;
+    padding-bottom: 8rem;
+    @include below(sm1) {
+      padding-bottom: 5rem;
+    }
+  }
+
+  .disclosure-listWrap {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        position: relative;
+
+        margin-bottom: 3rem;
+
+        &::after {
+          content: "";
+          display: block;
+          height: 1px;
+          background-color: rgba(255, 255, 255, 0.5);
+          margin-top: 3rem;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+
+          &::after {
+            display: none;
+          }
+        }
+
+        .list-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 2rem;
+          @include below(sm2) {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .left-text {
+            width: 100%;
+            @include below(sm2) {
+              width: 100%;
+            }
+            p {
+              font-size: 2.2rem;
+              letter-spacing: -0.22px;
+            }
+          }
+
+          .right-link {
+            a {
+              font-size: 2rem;
+              font-weight: 500;
+              color: #007aff;
+              display: inline-flex;
+              align-items: center;
+              text-decoration: none;
+              letter-spacing: -0.22px;
+            }
+
+            .divider {
+              font-size: 2rem;
+              font-weight: 500;
+              color: #007aff;
+              letter-spacing: -0.22px;
+              display: inline-flex;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.announcement-page {
+    a {
+      cursor: pointer;
+      .list-item {
+        display: block;
+        width: 100%;
+        .announcement-date {
+          color: #616161;
+          font-size: 1.8rem !important;
+          font-weight: 500;
+          line-height: 100%;
+          letter-spacing: 2px;
+
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.light-mode {
+  .disclosure-wrapper {
+    .disclosure-listWrap {
+      ul {
+        li {
+          color: #10233b !important;
+
+          &::after {
+            background-color: #10233b;
+          }
+        }
+      }
+    }
+  }
+}
+
+.custom-catagory-filter-sec {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 60px;
+  p {
+    font-size: 2rem;
+    color: #616161;
+  }
+}
+
+.custom-catagory-filter-dropdown {
+  position: relative;
+  width: auto;
+}
+
+.custom-catagory-filter-dropdown-header {
+  cursor: pointer;
+  padding: 10px 14px;
+
+  position: relative;
+  color: #007aff;
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 0;
+  text-align: left;
+}
+
+.custom-catagory-filter-dropdown-header span {
+  display: block;
+}
+
+/* Arrow */
+.custom-catagory-filter-dropdown-header::after {
+  content: "";
+  position: absolute;
+  right: -22px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid #007aff;
+  border-bottom: 2px solid #007aff;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow */
+.custom-catagory-filter-dropdown.open
+  .custom-catagory-filter-dropdown-header::after {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+.custom-catagory-filter-options {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+  display: none;
+  z-index: 10;
+  min-width: 200px;
+}
+
+.custom-catagory-filter-dropdown.open .custom-catagory-filter-options {
+  display: block;
+}
+
+.custom-catagory-filter-options li {
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: 1.6rem;
+  color: $primary;
+}
+
+.custom-catagory-filter-options li:hover {
+  background: #fafafa;
+}
+
+.light-mode {
+  .disclosure-wrapper .disclosure-listWrap ul li .list-item .right-link {
+    a {
+      color: #077fa8;
+    }
+    .divider {
+      color: #077fa8;
+    }
+  }
+  .custom-catagory-filter-dropdown-header {
+    color: #077fa8;
+    &::after {
+      border-right: 2px solid #077fa8;
+      border-bottom: 2px solid #077fa8;
+    }
+  }
+}

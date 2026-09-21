@@ -1,0 +1,124 @@
+.committees-wrapper {
+  /* max-width: 960px; */
+  width: 100%;
+}
+
+.committee-row {
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5.8rem;
+  margin-bottom: 5.8rem;
+  h2,
+  .main-heading {
+    font-size: 3.4rem;
+    font-weight: 300;
+  }
+  &:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .table-wrapper {
+    width: 100%;
+    @include below(sm) {
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  .heading-sec {
+    text-align: left;
+    margin-bottom: 3rem;
+    gap: 3rem;
+    @include below(sm) {
+      flex-direction: column;
+    }
+    .heading-top {
+      font-size: 3.6rem;
+      line-height: normal;
+      @include below(sm) {
+        font-size: 3.2rem;
+        width: 100%;
+      }
+    }
+    .viewall {
+      min-width: 103px;
+      margin-top: 0;
+      margin-bottom: 0;
+      @include below(sm) {
+        width: 100%;
+      }
+    }
+  }
+  .keyManagementWrap {
+    padding: 3rem 0;
+  }
+}
+
+.committee-row table {
+  width: 100%;
+  margin-bottom: 2rem;
+  table-layout: auto;
+  font-size: 2.4rem;
+  @include below(md) {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  th {
+    @include below(sm1) {
+      font-size: 1.8rem;
+    }
+  }
+  td {
+    @include below(sm1) {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.committee-row table > * {
+  border-width: 0.5px 0;
+}
+
+.committee-row table tbody tr th,
+.committee-row table tbody tr td {
+  color: #fff;
+  padding: 0.85rem 1.2rem 0.5rem 1.2rem;
+  line-height: 1.5;
+  vertical-align: top;
+  letter-spacing: 0.04em;
+  text-align: left;
+  font-size: 1.8rem;
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+
+.committee-row table tbody tr th {
+  font-weight: 600;
+  font-size: 2.2rem;
+}
+
+.committee-row table tbody tr td {
+  font-weight: 400;
+  &:first-child {
+    font-weight: 500;
+    font-size: 2.2rem;
+  }
+}
+
+.committee-row table colgroup col.name-col {
+  width: 33.72%;
+}
+
+.committee-row table colgroup col.composition-col {
+  width: 66.28%;
+}
+
+.light-mode {
+  .committee-row {
+    border-bottom: 1px solid rgba(16, 35, 59, 0.2);
+  }
+  .committee-row table tbody tr td,
+  .committee-row table tbody tr th {
+    color: #000;
+    border: 0.5px solid rgba(16, 35, 59, 0.2);
+  }
+}

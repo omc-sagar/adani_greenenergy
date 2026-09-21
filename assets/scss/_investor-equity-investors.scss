@@ -1,0 +1,187 @@
+.presentationsWrap {
+  .disclosure-wrapper {
+    padding: 50px 0 40px 0;
+    @include below(sm1) {
+      padding: 10px 0 30px 0;
+    }
+    .disclosure-listWrap {
+      .MoreFeaturesSee {
+        margin-top: 100px;
+        @include below(sm1) {
+          margin-top: 60px;
+        }
+        a {
+          text-decoration: none;
+          color: #007aff;
+        }
+      }
+
+      .right-link {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          img {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.analystCoverageWrap {
+  .simpleab-tabs-row {
+    align-items: flex-end;
+
+    .tab-heading-list {
+      .tab-heading-item {
+        font-weight: 300;
+        color: #ffffff;
+
+        &.active {
+          font-weight: 500;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.shareholdingWrap {
+  .shareholdingImgWrap {
+    padding-top: 100px;
+    @include below(sm1) {
+      padding-top: 60px;
+    }
+    .img-adani {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.investorfaqsWrap {
+  .faq-tab-wrapper {
+    position: relative;
+
+    .customAccordian {
+      overflow: unset;
+      margin-top: 0;
+
+      .accodianRow {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+
+        &.active {
+          background-color: #000;
+
+          .accordionContenInner {
+            p {
+              color: $whitecolor;
+            }
+          }
+        }
+        @include below(sm2) {
+          padding: 30px;
+        }
+
+        .accordionHead {
+          font-size: 2.4rem;
+          font-weight: 500;
+          line-height: 100%;
+          border-bottom: none;
+          padding-bottom: 0;
+          color: #10233b;
+          &.active {
+            color: $whitecolor;
+          }
+          @include below(sm1) {
+            padding-right: 20px;
+            font-size: 2.2rem;
+            line-height: 125%;
+          }
+          @include below(xs2) {
+            font-size: 2rem;
+          }
+          &::after {
+            top: 50%; // default vertical centering
+            transform: translateY(-50%) rotate(-45deg);
+            margin-right: 30px;
+
+            @include below(sm1) {
+              margin-right: 0px;
+            }
+          }
+
+          &.active::after {
+            transform: translateY(-50%) rotate(135deg);
+            top: 66%; // mimic your dropdown style
+          }
+        }
+
+        .accordionContentSec {
+          margin-bottom: 0;
+          padding-top: 40px;
+        }
+      }
+
+      .MoreFeaturesSee {
+        margin-top: 50px;
+
+        a {
+          text-decoration: none;
+          color: #007aff;
+        }
+      }
+    }
+  }
+}
+
+.light-mode {
+  .investorfaqsWrap {
+    .faq-tab-wrapper {
+      .customAccordian {
+        overflow: unset;
+        margin-top: 0;
+
+        .accodianRow {
+          &.active {
+            background-color: #fff !important ;
+
+            .accordionContenInner {
+              p {
+                color: #10233b;
+              }
+            }
+          }
+          .accordionHead {
+            &.active {
+              color: #10233b;
+            }
+          }
+        }
+      }
+    }
+  }
+  .presentationsWrap
+    .disclosure-wrapper
+    .disclosure-listWrap
+    .MoreFeaturesSee
+    a {
+    color: #077fa8;
+  }
+  .investorfaqsWrap .faq-tab-wrapper .customAccordian .MoreFeaturesSee a {
+    color: #077fa8;
+  }
+}

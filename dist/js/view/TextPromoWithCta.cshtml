@@ -1,0 +1,75 @@
+﻿@using System.IO;
+@using Sitecore.Mvc
+@using Sitecore.Data.Items;
+@using Sitecore.Data.Fields;
+@using Sitecore.Resources.Media;
+
+@{
+    var dataSourceId = RenderingContext.CurrentOrNull.Rendering.DataSource;
+    var dataSourceItem = Sitecore.Context.Database.GetItem(dataSourceId);
+    if (dataSourceItem != null)
+    {
+        var imgUrl = "";
+        var imgUrlmob = "";
+        var imgAlt = "";
+        var imgTitle = "";
+
+        Sitecore.Data.Fields.ImageField imagedeskField = dataSourceItem.Fields["ImageDesktop"];
+        Sitecore.Data.Fields.ImageField imagemobField = dataSourceItem.Fields["ImageMobile"];
+
+        if (imagedeskField != null && imagedeskField.MediaItem != null)
+        {
+            MediaItem image = new MediaItem(imagedeskField.MediaItem);
+            imgUrl = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+            imgAlt = image.Alt;
+            imgTitle = image.Title;
+        }
+        if (imagemobField != null && imagemobField.MediaItem != null)
+        {
+            MediaItem image = new MediaItem(imagemobField.MediaItem);
+            imgUrlmob = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+        }
+        //var deviceType = INACommonFunctions.GetDeviceType();
+
+
+        <section class="section investor-relation-section">
+            @*@if (deviceType.ToLower() == "mobile" && imgUrlmob != "")
+                {
+                    <img src="@imgUrlmob" class="img-fluid investor-relation-bg" alt="@imgAlt" title="@imgTitle">
+                }
+                else
+                {
+                    <img src="@imgUrl" class="img-fluid investor-relation-bg" alt="@imgAlt" title="@imgTitle">
+                }*@
+            
+            <picture>
+                <source media="(max-width:768px)" srcset="@imgUrlmob">
+                <img src="@imgUrl" class="img-fluid investor-relation-bg" alt="@imgAlt" title="@imgTitle">
+            </picture>
+
+            <div class="com_container investorRelations">
+                <div class="common-heading heading-mg-0 text-center text-uppercase  text-white">
+                    <h3 class="sub-heading">
+                        @Html.Raw(dataSourceItem.Fields["Title"])
+                    </h3>
+                    @if (dataSourceItem.Fields["Heading"].ToString() != "")
+                    {
+                        <h2 class="main-heading">@Html.Raw(dataSourceItem.Fields["Heading"])</h2>
+                    }
+
+                    <div class="btn_blocks">
+                        @foreach (Item item in dataSourceItem.Children)
+                        {
+                            Sitecore.Data.Fields.LinkField linkField = item.Fields["CTA"];
+                            var linkRL = INACommonFunctions.GetUrlFromLinkField(linkField);
+                            var title = item.Fields["Heading"] != null ? item.Fields["Heading"].ToString() : "";
+                            var URLlink = "";
+                            <a href="@linkRL" target="@linkField.Target" class="common-btn"><span>@title</span></a>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+}

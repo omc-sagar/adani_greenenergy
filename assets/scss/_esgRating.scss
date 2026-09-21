@@ -1,0 +1,336 @@
+/* =========================================
+   ESG Rating Section
+========================================= */
+
+.esgRatingSection {
+  width: 100%;
+
+  overflow: hidden;
+
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  background: #000;
+}
+
+/* =========================================
+   Slider Wrapper
+========================================= */
+
+.esgRatingSliderWrap {
+  width: calc(100% - ((100% - 79.16%) / 2));
+
+  margin-top: 5rem;
+  margin-left: calc((100% - 79.16%) / 2);
+  margin-bottom: 8rem;
+  padding-right: calc((100% - 79.16%) / 2);
+  overflow: visible;
+  @include below(md) {
+    width: calc(100% - 30px);
+    margin-left: 15px;
+    padding-right: 15px;
+  }
+  @include below(tb) {
+    margin-bottom: 0rem;
+  }
+}
+
+/* =========================================
+   Swiper
+========================================= */
+
+.esgRatingSlider {
+  width: 100%;
+
+  overflow: visible;
+}
+
+.esgRatingSlider .swiper-wrapper {
+  align-items: stretch;
+}
+
+.esgRatingSlider .swiper-slide {
+  height: auto;
+
+  display: flex;
+  align-items: stretch;
+
+  box-sizing: border-box;
+}
+
+/* =========================================
+   Card
+========================================= */
+
+.esgRatingCard {
+  width: 100%;
+  height: 100%;
+
+  min-height: 29.3rem;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 3rem;
+
+  box-sizing: border-box;
+
+  background: #10233b;
+
+  border: 1px solid rgba(0, 0, 0, 0.4);
+
+  border-radius: 10px;
+}
+
+/* =========================================
+   Rating Value
+========================================= */
+
+.esgRatingValue {
+  margin: 0 0 6rem;
+
+  color: #077fa8;
+
+  font-size: 3.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  letter-spacing: -0.4px;
+}
+
+/* =========================================
+   Description
+========================================= */
+
+.esgRatingDescription {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 2.6rem;
+  font-style: normal;
+  font-weight: 300;
+
+  line-height: normal;
+
+  letter-spacing: -0.26px;
+}
+
+/* =========================================
+   Logo
+========================================= */
+
+.esgRatingLogo {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+
+  /*
+       Important:
+       This pushes the logo to the
+       bottom of every card.
+    */
+  margin-top: auto;
+}
+
+.esgRatingLogo img {
+  display: block;
+
+  width: auto;
+  max-width: 100%;
+  max-height: 3.2rem;
+  margin-top: 6rem;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0)
+    hue-rotate(309deg) brightness(105%) contrast(102%);
+  object-position: left bottom;
+}
+
+/* =========================================
+   Tablet
+========================================= */
+
+@include below(sm1) {
+  .esgRatingSliderWrap {
+    width: calc(100% - 5%);
+    margin-left: 5%;
+  }
+
+  .esgRatingCard {
+    min-height: 26rem;
+
+    padding: 2rem;
+  }
+
+  .esgRatingValue {
+    margin-bottom: 3.5rem;
+  }
+}
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (max-width: 767px) {
+  .esgRatingSliderWrap {
+    width: calc(100% - 30px);
+    margin-top: 3rem;
+    margin-left: 15px;
+  }
+
+  .esgRatingSlider {
+    overflow: visible;
+  }
+
+  .esgRatingValue {
+    margin-bottom: 3rem;
+  }
+
+  .esgRatingLogo {
+    min-height: 3.5rem;
+  }
+}
+
+.light-mode {
+  .esgRatingSection {
+    background:
+      linear-gradient(0deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.04) 100%),
+      #fafafa;
+  }
+  .esgRatingCard {
+    background: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  .esgRatingDescription {
+    color: #10233b;
+  }
+}
+
+.light-mode {
+  .esgRatingLogo {
+    img {
+      filter: unset;
+    }
+  }
+}
+
+/* .esgRatingSliderPrev,
+.esgRatingSliderNext {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+*/
+
+.section-journery-wrap {
+  margin-bottom: 4rem;
+}
+.esgRatingSliderNavigation {
+  position: absolute;
+  right: 0;
+  bottom: -61px;
+}
+.esgRatingSliderPrev,
+.esgRatingSliderNext {
+  width: 45px;
+  height: 45px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100px;
+  position: absolute;
+  border: 1px solid $whitecolor;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  display: block;
+  @include below(tb) {
+    display: none !important;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 15px;
+    height: 2px;
+    background: $whitecolor;
+    transform: translateY(-50%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid $whitecolor;
+    border-right: 2px solid $whitecolor;
+  }
+}
+.esgRatingSliderPrev.swiper-button-disabled,
+.esgRatingSliderNext.swiper-button-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.esgRatingSliderNext {
+  right: 0;
+
+  &::before {
+    left: 14px;
+  }
+
+  &::after {
+    right: 13px;
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+/* PREV ← (Left arrow) */
+.esgRatingSliderPrev {
+  right: 55px;
+
+  &::before {
+    right: 14px;
+  }
+
+  &::after {
+    left: 13px;
+    transform: translateY(-50%) rotate(-135deg);
+  }
+}
+.esgRatingSliderPrev:hover,
+.esgRatingSliderNext:hover {
+  background: $whitecolor;
+  border-color: $whitecolor;
+
+  &::before {
+    background: $primary;
+  }
+
+  &::after {
+    border-color: $primary;
+  }
+}
+.light-mode {
+  .esgRatingSliderNext,
+  .esgRatingSliderPrev {
+    border: 1px solid #10233b;
+    &:before {
+      background: #10233b;
+    }
+    &:after {
+      border-top: 2px solid #10233b;
+      border-right: 2px solid #10233b;
+    }
+    &:hover {
+      background: #10233b;
+      border-color: #10233b;
+      &::before {
+        background: #fff;
+      }
+      &:after {
+        border-color: #fff;
+      }
+    }
+  }
+}

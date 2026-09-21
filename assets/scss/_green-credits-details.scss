@@ -1,0 +1,133 @@
+.threeColWithImg {
+  .heading {
+    color: #00b16b;
+    font-weight: 400;
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    line-height: 3.4rem;
+    letter-spacing: 0%;
+    @include below(sm1) {
+      font-size: 2.6rem;
+    }
+    @include below(xs2) {
+      font-size: 2.2rem;
+    }
+  }
+  .threeColWithImgRow {
+    display: flex;
+    gap: 30px;
+    @include below(sm1) {
+      flex-direction: column;
+      row-gap: 50px;
+    }
+    a {
+      text-decoration: none;
+      color: #10233b;
+      img {
+        width: 100%;
+        transition: 0.5s ease;
+      }
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+    .threeColWithImgColInner {
+      .imgdiv {
+        overflow: hidden;
+        border-radius: 10px;
+      }
+
+      .title {
+        font-weight: 400;
+        font-size: 2.6rem;
+        color: $primary;
+        line-height: 3.4rem;
+        letter-spacing: 0%;
+        padding-top: 37px;
+        @include below(sm1) {
+          font-size: 2.4rem;
+          padding-top: 25px;
+          line-height: 3rem;
+        }
+        @include below(xs2) {
+          font-size: 2rem;
+          line-height: 2.8rem;
+        }
+      }
+    }
+  }
+}
+
+.twocolumnimgSec {
+  .twocolumnimgSecRow {
+    &.single-row {
+      /*  flex-wrap: unset; */
+      @include below(sm) {
+        flex-direction: column;
+        row-gap: 5rem;
+      }
+    }
+  }
+  .heading {
+    color: #00b16b;
+    font-weight: 400;
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+    line-height: 3.4rem;
+    letter-spacing: 0%;
+  }
+  .twocolumnimgSecRow {
+    a {
+      text-decoration: none;
+      img {
+        transition: 0.5s ease;
+      }
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+    .imgdiv {
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .title {
+      font-weight: 400;
+      font-size: 2.6rem;
+      line-height: 3.4rem;
+      letter-spacing: 0%;
+      padding-top: 2.4rem;
+      color: $whitecolor;
+    }
+    p {
+      font-weight: 300;
+      font-size: 2.2rem;
+      line-height: 2.8rem;
+
+      color: $whitecolor;
+    }
+    .description {
+      font-weight: 300;
+      font-size: 2.2rem;
+      line-height: 2.8rem;
+      margin-top: 1.5rem;
+      color: $whitecolor;
+    }
+  }
+}
+
+.light-mode {
+  .twocolumnimgSec {
+    .twocolumnimgSecRow {
+      .title {
+        color: $primary;
+      }
+      .description {
+        color: $primary;
+      }
+    }
+  }
+}

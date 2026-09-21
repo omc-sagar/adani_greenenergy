@@ -1,0 +1,580 @@
+.Com_ourpresence {
+  width: 100%;
+  //background: $darkbg;
+  .Com_wrapper {
+    width: 100%;
+    .common-heading-wrap {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      .com-heading {
+        @include com-heading();
+      }
+    }
+    .OurPresence-Wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      //padding: 10px 0 0 0;
+      width: calc(100% + 41px);
+      margin: 0 -20px;
+      .our-presence-box {
+        width: 31.24%;
+        margin-right: 3.13%;
+        position: relative;
+        margin-top: 30px;
+        padding: 20px;
+        transition: all 0.7s;
+        &:nth-child(3n + 3) {
+          margin-right: 0;
+        }
+        @include below(sm) {
+          width: 100%;
+          margin-right: 0;
+        }
+        .image-box {
+          width: 100%;
+          overflow: hidden;
+          //border-radius: 12px;
+          img {
+            width: 100%;
+            transition: 1s linear;
+            &:hover {
+              transform: scale(1.05);
+            }
+          }
+        }
+        .bottom-text-box {
+          width: 100%;
+          position: relative;
+          padding: 5px 3px;
+          // margin-bottom: 30px;
+          .text-box {
+            width: 100%;
+            padding: 5px 0;
+            p {
+              font-size: 2.2rem;
+              color: $graycolor;
+              font-family: $adanifont;
+              font-weight: 400;
+              img {
+                width: 15px;
+                vertical-align: middle;
+                padding-bottom: 3px;
+                display: inline-block;
+              }
+              @include below(sm) {
+                font-size: 1.4rem;
+              }
+            }
+            a {
+              font-size: 2.2rem;
+              color: $graycolor;
+              font-family: $adanifont;
+              font-weight: 400;
+              text-decoration: none;
+              @include below(sm) {
+                font-size: 1.4rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.Com_map {
+  width: 100%;
+  //background:$darkpinkcolor;
+  overflow: hidden;
+  .map-wrapper {
+    width: 100%;
+    .heading-wrap {
+      width: 100%;
+      position: relative;
+      display: flex;
+      @include below(sm) {
+        flex-direction: column;
+      }
+      .com-heading {
+        @include com-heading();
+        width: auto;
+      }
+      .com-map-tab {
+        display: inline-block;
+        padding: 0 0 0 80px;
+        display: none;
+        @include below(tb2) {
+          padding: 0 0 0 20px;
+        }
+        @include below(sm) {
+          padding: 20px 0 0 0px;
+          text-wrap: nowrap;
+          overflow: hidden;
+        }
+        ul {
+          list-style: none;
+          padding: 0;
+          border-bottom: 1px solid #393939;
+          li {
+            font-size: 2rem;
+            display: inline-block;
+            a {
+              color: $graycolor;
+              padding: 10px 24px;
+              border-bottom: 4px solid transparent;
+              text-decoration: none;
+              display: block;
+              font-weight: 500;
+              font-size: 2rem;
+              font-family: $adanifont;
+              @include below(sm) {
+                font-size: 1.6rem;
+              }
+              @include below(tb2) {
+                padding: 10px 7px;
+              }
+              &.active {
+                // background: linear-gradient(to right,#2e57aa,#91288d);
+                // -webkit-background-clip: text;
+                // background-clip: text;
+                // color: transparent;
+                border-width: 4px;
+                border-style: solid;
+                border-left: none;
+                border-right: none;
+                border-top: none;
+                position: relative;
+                -o-border-image: linear-gradient(
+                    to right,
+                    #3752a7,
+                    #56429e,
+                    #7d2f94
+                  )
+                  1;
+                border-image: linear-gradient(
+                    to right,
+                    #3752a7,
+                    #56429e,
+                    #7d2f94
+                  )
+                  1;
+                color: $whitecolor;
+              }
+            }
+          }
+        }
+      }
+    }
+    .map-wrap-container {
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+
+      //display: none;
+      &.active {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .left-sec {
+        width: 50%;
+        @include below(sm) {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        .map-container {
+          width: 80%;
+          .mapindia {
+            display: none;
+            &.active {
+              display: block;
+            }
+          }
+          @include below(sm) {
+            width: 100%;
+          }
+        }
+
+        .map-container {
+          width: 75%;
+          height: auto;
+          margin: 0 auto;
+          @include below(tb2) {
+            width: 80%;
+          }
+        }
+        #indiaMap {
+          path {
+            fill: transparent; /* Default fill color */
+            stroke: #2e57aa; /* Border color */
+            stroke-width: 1;
+            transition:
+              fill 0.3s,
+              stroke 0.3s; /* Smooth transition */
+          }
+          circle {
+            transition: fill 0.3s;
+            &.adainIsHere {
+              fill: #3658a4;
+              &.stateActive {
+                fill: #fff;
+              }
+              &.hover {
+                fill: #fff;
+              }
+            }
+          }
+
+          path.active {
+            fill: #3658a4;
+          }
+          path {
+            &.state {
+              cursor: auto !important;
+            }
+
+            &.StateHoverActive {
+              transition:
+                fill 0.3s,
+                stroke 0.3s; /* Smooth transition */
+              cursor: pointer !important;
+              &:hover {
+                fill: #2e57aa !important;
+              }
+              &.StateHoverActiveHover {
+                fill: #2e57aa !important;
+              }
+            }
+          }
+          circle.adainIsHere.stateActive.cityActive {
+            fill: #853389;
+            animation: zoomInOut 2s infinite;
+            transform-origin: center;
+          }
+          circle[data-colour="green"] {
+            fill: #00b16b;
+            &.stateActive {
+              fill: #00b16b;
+            }
+            &.cityActive {
+              fill: #00b16b !important;
+            }
+          }
+          circle[data-colour="orange"] {
+            fill: #f04c23;
+            &.stateActive {
+              fill: #f04c23;
+            }
+            &.cityActive {
+              fill: #f04c23 !important;
+            }
+          }
+          circle[data-colour="purple"] {
+            fill: #8e278f;
+            &.stateActive {
+              fill: #8e278f;
+            }
+            &.cityActive {
+              fill: #8e278f !important;
+            }
+          }
+          circle[data-colour="white"] {
+            fill: #f0f0f0;
+            &.stateActive {
+              fill: #f0f0f0;
+            }
+            &.cityActive {
+              fill: #f0f0f0 !important;
+            }
+          }
+          circle[data-colour="red"] {
+            fill: #ff0000;
+            &.stateActive {
+              fill: #ff0000;
+            }
+            &.cityActive {
+              fill: #ff0000 !important;
+            }
+          }
+          circle[data-colour="yellow"] {
+            fill: #ffff00;
+            &.stateActive {
+              fill: #ffff00;
+            }
+            &.cityActive {
+              fill: #ffff00 !important;
+            }
+          }
+          circle[data-colour="magenta"] {
+            fill: #ff00ff;
+            &.stateActive {
+              fill: #ff00ff;
+            }
+            &.cityActive {
+              fill: #ff00ff !important;
+            }
+          }
+          circle[data-colour="gray"] {
+            fill: #708090;
+            &.stateActive {
+              fill: #708090;
+            }
+            &.cityActive {
+              fill: #708090 !important;
+            }
+          }
+        }
+      }
+      .right-sec {
+        .map-detsils-wrap {
+          width: 100%;
+          padding: 0 0px 0 85px;
+          display: none;
+          h3 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            font-family: $adanifont;
+            @include below(sm) {
+              font-size: 1.8rem;
+            }
+          }
+          ul {
+            list-style-type: disc;
+            padding: 0;
+            li {
+              font-size: 1.6rem;
+              font-family: $adanifont;
+              font-weight: 400;
+              padding: 5px 0;
+              color: grey;
+            }
+          }
+          &.active {
+            display: block;
+          }
+          @include below(sm) {
+            padding: 0;
+          }
+          .select-box {
+            max-width: 250px;
+            position: relative;
+            &.nodisplay {
+              display: none;
+            }
+            @include below(sm) {
+              max-width: 100%;
+            }
+            .selectCountryCodeValDisplay {
+              position: absolute;
+              top: 0px;
+              height: auto;
+              width: 100%;
+              padding: 4px 0px;
+              background: transparent;
+              pointer-events: none;
+              z-index: 2;
+              font-size: 2.8rem;
+              left: 0px;
+              text-align: left;
+              // background: linear-gradient(to right,#2e57aa,#91288d);
+              // -webkit-background-clip: text;
+              // background-clip: text;
+              // color: transparent;
+              color: $graycolor;
+              font-weight: 500;
+              font-family: $adanifont;
+              text-transform: capitalize;
+              @include below(sm) {
+                font-size: 2.2rem;
+              }
+            }
+            .choosState {
+              width: 100%;
+              background: transparent;
+              font-size: 2.2rem;
+              color: $whitecolor;
+              border-width: 1px;
+              border-style: solid;
+              border-left: none;
+              border-right: none;
+              border-top: none;
+              border-color: $whitecolor;
+              font-weight: 500;
+              font-family: $adanifont;
+              appearance: none;
+              -webkit-appearance: none;
+              padding: 4px 8px;
+              @include below(sm) {
+                font-size: 2.2rem;
+              }
+            }
+
+            &::after {
+              content: "";
+              display: block;
+              border-top: 8px solid #fff;
+              border-right: 8px solid transparent;
+              border-left: 8px solid transparent;
+              position: absolute;
+              bottom: 14px;
+              right: 0px;
+              z-index: 2;
+              pointer-events: none;
+              @include below(sm) {
+                bottom: 12px;
+              }
+            }
+          }
+          .city-radiobuttton {
+            width: 100%;
+            margin-top: 20px;
+
+            ul {
+              list-style: none;
+              width: 100%;
+
+              display: flex;
+              flex-wrap: wrap;
+              gap: 5px;
+              position: relative;
+              overflow: hidden;
+              @include below(sm) {
+                display: block;
+              }
+              li {
+                flex: 0 0 calc(50% - 10px);
+                box-sizing: border-box;
+                @include below(tb4) {
+                  flex: 0 0 calc(50% - 10px);
+                }
+
+                input[type="radio"]:checked,
+                input[type="radio"]:not(:checked) {
+                  position: absolute;
+                  left: -9999px;
+                }
+                input[type="radio"]:checked + label,
+                input[type="radio"]:not(:checked) + label {
+                  position: relative;
+                  padding-left: 28px;
+                  cursor: pointer;
+                  line-height: 20px;
+                  display: inline-block;
+                  color: $whitecolor;
+                  font-size: 1.8rem;
+                  font-weight: 400;
+                  font-family: $adanifont;
+                  @include below(md3) {
+                    font-size: 1.8rem;
+                  }
+                  @include below(sm) {
+                    font-size: 1.6rem;
+                  }
+                }
+                input[type="radio"]:checked + label:before,
+                input[type="radio"]:not(:checked) + label:before {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 18px;
+                  height: 18px;
+                  border: 1px solid $whitecolor;
+                  border-radius: 100%;
+                  background: transparent;
+                }
+                input[type="radio"]:checked + label:after,
+                input[type="radio"]:not(:checked) + label:after {
+                  content: "";
+                  width: 10px;
+                  height: 10px;
+                  background: $whitecolor;
+                  position: absolute;
+                  top: 5px;
+                  left: 5px;
+                  border-radius: 100%;
+                  -webkit-transition: all 0.2s ease;
+                  transition: all 0.2s ease;
+                }
+                input[type="radio"]:not(:checked) + label:after {
+                  opacity: 0;
+                  -webkit-transform: scale(0);
+                  transform: scale(0);
+                }
+                input[type="radio"]:checked + label:after {
+                  opacity: 1;
+                  -webkit-transform: scale(1);
+                  transform: scale(1);
+                }
+              }
+            }
+          }
+          .map-data {
+            width: 100%;
+            position: relative;
+            ol,
+            ul {
+              list-style-type: disc;
+              padding: 20px 0px 0px 15px;
+              li {
+                font-size: 1.6rem;
+                font-family: $adanifont;
+                font-weight: 400;
+                padding: 10px 0;
+                color: $graycolor2;
+                @include below(sm) {
+                  font-size: 1.3rem;
+                }
+              }
+            }
+          }
+          .btns-wrap {
+            width: 100%;
+            .readmre-btn {
+              @include viewmorebtn();
+              position: relative;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.city-data-box {
+  display: none;
+  &.active {
+    display: block;
+  }
+  &.nodisplay {
+    display: none;
+  }
+}
+
+.citi-datalist {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+.Com_map #indiaMap circle.adainIsHere.stateActive.cityActive {
+  /* fill: #853389 !important; */
+  fill: #fff !important;
+  animation: zoomInOut 2s infinite ease-in-out;
+  transform-origin: center;
+  transform-box: fill-box; /* VERY IMPORTANT for SVG */
+}
+
+@keyframes zoomInOut {
+  0%,
+  100% {
+    transform: scale(2);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+}

@@ -1,0 +1,41 @@
+
+    .Com_textBox{
+        .textBox-Component{
+            .read-more{
+                font-size: 1.8rem;
+                padding-top: 30px;
+                a{
+                    color: $whitecolor;
+
+                }
+            }
+        }
+    }
+
+
+
+.infrastructure-main{
+    .newsroom-section{
+        .com-twoImageSlider{
+            width: 100%;
+            max-width: 100%;
+            padding: 30px 0 0;
+            .two-imgSlideWrapper{
+                margin-top: -4%;
+                .two-imgeSlideBox{
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-top: 4%;
+                    &:nth-child(2n){
+                        margin-right: 0;
+                    }
+                    @include below(sm){
+                        width: 100%;
+                        margin-right:0 ;
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

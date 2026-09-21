@@ -1,0 +1,275 @@
+.leadershipThreeRow {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 9.2rem;
+  row-gap: 6rem;
+  @include below(tb) {
+    row-gap: 50px;
+  }
+
+  .leadershipThreeCol {
+    box-sizing: border-box;
+    position: relative;
+    background: $primary;
+
+    /* 4 columns with gap adjustment */
+    flex: 0 0 calc((100% - (3 * 9.2rem)) / 4);
+    &:not(:nth-child(4n))::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -4.59rem;
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 1px;
+      height: 100%;
+      @include below(tb) {
+        right: -3.5rem;
+      }
+      @include below(sm1) {
+        right: -4.59rem;
+      }
+    }
+    &:last-child::after {
+      content: unset;
+    }
+    @include below(tb) {
+      flex: 0 0 calc(50% - 4.6rem);
+    }
+    @include below(sm) {
+      flex: 0 0 100%;
+    }
+
+    a {
+      text-decoration: none;
+      .leadership-profile-div-img {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s;
+        cursor: pointer;
+        background: transparent;
+        @include below(sm) {
+          clip-path: initial;
+        }
+        img {
+          width: 100%;
+          height: auto;
+          transition: 0.5s ease;
+        }
+      }
+      .leadership-profile-info {
+        padding: 3rem 1.5rem;
+        .leadership-profile-name {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 2rem;
+          h3 {
+            font-size: 2.45rem;
+            font-weight: 500;
+            line-height: 100%;
+            color: $whitecolor;
+            display: inline-block;
+            margin-left: 0;
+            top: 0;
+            @include below(sm1) {
+              font-size: 2.4rem;
+            }
+            @include below(sm) {
+              font-size: 2.4rem;
+            }
+            @include below(xs2) {
+              font-size: 2.2rem;
+            }
+          }
+          img {
+            width: 14px;
+            height: 10px;
+          }
+        }
+        .leadership-profile-designation {
+          display: block;
+          font-size: 1.6rem;
+          line-height: 100%;
+          font-weight: 400;
+          color: $whitecolor;
+        }
+      }
+    }
+
+    &:hover {
+      .leadership-profile-div-img {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+    &:hover {
+      .leadership-profile-div-img {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+.leadershipHeading {
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 3rem !important;
+  text-align: center;
+  align-items: center !important;
+  p {
+    font-weight: 300;
+    font-size: 2.2rem;
+    color: $whitecolor !important;
+    line-height: 2.8rem;
+    letter-spacing: 0%;
+    text-align: center;
+  }
+}
+
+.leadershipBanner {
+  position: relative;
+  display: block;
+  float: left;
+  width: 100%;
+  img {
+    width: 100%;
+  }
+  .overlay-content {
+    position: absolute;
+    z-index: 9;
+    top: 50%;
+    left: 280px;
+    transform: translateY(-50%);
+    @include below(md1) {
+      left: 141px;
+    }
+    @include below(sm1) {
+      left: 20px;
+      padding-right: 20px;
+    }
+    .name {
+      color: $whitecolor;
+      font-weight: 300;
+      font-size: 5rem;
+      line-height: 5.8rem;
+      letter-spacing: 0%;
+      @include below(sm1) {
+        font-size: 3rem;
+        line-height: 3.4rem;
+      }
+      @include below(xs2) {
+        font-size: 2.4rem;
+      }
+    }
+    .desigmation {
+      color: $whitecolor;
+      font-weight: 300;
+      font-size: 2.2rem;
+
+      line-height: 2.8rem;
+      letter-spacing: 0%;
+      margin-top: 20px;
+      @include below(sm1) {
+        font-size: 1.8rem;
+        margin-top: 10px;
+      }
+      @include below(xs2) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+.blueStrip {
+  background: $primary !important;
+  position: relative;
+  display: block;
+  float: left;
+  width: 100%;
+  padding: 6.15rem 0;
+  .blueStripRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    @include below(sm1) {
+      flex-direction: column;
+    }
+    .content {
+      font-weight: 400;
+      font-size: 3rem;
+      color: $whitecolor;
+      line-height: 125%;
+      letter-spacing: 0%;
+      text-align: left;
+      @include below(sm1) {
+        text-align: center;
+      }
+      @include below(sm) {
+        font-size: 2.8rem;
+        line-height: normal;
+      }
+    }
+    .link {
+      color: $whitecolor;
+      font-size: 2rem;
+      min-width: 176px;
+      opacity: 1;
+      @include below(sm1) {
+        min-width: unset;
+      }
+      a {
+        color: $whitecolor;
+
+        font-weight: 500;
+
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+        text-transform: capitalize;
+        text-decoration: none;
+        &::after {
+          border-top: 2px solid #fff;
+          border-right: 2px solid #fff;
+        }
+      }
+      &:hover {
+        a {
+          &:after {
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.light-mode {
+  .leadershipThreeRow {
+    .leadershipThreeCol {
+      background: #fff;
+      a {
+        .leadership-profile-info {
+          .leadership-profile-name {
+            h3 {
+              color: #10233b;
+            }
+          }
+          .leadership-profile-designation {
+            color: #10233b;
+          }
+        }
+      }
+      &:not(:nth-child(4n))::after {
+        background-color: rgba(16, 35, 59, 0.5);
+      }
+    }
+  }
+  .leadershipHeading {
+    p {
+      color: #10233b !important;
+    }
+  }
+}

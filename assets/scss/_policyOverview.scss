@@ -1,0 +1,173 @@
+.policyListSection {
+  width: 74.5%;
+  margin: 0 auto;
+  @include below(md) {
+    width: 100%;
+  }
+}
+
+.policyListWrapper {
+  max-width: 100%;
+}
+
+/* =========================================
+   Main Purple Box
+========================================= */
+
+.policyListBox {
+  display: flex;
+
+  width: 100%;
+
+  overflow: hidden;
+  gap: 6rem;
+  background: #86147f;
+  padding: 4rem 3rem;
+  border-radius: 20px;
+}
+
+/* =========================================
+   Columns
+========================================= */
+.policyListColumn {
+  width: 100%;
+}
+
+.policyListColumnInner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  column-gap: 6rem;
+  row-gap: 3rem;
+}
+
+.policyListItem {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  width: calc((100% - 6rem) / 2);
+  padding-right: 2.5rem;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.25;
+
+  text-decoration: none;
+
+  box-sizing: border-box;
+  @include below(sm1) {
+    width: 100%;
+  }
+  @include below(sm) {
+    text-decoration: underline;
+  }
+  &::after {
+    content: "";
+
+    position: relative;
+    top: 50%;
+    right: auto;
+    top: 7px;
+    margin-left: 13px;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: translateY(-50%) rotate(45deg);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    color: #fff;
+    text-decoration: underline;
+
+    &::after {
+      transform: translate(3px, -50%) rotate(45deg);
+    }
+  }
+}
+
+.policyListBottom {
+  display: flex;
+
+  gap: 2rem;
+
+  width: 100%;
+
+  margin-top: 2rem;
+  @include below(sm) {
+    flex-direction: column;
+  }
+}
+
+.policyListBottomCard {
+  flex: 1;
+
+  width: calc((100% - 2.4rem) / 3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, #005683 0.06%, #02134c 100%),
+    linear-gradient(180deg, #0085cc 0.06%, #02134c 100%);
+
+  color: #fff;
+
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: normal;
+
+  text-align: center;
+  text-decoration: none;
+
+  box-sizing: border-box;
+
+  transition: transform 0.3s ease;
+  &:hover {
+    text-decoration: underline;
+  }
+  @include below(sm) {
+    width: 100%;
+    text-decoration: underline;
+  }
+}
+
+.policyListBottomCard:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+.policyListWrappersection {
+  .border-bottom-none {
+    border-bottom: none !important;
+    padding-bottom: 0;
+    margin-bottom: 4rem;
+  }
+}
+.policyListWrappersection-content {
+  .cust-tab-panel {
+    &:first-child {
+      .policyListBox {
+        background: #00b464;
+      }
+    }
+
+    &:nth-child(2) {
+      .policyListBox {
+        background: #006fbd;
+      }
+    }
+
+    &:nth-child(3) {
+      .policyListBox {
+        background: #9b1993;
+      }
+    }
+  }
+}

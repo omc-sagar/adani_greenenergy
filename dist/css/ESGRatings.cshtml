@@ -1,0 +1,58 @@
+﻿@using System.IO;
+@using Sitecore.Mvc
+@using Sitecore.Resources.Media;
+@using Sitecore.Data.Fields;
+@using Sitecore.Data;
+@using Sitecore.Data.Items;
+
+@{
+    var dataSourceId = RenderingContext.CurrentOrNull.Rendering.DataSource;
+    var dataSourceItem = Sitecore.Context.Database.GetItem(dataSourceId);
+    if (dataSourceItem != null && dataSourceItem.Children.Count > 0)
+    {
+        <section class="esgRatingSection ">
+            <div class="container">
+                <div class="heading-sec text-left">
+                    <h2 class="heading-top headingAnimation">
+                        @Html.Raw(dataSourceItem.Fields["ContainerTitle"])
+                    </h2>
+                </div>
+            </div>
+            <div class="esgRatingSliderWrap headingAnimation">
+                <div class="esgRatingSlider swiper">
+
+                    <div class="swiper-wrapper">
+                        @foreach (Item item in dataSourceItem.Children)
+                        {
+                            var imgUrlDesk = ""; var imgAlt = ""; var imgTitle = "";
+                            Sitecore.Data.Fields.ImageField imageFieldDesk = item.Fields["Image"];
+
+                            if (imageFieldDesk != null && imageFieldDesk.MediaItem != null)
+                            {
+                                MediaItem image = new MediaItem(imageFieldDesk.MediaItem);
+                                imgUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+                                imgAlt = image.Alt;
+                                imgTitle = image.Title;
+                            }
+                            <div class="swiper-slide">
+                                <div class="esgRatingCard">
+                                    <div class="esgRatingValue">@Html.Raw(item.Fields["ListTitle"])</div>
+                                    <div class="esgRatingDescription">
+                                        @Html.Raw(item.Fields["ListDescription"])
+                                    </div>
+                                    <div class="esgRatingLogo">
+                                        <img src="@imgUrlDesk" alt="@imgAlt" title="@imgTitle" loading="lazy" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="esgRatingSliderNavigation">
+                        <div class="esgRatingSliderPrev"></div>
+                        <div class="esgRatingSliderNext"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+}

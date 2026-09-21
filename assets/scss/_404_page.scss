@@ -1,0 +1,35 @@
+
+.error-wrap{
+    width: 100%;
+    text-align: center;
+    background: url(../../dist/images/404/bg-image.svg) no-repeat center top;
+    background-size: cover;
+    padding-top: 10rem;
+    @include below(tb){
+        padding-top: 5rem 
+    }
+
+    .com-heading{
+        @include com-heading();
+        h1{
+            font-size: 20rem;
+            @include below(tb){
+                font-size: 17rem;
+            }
+            @include below(xs){
+                font-size: 14rem;
+            }
+        }
+    }
+    .copytxt{
+        font-size: 2rem;
+        color: $graycolor;
+        padding-top: 80px; 
+        @include below(tb){
+            padding-top: 40px;
+        }
+        a{
+            color: $graycolor;
+        }
+    }
+}

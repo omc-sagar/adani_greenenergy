@@ -1,0 +1,30 @@
+{
+  "name": "adani",
+  "version": "1.0.0",
+  "description": "adani.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "interactiveavenues",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "browser-sync": "^3.0.2",
+    "gulp": "^5.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-svg-sprite": "^2.0.3",
+    "gulp-uglify": "^3.0.2",
+    "gulp.spritesmith": "^6.13.0",
+    "merge-stream": "^2.0.0",
+    "sass": "^1.75.0"
+  },
+  "dependencies": {
+    "global-cli": "^1.0.0",
+    "gulp-cli": "^3.0.0"
+  }
+}

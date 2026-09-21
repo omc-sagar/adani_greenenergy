@@ -1,0 +1,185 @@
+﻿@using System.IO;
+@using Sitecore.Mvc
+@using Sitecore.Resources.Media;
+@using Sitecore.Data.Fields;
+@using Sitecore.Data;
+@using Sitecore.Data.Items;
+
+@{
+    var dataSourceId = RenderingContext.CurrentOrNull.Rendering.DataSource;
+    var dataSourceItem = Sitecore.Context.Database.GetItem(dataSourceId);
+    if (dataSourceItem != null)
+    {
+        var rc = Sitecore.Mvc.Presentation.RenderingContext.CurrentOrNull;
+        var colourTheme = ""; var contentStyle = "";
+        if (rc != null)
+        {
+            var parms = rc.Rendering.Parameters;
+            colourTheme = parms["styleType"];
+            contentStyle = parms["content-style"];
+        }
+        var imgUrlDesk = ""; var blurImgUrlDesk = ""; var imgAlt = ""; var imgTitle = "";
+        var imgUrlMobile = "";
+
+        Sitecore.Data.Fields.ImageField imageFieldDeskbg = dataSourceItem.Fields["ImageDesktop"];
+        Sitecore.Data.Fields.ImageField imageFieldMobile = dataSourceItem.Fields["ImageMobile"];
+
+        if (imageFieldDeskbg != null && imageFieldDeskbg.MediaItem != null)
+        {
+            MediaItem image = new MediaItem(imageFieldDeskbg.MediaItem);
+            if (image != null)
+            {
+                imgUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+                blurImgUrlDesk = HashingUtils.ProtectAssetUrl(MediaManager.GetMediaUrl(image, new MediaUrlOptions { Width = 5 }));
+                imgAlt = image.Alt;
+                imgTitle = image.Title;
+            }
+        }
+        if (imageFieldMobile != null && imageFieldMobile.MediaItem != null)
+        {
+            MediaItem image = new MediaItem(imageFieldMobile.MediaItem);
+            if (image != null)
+            {
+                imgUrlMobile = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+            }
+        }
+
+        if (contentStyle == "no-carousel")
+        {
+            <section class="achievement-sec sec-padding columnAnimation @colourTheme">
+                <div class=" container-fluid">
+                    <div class="achievement-bg-main">
+                        <div class="achievement-wrapper sustain-features-sec">
+                            <div class="heading-sec achievement-head">
+                                <h2 class="heading-top headingAnimation">@Html.Raw(dataSourceItem.Fields["Title"])</h2>
+                            </div>
+                            <div class="achievment-inner-wrapper">
+                                <div class="sustain-features-counter">
+                                    <div class="number-wrapper ">
+                                        @foreach (Item item in dataSourceItem.Children)
+                                        {
+                                            var iconUrlDesk = ""; var iconAlt = ""; var iconTitle = "";
+                                            Sitecore.Data.Fields.ImageField imageFieldDesk = item.Fields["ImageDesktopSmall"];
+
+                                            if (imageFieldDesk != null && imageFieldDesk.MediaItem != null)
+                                            {
+                                                MediaItem image = new MediaItem(imageFieldDesk.MediaItem);
+                                                iconUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+                                                iconAlt = image.Alt;
+                                                iconTitle = image.Title;
+                                            }
+                                            <div class="number-col columnAnimation-single">
+                                                @if (iconUrlDesk != "")
+                                                {
+                                                    <div class="number-icon">
+                                                        <img src="@iconUrlDesk" alt="@iconAlt" title="@iconTitle" loading="lazy"
+                                                             width="100">
+                                                    </div>
+                                                }
+
+                                                <div class="heading-sec">
+                                                    @if (item.Fields["Title"].ToString() != "")
+                                                    {
+                                                        <h2 class="main-heading">@Html.Raw(item.Fields["Title"])</h2>
+                                                    }
+                                                    @if (item.Fields["SubTitle"].ToString() != "")
+                                                    {
+                                                        <p> @Html.Raw(item.Fields["SubTitle"]) </p>
+                                                    }
+                                                </div>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="achievement-bg">
+                            <picture>
+
+                                <img src="@imgUrlDesk" alt="@imgAlt" title="@imgTitle" loading="lazy" width="1668" height="513">
+                            </picture>
+                        </div>
+                    </div>
+                    <source media="(max-width:768px)" srcset="@imgUrlMobile">
+                </div>
+            </section>
+        }
+        else
+        {
+            <section class="achievement-sec sec-padding  parallax-section columnAnimation @colourTheme">
+                <div class="container-fluid">
+                    <div class="achievement-bg-main">
+                        <div class="achievement-wrapper">
+                            <div class="heading-sec achievement-head">
+                                <h2 class="heading-top headingAnimation"> @Html.Raw(dataSourceItem.Fields["Title"]) </h2>
+                            </div>
+                            <div class="achievment-inner-wrapper">
+                                <div class="achievment-slider">
+                                    <div class="number-wrapper swiper-wrapper">
+
+                                        @{
+                                            foreach (Item item in dataSourceItem.Children)
+                                            {
+                                                var iconUrlDesk = ""; var iconAlt = ""; var iconTitle = "";
+                                                Sitecore.Data.Fields.ImageField imageFieldDesk = item.Fields["ImageDesktopSmall"];
+
+                                                if (imageFieldDesk != null && imageFieldDesk.MediaItem != null)
+                                                {
+                                                    MediaItem image = new MediaItem(imageFieldDesk.MediaItem);
+                                                    iconUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+                                                    iconAlt = image.Alt;
+                                                    iconTitle = image.Title;
+                                                }
+                                                <div class="swiper-slide">
+                                                    <div class="number-col columnAnimation-single">
+                                                        @if (iconUrlDesk != "")
+                                                        {
+                                                            <div class="number-icon">
+                                                                <img src="@iconUrlDesk" alt="@iconAlt" title="@iconTitle" loading="lazy"
+                                                                     width="100" height="60">
+
+                                                            </div>
+                                                        }
+
+                                                        <div class="heading-sec">
+                                                            @if (item.Fields["Title"].ToString() != "")
+                                                            {
+                                                                <h2 class="main-heading"> @Html.Raw(item.Fields["Title"]) </h2>
+                                                            }
+                                                            @if (item.Fields["SubTitle"].ToString() != "")
+                                                            {
+                                                                <p> @Html.Raw(item.Fields["SubTitle"]) </p>
+                                                            }
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        }
+
+
+                                    </div>
+                                </div>
+                                <div class="achieve-prev"></div>
+                                <div class="achieve-next"></div>
+                            </div>
+
+                        </div>
+                        <div class="achievement-bg">
+                            <picture>
+                                <source media="(max-width:768px)" srcset="@imgUrlMobile">
+                                <img src="@imgUrlDesk" alt="@imgAlt" title="@imgTitle" loading="lazy" width="1668" height="513">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    }
+
+}

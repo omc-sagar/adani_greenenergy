@@ -1,0 +1,169 @@
+﻿@using Sitecore.Resources.Media;
+@using Sitecore.Data.Items;
+@using Sitecore.Data.Fields;
+@using Sitecore.Data;
+@{
+
+    var dataSourceId = RenderingContext.CurrentOrNull.Rendering.DataSource;
+    var dataSourceItem = Sitecore.Context.Database.GetItem(dataSourceId);
+    var TakeItems = 5;
+    Item pressReleaseItem = null;
+    Item[] PRItems = null;
+
+    Sitecore.Data.Fields.ReferenceField referenceField = dataSourceItem.Fields["CardDataSourceLink"];
+
+    if (dataSourceItem.Fields["TakeItems"] != null && Convert.ToString(dataSourceItem.Fields["TakeItems"]) != "")
+    {
+        TakeItems = Convert.ToInt32(dataSourceItem.Fields["TakeItems"].ToString());
+    }
+    Item prItem = (Sitecore.Data.Items.Item)dataSourceItem;
+    Sitecore.Data.Fields.MultilistField referenceFieldSelected = prItem.Fields["CardItems"];
+    Item[] checkItems = referenceFieldSelected.GetItems();
+
+
+
+    if (dataSourceItem != null)
+    {
+
+        <section class="media-sec">
+            <div class="media-inner-gap">
+                 <div class="heading-sec d-flex justify-content-space-between align-item-center pd-l-r-70">
+
+                    <h2 class="main-heading headingAnimation">@dataSourceItem.Fields["CardTitle"]</h2>
+                    <div class="viewall headingAnimation">
+                        @{
+                            Sitecore.Data.Fields.LinkField linkField = dataSourceItem.Fields["CardCTA"];
+                            if (linkField != null && !string.IsNullOrWhiteSpace(linkField.GetFriendlyUrl()))
+                            { <a class="blue-color" href="@INACommonFunctions.GetUrlFromLinkField(linkField)" target="@linkField.Target">@linkField.Text</a>
+                        }
+                        }
+
+                    </div>
+                </div>
+                <div class="mediaWrapper columnAnimation">
+                    <div class="mediaWrapperInner MediaSlider">
+                        <div class="swiper-wrapper">
+
+                            @{
+
+                                Item droplinkItem = null;
+
+                                if (dataSourceItem != null)
+                                {
+
+                                    Field field = dataSourceItem.Fields["CardDataSourceLink"];
+                                    if (field != null && field.Type == "Droplink")
+                                    {
+                                        ReferenceField cardDataSourceLink = (ReferenceField)field;
+
+                                        if (cardDataSourceLink.TargetItem != null)
+                                        {
+                                            droplinkItem = cardDataSourceLink.TargetItem;
+                                        }
+                                    }
+                                }
+                            }
+
+                            @if (droplinkItem != null)
+                            {
+
+
+                                var children = droplinkItem.Children.Cast<Item>()
+.Where(child => child.TemplateID.ToString() != "{A06074BC-DF13-443B-8B44-EA64BF74E3E8}")
+.OrderByDescending(child =>
+{
+DateField dateField = child.Fields["PressReleaseDate"];
+if (dateField != null && dateField.DateTime != DateTime.MinValue)
+{
+return dateField.DateTime;
+}
+return DateTime.MinValue;
+})
+.Take(TakeItems);
+
+                                Item lastItem = children.Last();
+
+
+                                foreach (var child in children)
+                                {
+                                    Field categoryField = child.Fields["PressReleaseCategory"];
+                                    string categoryName = "";
+
+                                    if (categoryField != null && !string.IsNullOrEmpty(categoryField.Value))
+                                    {
+                                        Item categoryItem = Sitecore.Context.Database.GetItem(categoryField.Value);
+                                        if (categoryItem != null)
+                                        {
+                                            categoryName = categoryItem.Name; // get the item name
+                                        }
+                                    }
+
+                                    var imgUrlDesk = ""; var imgMobUrlDesk = ""; var imgAlt = ""; var imgTitle = "";
+                                    Sitecore.Data.Fields.ImageField imageFieldDesk = child.Fields["PressReleaseImage"];
+                                    Sitecore.Data.Fields.ImageField imageFieldMob = child.Fields["PressReleaseMobileImage"];
+
+                                    if (imageFieldDesk != null && imageFieldDesk.MediaItem != null)
+                                    {
+                                        MediaItem image = new MediaItem(imageFieldDesk.MediaItem);
+                                        imgUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+                                        imgAlt = image.Alt;
+                                        imgTitle = image.Title;
+                                    }
+                                    if (imageFieldMob != null && imageFieldMob.MediaItem != null)
+                                    {
+                                        MediaItem image = new MediaItem(imageFieldMob.MediaItem);
+                                        imgMobUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+                                    }
+                                    var options = new Sitecore.Links.UrlOptions
+                                    {
+                                        LanguageEmbedding = Sitecore.Links.LanguageEmbedding.Never,
+                                        AlwaysIncludeServerUrl = false
+                                    };
+                                    var itmUrl = Sitecore.Links.LinkManager.GetItemUrl(child, options);
+
+                                    <div class="mediaCol swiper-slide">
+                                        <div class="mediaColInner columnAnimation-single">
+                                            <a href="@itmUrl">
+                                                <div class="mediaDate">
+                                                    <p>
+                                                        @{
+                                                            @Html.Sitecore().Field("PressReleaseDate", child, new { format = "MMM dd, yyyy" })
+                                                            if (@categoryName != "" )
+                                                            {
+                                                                <span>| @categoryName</span>
+                                                            }
+                                                           
+                                                        }
+
+
+                                                    </p>
+                                                </div>
+                                                <div class="mediaImg">
+                                                    <picture>
+                                                        <source media="(max-width:766px)" srcset="@imgMobUrlDesk">
+                                                        <img src="@imgUrlDesk" alt="@imgAlt" title="@imgTitle" loading="lazy" width="482" height="289">
+                                                    </picture>
+                                                </div>
+                                                <div class="mediaTitle">
+                                                    <h3>@child["PressReleaseTitle"]</h3>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+
+                            }
+
+                        </div>
+                    </div>
+                    <div class="custom-prev"></div>
+                    <div class="custom-next"></div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+    }
+}

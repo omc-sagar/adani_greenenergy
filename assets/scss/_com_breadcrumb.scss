@@ -1,0 +1,110 @@
+.breadcrumb-wrapper {
+  position: absolute;
+  z-index: 2;
+  bottom: 8rem;
+  left: 141px;
+  text-align: left;
+  @include below(md1) {
+    left: 2.8%;
+  }
+  &.short-banner-spotlight-breadcrumb {
+    /*     @include below(lg2) {
+      bottom: 8rem;
+    }
+    @include below(md1) {
+      bottom: 6rem;
+    }
+    @include below(md) {
+      bottom: 4rem;
+    } */
+    .breadcrumb {
+      ul {
+        li {
+          a {
+            color: $primary !important;
+            img {
+              filter: unset;
+            }
+          }
+          span {
+            color: rgba(16, 35, 59, 0.6) !important;
+          }
+          &:after {
+            background: $primary !important;
+          }
+        }
+      }
+    }
+  }
+  @include below(sm1) {
+    left: 20px;
+    bottom: 4rem;
+  }
+  .breadcrumb {
+    width: 100%;
+    display: block;
+    ul {
+      display: block;
+      list-style: none;
+      margin: 0;
+
+      li {
+        display: inline-block;
+        margin: 0;
+        padding: 0 21px 0 0;
+        position: relative;
+        vertical-align: middle;
+
+        &::after {
+          content: "";
+          position: absolute;
+          height: 1px;
+          width: 5px;
+          background: $whitecolor;
+          top: 50%;
+          right: 8px;
+        }
+
+        &:last-child {
+          padding: 0 0px 0 0;
+
+          @include below(xs) {
+            //margin-top: 10px;
+          }
+
+          &::after {
+            display: none;
+          }
+        }
+
+        a {
+          text-decoration: underline;
+          font-size: 1.2rem;
+          color: $whitecolor !important;
+          font-family: $adanifont;
+          font-weight: 400;
+
+          img {
+            width: 15px;
+            filter: brightness(0) saturate(100%) invert(100%) sepia(100%)
+              saturate(0) hue-rotate(309deg) brightness(105%) contrast(102%);
+          }
+        }
+
+        span {
+          font-size: 1.2rem;
+          color: $whitecolor !important;
+          font-family: $adanifont;
+          font-weight: 400;
+          position: relative;
+          top: 1px;
+          max-width: 150px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: block;
+        }
+      }
+    }
+  }
+}

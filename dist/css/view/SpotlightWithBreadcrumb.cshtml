@@ -1,0 +1,145 @@
+﻿
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Data.Items
+@{
+    // Retrieve the home and current items from the context
+    var homeItem = Sitecore.Context.Database.GetItem(Sitecore.Context.Site.StartPath);
+    var currentItem = Sitecore.Context.Item;
+
+    // Get all ancestor items of the current item, including the home item
+    var ancestorItems = currentItem.Axes.GetAncestors()
+        .Where(item => item.Axes.IsDescendantOf(homeItem) || item.ID == homeItem.ID)
+        .ToList();
+
+    // Add the current item to the ancestors list
+    ancestorItems.Add(currentItem);
+
+    // Filter duplicates and ensure correct order for the breadcrumb
+    var breadcrumbItems = ancestorItems
+        .GroupBy(item => item.ID)
+        .Select(group => group.First())
+        .ToList();
+
+    // Get the BreadcrumbHide field from the current item
+    Sitecore.Data.Fields.CheckboxField hideBreadcrumb = currentItem.Fields["BreadcrumbHide"];
+
+    var dataSourceId = RenderingContext.CurrentOrNull.Rendering.DataSource;
+    var dataSourceItem = Sitecore.Context.Database.GetItem(dataSourceId);
+    if (dataSourceItem != null)
+    {
+        var bredcrummcss = "";
+        var darkbgCss = "";
+        if (dataSourceItem.Fields["SectionCss"] != null && Convert.ToString(dataSourceItem.Fields["SectionCss"]) != "")
+        {
+            darkbgCss = dataSourceItem.Fields["SectionCss"].ToString();
+        }
+
+        var textColourCss = dataSourceItem.Fields["textColourCss"] != null ? dataSourceItem.Fields["textColourCss"].Value : "";
+        //  var spotlightcss = dataSourceItem.Fields["CssClass"];
+        var spotlightcss = dataSourceItem.Fields["CssClass"] != null ? dataSourceItem.Fields["CssClass"].Value : "";
+
+        if (!string.IsNullOrEmpty(spotlightcss))
+        {
+            bredcrummcss = "short-banner-spotlight-breadcrumb";
+        }
+
+        <section id="section-videos" class="@darkbgCss">
+            <div class="videos-section">
+                <div class="video-wrapper HomeVideoSlider @spotlightcss">
+                    <div class="swiper-wrapper">
+                        @{
+                            var imgUrlDesk = ""; var imgUrlMob = ""; var imgAlt = ""; var imgTitle = "";
+                            Sitecore.Data.Fields.ImageField imageFieldDesk = dataSourceItem.Fields["Image"];
+
+                            if (imageFieldDesk != null && imageFieldDesk.MediaItem != null)
+                            {
+                                MediaItem image = new MediaItem(imageFieldDesk.MediaItem);
+                                imgUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+                                imgAlt = image.Alt;
+                                imgTitle = image.Title;
+                            }
+                            var title = dataSourceItem.Fields["Title"] != null ? dataSourceItem.Fields["Title"].ToString() : "";
+                            var description = "";
+                            if (dataSourceItem.Fields["Description"] != null && Convert.ToString(dataSourceItem.Fields["Description"]) != string.Empty)
+                            {
+                                description = Convert.ToString(dataSourceItem.Fields["Description"]);
+                            }
+                            Sitecore.Data.Fields.LinkField linkField = dataSourceItem.Fields["CTA"];
+                            var linkRL = INACommonFunctions.GetUrlFromLinkField(linkField);
+
+                            <div class="swiper-slide">
+
+                                <div class="video-box image-box">
+                                    <picture>
+                                        <source media="(min-width:1600px)" srcset="@imgUrlDesk">
+                                        <source media="(min-width:1200px)" srcset="@imgUrlDesk">
+                                        <source media="(min-width:769px)" srcset="@imgUrlDesk">
+                                        <source media="(max-width:768px)" srcset="@imgUrlDesk">
+                                        <img src="@imgUrlDesk" alt="@imgAlt" title="@imgTitle" loading="lazy" width="1920" height="681">
+                                    </picture>
+                                    <div class="video-overlay-text @textColourCss">
+                                        <h1 class="video-text">  @Html.Raw(title) </h1>
+                                        <p class="p-text">@Html.Raw(description)</p>
+                                        @if (linkField != null && !string.IsNullOrWhiteSpace(linkField.GetFriendlyUrl()))
+                                        {
+                                            <a class="gradient-button video-btn btnexpand" href="@INACommonFunctions.GetUrlFromLinkField(linkField)" target="@linkField.Target">
+                                                <span>
+                                                    @linkField.Text
+                                                </span>
+                                            </a>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                <div class="breadcrumb-wrapper @bredcrummcss">
+                    <div class="breadcrumb">
+                        @if (!hideBreadcrumb.Checked)
+                        {
+                            <ul>
+                                @foreach (var item in breadcrumbItems)
+                                {
+                                    // Get the navigation title or display name for the breadcrumb
+                                    var pageDispName = item.Fields["NavigationTitle"] != null && item.Fields["NavigationTitle"].Value != "" ? item.Fields["NavigationTitle"].Value : item.DisplayName;
+
+                                    // Highlight the current item
+                                    if (item.ID == currentItem.ID)
+                                    {
+                                        <li><span>@pageDispName</span></li>
+                                    }
+                                    else
+                                    {
+                                        if (item.Name == "Home")
+                                        {
+                                            // Home item with icon
+                                            <li>
+                                                <a href="@INACommonFunctions.GetFriendlyItemUrl(item)">
+                                                    <img src="/assets/greenenergyv1/dist/images/home-black.svg" alt="home-icon" title="home-icon">
+                                                </a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            // Check if the page should be hidden in the breadcrumb
+                                            var hidePageField = (Sitecore.Data.Fields.CheckboxField)item.Fields["BreadcrumbHidePage"];
+                                            bool hiddenPage = hidePageField != null ? hidePageField.Checked : false;
+
+                                            if (!hiddenPage)
+                                            {
+                                                <li><a href="@INACommonFunctions.GetFriendlyItemUrl(item)">@pageDispName</a></li>
+                                            }
+                                        }
+                                    }
+                                }
+                            </ul>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+}

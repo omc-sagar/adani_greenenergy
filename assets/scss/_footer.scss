@@ -1,0 +1,339 @@
+footer {
+  z-index: 9999;
+  position: relative;
+
+  width: 100%;
+  display: flex;
+  //position: relative;
+  @include below(tb2) {
+    z-index: 9;
+  }
+
+  .footer-bg {
+    background:
+      linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%),
+      linear-gradient(180deg, #005683 0.06%, #02134c 100%);
+    display: flex;
+    width: 100%;
+    background-size: cover;
+    position: relative;
+  }
+
+  .footer-upper {
+    display: flex;
+    width: 100%;
+    //background: url(../../dist/images/blur.png) repeat left top;
+    margin: 8rem auto 14rem auto;
+    border-radius: 100px 0 0;
+    max-width: 1558px;
+    @include below(md3) {
+      max-width: 94.93%;
+    }
+    @include below(md) {
+      width: 100%;
+      padding: 0 2rem;
+      max-width: 100%;
+    }
+    //background: rgba(0,0,0,0.8);
+    @include above(lg3) {
+      //     margin-left: calc(50% - 960px);
+    }
+
+    @include below(tb2) {
+      background: transparent;
+      margin-top: 8rem;
+      border-radius: 0;
+      margin-bottom: 17.2rem;
+    }
+  }
+
+  .footer-wrapper {
+    display: flex;
+    width: 100%;
+
+    position: relative;
+    z-index: 2;
+    gap: 14rem;
+    @include below(md1) {
+      gap: 8rem;
+    }
+    @include below(tb2) {
+      flex-direction: column;
+      padding: 0 0px;
+      gap: 5.6rem;
+    }
+  }
+
+  .footer-left {
+    width: 39%;
+
+    @include below(tb2) {
+      width: 100%;
+    }
+
+    .footer-logo {
+      padding-bottom: 3rem;
+    }
+  }
+  .footer-content {
+    padding-bottom: 3rem;
+    p {
+      color: #fafafa;
+      text-align: justify;
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 2.4rem;
+    }
+  }
+  .footer-social-links {
+    ul {
+      border-width: 0.5px;
+
+      border-color: #dedcdc;
+      border-style: solid;
+      border-left: none;
+      border-right: none;
+      position: relative;
+      /*   border-image: linear-gradient(to right, #7d2f94, #7d2f94, #7d2f94) 1; */
+      display: inline-block;
+
+      li {
+        padding: 10px 15px 9px 5px;
+        display: inline-block;
+
+        &:last-child {
+          padding: 7px 4px 7px 12px;
+        }
+
+        a {
+          img {
+            height: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-right {
+    display: flex;
+    width: 61%;
+    gap: 2rem;
+
+    @include below(tb2) {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .footer-col-links {
+      width: 100%;
+
+      @include above(tb2) {
+        width: calc(100% / 4);
+      }
+
+      &.no-heading-links {
+        .footer-head {
+          @include below(tb2) {
+            display: block !important;
+            border-bottom: none !important;
+          }
+
+          /*           li {
+            a {
+              font-size: 1.8rem;
+              font-weight: 500;
+              color: $whitecolor;
+              padding: 0 0 15px;
+              font-family: $adanifont;
+              line-height: 89%;
+              white-space: nowrap;
+              text-decoration: none;
+              display: block;
+            }
+          } */
+        }
+      }
+
+      @include below(tb2) {
+        padding: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      .footer-sub-link {
+        @include below(tb2) {
+          display: none;
+          border-bottom: 1px solid #c1c1c1;
+          padding-top: 2rem;
+        }
+        li {
+          font-size: 1.4rem;
+          list-style: none;
+          padding-bottom: 2.4rem;
+          white-space: nowrap;
+          line-height: 100%;
+
+          font-weight: 400;
+
+          @include below(tb2) {
+            font-size: 1.6rem;
+          }
+
+          a {
+            text-decoration: none;
+            color: #fff;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-head {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 0 3rem;
+      font-family: $adanifont;
+      line-height: 100%;
+      white-space: nowrap;
+      /*   &:last-child {
+        margin-bottom: 0;
+      } */
+      a {
+        text-decoration: none;
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: #fff;
+
+        font-family: $adanifont;
+        line-height: 89%;
+        white-space: nowrap;
+      }
+
+      @include below(tb2) {
+        border-bottom: 1px solid #c1c1c1;
+        padding: 2.4rem 0;
+        display: block;
+        cursor: pointer;
+      }
+    }
+
+    .footer-head.has-child {
+      @include below(tb2) {
+        background: url(../../dist/images/footer-arrow.svg) no-repeat right
+          center;
+
+        &.active {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .footer-policy {
+    background: #000;
+    display: flex;
+    width: 100%;
+    padding: 2rem 0;
+    z-index: 9;
+    position: absolute;
+    bottom: 0;
+
+    .footer-container {
+      // max-width: 93%;
+      width: 100%;
+      max-width: 1508px;
+      margin: 0 auto;
+      @include below(md3) {
+        max-width: 94.93%;
+      }
+      @include below(md) {
+        width: 100%;
+        padding: 0 2rem;
+        max-width: 100%;
+      }
+      .footer-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+
+        @include below(tb2) {
+          flex-direction: column;
+        }
+
+        .footer-copyright {
+          // display: flex;
+          font-size: 1.4rem;
+          font-family: $adanifont;
+          font-weight: 400;
+
+          line-height: 100%;
+          // width: 20%;
+          @include below(tb2) {
+            width: 100%;
+          }
+        }
+
+        .footer-links {
+          // display: flex;
+          justify-content: right;
+          align-items: flex-end;
+
+          // width: 80%;
+          @include below(tb2) {
+            width: 100%;
+            justify-content: left;
+            padding-top: 2rem;
+          }
+
+          ul {
+            li {
+              padding: 0 1.2rem;
+              font-size: 1.4rem;
+              display: inline-block;
+              font-weight: 400;
+              line-height: 100%;
+
+              @include below(tb2) {
+                padding: 0 2.4remx 0 0;
+              }
+
+              @include below(xs) {
+                padding: 0 1rem 0 0;
+              }
+
+              &:last-child {
+                padding: 0;
+              }
+
+              a {
+                text-decoration: none;
+                color: #c1c1c1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.light-mode {
+  .footer-head {
+    color: #fafafa !important;
+  }
+  .footer-policy {
+    background: #070e17;
+  }
+}
+.weight500 {
+  font-weight: 500 !important;
+}

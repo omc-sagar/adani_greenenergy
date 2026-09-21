@@ -1,0 +1,85 @@
+.fixed-income-innerTab {
+  .tab-heading-style {
+    padding-bottom: 30px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: #10233b;
+    }
+  }
+
+  .inner-tab-group {
+    padding-top: 30px;
+
+    .inner-tab-headings {
+      display: flex;
+      gap: 50px;
+      @include below(sm) {
+        gap: 30px;
+      }
+      @include below(xs2) {
+        gap: 20px;
+      }
+      .tab-heading-item {
+        color: #fff;
+        font-weight: 500;
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: center;
+        vertical-align: middle;
+        text-transform: capitalize;
+        text-decoration-skip-ink: auto;
+        text-decoration: none;
+        @include below(xs2) {
+          font-size: 1.8rem;
+        }
+        &.active {
+          color: #007aff;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .innerTab-contentRow {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+
+      .disclosure-wrapper {
+        padding: 80px 0 0 0;
+        @include below(sm1) {
+          padding: 50px 0 0 0;
+        }
+        .disclosure-listWrap {
+          .MoreFeaturesSee {
+            margin-top: 80px;
+          }
+        }
+      }
+    }
+  }
+}
+.light-mode {
+  .fixed-income-innerTab {
+    .inner-tab-group {
+      .inner-tab-headings {
+        .tab-heading-item {
+          color: #10233b;
+          &.active {
+            color: #077fa8;
+          }
+        }
+      }
+    }
+  }
+}

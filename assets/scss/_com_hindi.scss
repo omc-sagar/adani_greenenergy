@@ -1,0 +1,157 @@
+.lang-hi-in {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        line-height: normal !important;
+    }
+
+    p {
+        line-height: normal !important;
+    }
+
+    .threecard-slider {
+        .three-imgSlideWrapper {
+            .three-imgcardBox {
+                .card-text-box {
+                    .card-sub-text {
+                        line-height: normal !important;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .card-text-box {
+        .card-sub-text {
+            line-height: normal !important;
+        }
+    }
+
+    .Com_TextWithImageSlider {
+        .TextWithImageSlider-wrapper {
+            .com-heading {
+                .heading {
+                    padding-top: 16px;
+                }
+            }
+        }
+    }
+
+    .banner {
+        .banner-slider {
+            .text-wraper {
+                .title {
+                    line-height: inherit;
+                }
+            }
+        }
+    }
+
+    .governMain {
+        .goverWrapper {
+            .governWrap {
+                .governRight {
+                    .govern-textWrapper {
+                        .com-heading {
+                            top: -8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .growth-section {
+        .growth_wrapper {
+            .growth-right-sec {
+                .textWrapper {
+                    .growth-subtext {
+                        blockquote {
+                            color: #393939;
+                            line-height: inherit;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .newsroom-section {
+        .com-twoImageSlider {
+            .two-imgSlideWrapper {
+                .two-imgeSlideBox {
+                    .slide-text-box {
+                        .slide-sub-text {
+                            line-height: normal;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .Com_map {
+        .map-wrapper {
+            .map-wrap-container {
+                .right-sec {
+                    .map-detsils-wrap {
+                        .select-box {
+                            .choosState {
+                                padding: 6px 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .press-release {
+        .press-release-wrapper {
+            .press-searchBox {
+                form {
+                    .inputbox {
+                        select {
+                            line-height: 150%;
+                        }
+
+                        input {
+                            &.search-box {
+                                line-height: 150%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ourleadershipWrapper {
+        &.common-wrap {
+            .com-heading {
+                @include below(sm) {
+                    width: 80%;
+                }
+            }
+        }
+    }
+
+    .Com_textBox {
+        .textBox-Component {
+            .morecontent {
+                p {
+
+                    //line-height: 155.76%!important;
+                    @include below(md3) {
+                        //line-height: normal!important;
+                    }
+                }
+            }
+        }
+    }
+
+}

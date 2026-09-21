@@ -1,0 +1,76 @@
+.cust-tab-sec {
+  .cust-tab-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 5rem;
+    position: relative;
+    border-bottom: 0.5px solid #fff;
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    @include below(sm) {
+      gap: 3rem;
+    }
+  }
+
+  .cust-tab-item {
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 300;
+    padding-bottom: 3px;
+    line-height: 100%;
+  }
+
+  .cust-tab-active {
+    border-bottom: 2px solid #007aff;
+    font-weight: 500;
+    color: #007aff !important;
+  }
+}
+
+.cust-tab-panel {
+  display: none;
+}
+
+.cust-tab-show {
+  display: block;
+}
+
+.investor-main-warapper {
+  .cust-tab-sec {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    @include below(sm) {
+      flex-direction: column;
+    }
+    .cust-tab-list {
+      border-bottom: none !important;
+      padding-bottom: 0 !important;
+    }
+    .cust-tab-item {
+      color: #fff !important;
+      &.cust-tab-active {
+        border-bottom: 2px solid #fff;
+        color: #fff !important;
+      }
+    }
+  }
+}
+.light-mode {
+  .cust-tab-sec {
+    .cust-tab-list {
+      border-bottom: 0.5px solid #10233b;
+    }
+  }
+}
+
+.light-mode {
+  .cust-tab-sec {
+    .cust-tab-active {
+      border-bottom: 2px solid #077fa8;
+
+      color: #077fa8 !important;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.revenue-graph-container {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  @include below(md1) {
+    height: 175px;
+  }
+}
+.revenue-chart-wrapper {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+}
+
+.revenue-label-pointers {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  height: 25px;
+  pointer-events: none;
+  display: flex;
+  z-index: 2;
+  @include below(sm) {
+    bottom: 12px;
+  }
+}
+
+.revenue-label-tick {
+  width: 1px;
+  background: #fff;
+  height: 16px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .revenue-graph-container {
+    height: 200px;
+  }
+
+  .revenue-chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .revenue-display-panel {
+    align-items: flex-start;
+  }
+}
+
+.light-mode {
+  .revenue-label-tick {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}

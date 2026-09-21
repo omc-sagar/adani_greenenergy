@@ -1,0 +1,133 @@
+.pi-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ownership-chart-wrapper {
+  position: relative;
+  width: 460px;
+  height: 460px;
+  max-width: 100%;
+}
+.ownership-canvas {
+  width: 100%;
+  height: 100%;
+}
+.ownership-doughnut-center {
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  top: 35%;
+  left: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.5s ease-out;
+}
+.ownership-doughnut-center.show {
+  opacity: 1;
+  transform: scale(1);
+}
+.ownership-logo img {
+  width: 100%;
+  object-fit: cover;
+}
+.ownership-label-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.ownership-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.5s ease-out;
+  white-space: nowrap;
+}
+.ownership-label.show {
+  opacity: 1;
+  transform: scale(1);
+}
+.ownership-label-logo img {
+  object-fit: cover;
+  max-width: 300px;
+}
+.ownership-label-text {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  display: none;
+}
+.ownership-connection-line {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 1px;
+  transform-origin: 0 0;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+.ownership-connection-line.show {
+  opacity: 1;
+}
+
+.mobile-legend {
+  display: none;
+  margin-top: 15px;
+  width: 100%;
+  max-width: 460px;
+}
+.mobile-legend .legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-legend .legend-item img {
+  width: 250px;
+  margin-right: 10px;
+}
+.mobile-legend .legend-item span {
+  font-weight: bold;
+  font-size: 14px;
+  display: none;
+}
+
+@media (max-width: 1400px) {
+  .ownership-chart-wrapper {
+    width: 350px;
+    height: 350px;
+  }
+  .ownership-label {
+    width: 250px;
+  }
+  .ownership-label-logo img {
+    width: 100%;
+  }
+  .ownership-label-text {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1100px) {
+  .ownership-label-logo img {
+    width: 100%;
+  }
+}
+@media (max-width: 991px) {
+  .ownership-label,
+  .ownership-connection-line {
+    display: none !important;
+  }
+  .mobile-legend {
+    display: block;
+  }
+}

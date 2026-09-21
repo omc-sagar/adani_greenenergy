@@ -1,0 +1,78 @@
+.foundationOperationContainer {
+  width: 100%;
+  margin: 0 auto;
+
+  .foundationOperationRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    @include below(sm1) {
+      gap: 5rem;
+    }
+    .foundationOperationCard {
+      width: calc((100% - 60px) / 3);
+      @include below(sm1) {
+        width: 100%;
+      }
+      &:hover {
+        .foundationOperationImage {
+          img {
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .foundationOperationImage {
+        overflow: hidden;
+        border-radius: 10px;
+
+        picture {
+          display: block;
+        }
+
+        img {
+          width: 100%;
+          display: block;
+          aspect-ratio: 1.58;
+          object-fit: cover;
+          transition: transform 0.4s ease;
+        }
+      }
+
+      .foundationOperationContent {
+        padding: 2.5rem 2rem 0;
+
+        h3 {
+          font-size: 2.6rem;
+          font-weight: 400;
+          line-height: normal;
+        }
+
+        p {
+          margin: 0;
+          padding-top: 1.5rem;
+          font-size: 2.2rem;
+          font-weight: 300;
+          line-height: normal;
+        }
+
+        .foundationOperationList {
+          margin: 0;
+          padding-left: 24px;
+          list-style-type: disc;
+          padding-top: 1.5rem;
+
+          li {
+            margin-bottom: 12px;
+            font-size: 2.2rem;
+            font-weight: 300;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

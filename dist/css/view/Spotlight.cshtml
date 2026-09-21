@@ -1,0 +1,247 @@
+﻿@using Sitecore.Mvc
+@using System.IO;
+@using Sitecore.Mvc
+@using Sitecore.Data.Items;
+@using Sitecore.Data.Fields;
+@using Sitecore.Resources.Media;
+
+
+@helper RenderYoutubeSliderHtml(Item item)
+{
+var imgUrlDesk = ""; var imgUrlMob = ""; var imgAlt = ""; var imgTitle = "";
+Sitecore.Data.Fields.ImageField imageFieldDesk = item.Fields["ImageDesktop"];
+Sitecore.Data.Fields.ImageField imageFieldMob = item.Fields["ImageMobile"];
+
+if (imageFieldDesk != null && imageFieldDesk.MediaItem != null)
+{
+MediaItem image = new MediaItem(imageFieldDesk.MediaItem);
+imgUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+imgAlt = image.Alt;
+imgTitle = image.Title;
+}
+if (imageFieldMob != null && imageFieldMob.MediaItem != null)
+{
+MediaItem image = new MediaItem(imageFieldMob.MediaItem);
+imgUrlMob = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+
+}
+var longVideoCode = item.Fields["LongVideoCode"] != null ? Convert.ToString(item.Fields["LongVideoCode"]) : "";
+var shortVideoCode = item.Fields["ShortVideoCode"] != null ? Convert.ToString(item.Fields["ShortVideoCode"]) : "";
+var videoCode = INACommonFunctions.GetDeviceType() == "mobile" && !string.IsNullOrEmpty(shortVideoCode) ? shortVideoCode
+: longVideoCode;
+
+<div class="img-box desk-hide">
+    <div class="yt-player" data-id="m45a9iOj4II"></div>
+    <a class="" href="https://www.youtube.com/embed/@videoCode?autoplay=1" data-fancybox="images">
+        <picture>
+            <source media="(min-width:1600px)" srcset="@imgUrlDesk">
+            <source media="(min-width:1200px)" srcset="@imgUrlDesk">
+            <source media="(min-width:768px)" srcset="@imgUrlMob">
+            <source media="(max-width:720px)" srcset="@imgUrlMob">
+            <img src="@imgUrlDesk" height="1080" width="1920" alt="@imgAlt">
+        </picture>
+        <div class="yt-player-icon">
+            <img src="/assets/adaniv1/dist/images/play_circle.svg" />
+        </div>
+    </a>
+</div>
+
+}
+
+
+@helper RenderVideoFileSliderHtml(Item item)
+{
+var imgUrlDesk = ""; var imgUrlMob = ""; var imgAlt = ""; var imgTitle = "";
+Sitecore.Data.Fields.ImageField imageFieldDesk = item.Fields["PosterImageDesktop"];
+Sitecore.Data.Fields.ImageField imageFieldMob = item.Fields["PosterImageMobile"];
+
+if (imageFieldDesk != null && imageFieldDesk.MediaItem != null)
+{
+MediaItem image = new MediaItem(imageFieldDesk.MediaItem);
+imgUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+imgAlt = image.Alt;
+imgTitle = image.Title;
+}
+if (imageFieldMob != null && imageFieldMob.MediaItem != null)
+{
+MediaItem image = new MediaItem(imageFieldMob.MediaItem);
+imgUrlMob = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+
+}
+var fileUrlDesktop = INACommonFunctions.GetFileLinkFromFileField(item, "VideoDesktop");
+var fileUrlMobile = INACommonFunctions.GetFileLinkFromFileField(item, "VideoMobile");
+
+<video data-video-desktop="@fileUrlDesktop" data-video-mobile="@fileUrlMobile" class="T-video mob-hide vlazy" poster=""
+       data-speed="0.8" data-poster-desktop="@imgUrlDesk" data-poster-mobile="@imgUrlMob" loop preload playsinline
+       webkit-playsinline muted autoplay></video>
+}
+
+
+
+@helper RenderImageSliderHtml(Item item)
+{
+var imgUrlDesk = ""; var imgUrlMob = ""; var imgAlt = ""; var imgTitle = "";
+Sitecore.Data.Fields.ImageField imageFieldDesk = item.Fields["ImageDesktop"];
+Sitecore.Data.Fields.ImageField imageFieldMob = item.Fields["ImageMobile"];
+
+if (imageFieldDesk != null && imageFieldDesk.MediaItem != null)
+{
+MediaItem image = new MediaItem(imageFieldDesk.MediaItem);
+imgUrlDesk = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+imgAlt = image.Alt;
+imgTitle = image.Title;
+}
+if (imageFieldMob != null && imageFieldMob.MediaItem != null)
+{
+MediaItem image = new MediaItem(imageFieldMob.MediaItem);
+imgUrlMob = Sitecore.Resources.Media.MediaManager.GetMediaUrl(image);
+
+}
+if (imgUrlMob == "")
+{
+imgUrlMob = imgUrlDesk;
+}
+<picture>
+    <source media="(max-width:720px)" srcset="@imgUrlMob">
+    <img src="@imgUrlDesk" alt="@imgAlt" title="@imgTitle">
+</picture>
+}
+
+@{
+    var dataSourceId = RenderingContext.CurrentOrNull.Rendering.DataSource;
+    var dataSourceItem = Sitecore.Context.Database.GetItem(dataSourceId);
+    if (dataSourceItem != null)
+    {
+        var rc = Sitecore.Mvc.Presentation.RenderingContext.CurrentOrNull;
+        var colourTheme = "";
+        var showBreadcrumb = "";
+        var showInnerCss = "inner-page-banner";
+        if (rc != null)
+        {
+            var parms = rc.Rendering.Parameters;
+            colourTheme = parms["innerBannerCss"];
+            if (colourTheme == "no")
+            {
+                showInnerCss = ""; //No means it is home page
+                showBreadcrumb = "no";
+            }
+            else
+            {
+                showBreadcrumb = "yes";
+            }
+        }
+
+        <section class=" @showInnerCss parallax-section" id="section-videos">
+            <div class="videos-section">
+                <div class="video-wrapper HomeVideoSlider @dataSourceItem.Fields["SpotlightCss"]">
+                    <div class="swiper-wrapper">
+                        @{
+                            foreach (Item item in dataSourceItem.Children)
+                            {
+                                var sliderType = item.TemplateName.ToString();
+
+                                <div class="swiper-slide">
+                                    <div class="video-box image-box">
+                                        @{
+                                            var title = item.Fields["Title"] != null ? item.Fields["Title"].ToString() : "";
+                                            var description = "";
+                                            Sitecore.Data.Fields.LinkField linkField = item.Fields["CTA"];
+                                            var linkRL = INACommonFunctions.GetUrlFromLinkField(linkField);
+
+                                            if (item.Fields["Description"] != null && Convert.ToString(item.Fields["Description"]) !=
+                        string.Empty)
+                                            {
+                                                description = Convert.ToString(item.Fields["Description"]);
+                                            }
+
+                                            if (sliderType == "Video Banner")
+                                            {
+                                                @RenderVideoFileSliderHtml(item)
+                                                ;
+                                            }
+                                            else if (sliderType == "Image Slide")
+                                            {
+                                                @RenderImageSliderHtml(item)
+                                                ;
+                                            }
+
+                                            <div class="video-overlay-text text-white ">
+                                                <h1 class="video-text">
+                                                    @Html.Raw(title)
+                                                </h1>
+                                                <p class="p-text">@Html.Raw(description)</p>
+                                                @if (linkRL != string.Empty)
+                                                {
+                                                    <a href="@INACommonFunctions.GetUrlFromLinkField(linkField)" title="@linkField.Title"
+                                                       target="@linkField.Target"
+                                                       class="@linkField.Class gradient-button video-btn btnexpand"><span>@linkField.Text</span></a>
+                                                }
+                                                @if (dataSourceItem.Children.Count > 1)
+                                                {
+                                                    <div class="video-pagination">
+                                                        <div class="video-prev"></div>
+                                                        <div class="video-next"></div>
+                                                    </div>
+                                                }
+
+                                            </div>
+                                            {
+                                                if (item.Children.Count > 0)
+                                                {
+                                                    <div class="banner-accordion">
+                                                        <div class="banner-accordion-inner">
+                                                            @foreach (Item ctaItem in item.Children)
+                                                            {
+                                                                Sitecore.Data.Fields.LinkField ctaLinkField = ctaItem.Fields["CTA"];
+                                                                var linkURL = INACommonFunctions.GetUrlFromLinkField(ctaLinkField);
+
+                                                                <div class="banner-accordion-row">
+                                                                    @if (linkURL != string.Empty)
+                                                                    {
+                                                                        <a href="@INACommonFunctions.GetUrlFromLinkField(ctaLinkField)"
+                                                                           title="@ctaLinkField.Title" target="@ctaLinkField.Target"
+                                                                           class="@ctaLinkField.Class">
+                                                                            <h3 class="accordianTitle">@ctaLinkField.Text</h3>
+                                                                            <div class="banner-accordion-content">
+                                                                                <div class="banner-accordion-content-inner">
+                                                                                    <p>@ctaItem.Fields["Description"]</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    }
+
+                                                                </div>
+                                                            }
+
+                                                        </div>
+
+                                                    </div>
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                </div>
+
+
+                            }
+                        }
+                    </div>
+
+
+                </div>
+                @if (showBreadcrumb == "yes")
+                {
+                    //yes means it is inner page
+                    @Html.Sitecore().Rendering("/sitecore/layout/Renderings/Project/GreenEnergyV1/Components/Global/Breadcrumb")
+                }
+            </div>
+        </section>
+
+    }
+
+
+
+
+}
+
+

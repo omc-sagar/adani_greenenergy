@@ -1,0 +1,2401 @@
+.banner-accordion {
+  position: absolute;
+  z-index: 999;
+  right: 140px;
+  bottom: 79px;
+  @include below(tb4) {
+    right: 5%;
+  }
+  @include below(sm1) {
+    right: 20px;
+  }
+  @include below(sm) {
+    left: 20px;
+    right: 20px;
+  }
+  .banner-accordion-row {
+    background: rgba(0, 0, 0, 0.5);
+
+    min-width: 440px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 2.5rem 3rem;
+    cursor: pointer;
+    a {
+      text-decoration: none;
+    }
+    @include below(lg) {
+      padding: 2.2rem;
+      width: 390px;
+      max-width: 390px;
+      min-width: unset;
+    }
+    @include below(sm) {
+      width: 100vw;
+      max-width: 100%;
+      min-width: 100%;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .banner-accordion-link {
+      text-decoration: none;
+    }
+    .accordianTitle {
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: $bggray;
+      position: relative;
+
+      text-align: left;
+      transition: color 0.3s ease;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-bottom: 2px solid #fafafa;
+        border-left: 2px solid #fafafa;
+        transform: rotate(-135deg);
+        margin-left: 16px;
+        top: 35%;
+        right: 0;
+        transition: right 0.3s ease;
+      }
+      &:hover {
+        &:after {
+          right: -8px;
+        }
+      }
+    }
+
+    &.active .accordianTitle:after {
+      transform: rotate(-45deg); // Rotate arrow when active
+    }
+  }
+
+  .banner-accordion-content {
+    display: none;
+    padding: 15px 0px;
+
+    border-radius: 0 0 8px 8px;
+    color: #fafafa;
+  }
+
+  .banner-accordion-content {
+    padding-top: 15px; /*  padding-bottom: 92px; */
+    p {
+      color: #fafafa;
+      font-weight: 300;
+      font-size: 2rem;
+      line-height: 28px;
+      @include below(sm) {
+        font-size: 1.8rem;
+        line-height: normal;
+      }
+    }
+  }
+}
+
+.KeyFinancialHighlights {
+  .viewall {
+    gap: 80px;
+    @include below(sm1) {
+      gap: 20px;
+      justify-content: space-between;
+    }
+  }
+  .heading-sec {
+    @include below(sm1) {
+      text-align: center;
+    }
+  }
+}
+
+.dropdown-styling {
+  &.custom-dropdown {
+    min-width: 150px;
+    position: relative;
+    cursor: pointer;
+
+    .dropdown-header {
+      color: #007aff;
+      font-size: 2rem;
+      font-weight: 500;
+      padding: 0;
+      text-align: left;
+    }
+
+    .dropdown-header::after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      top: 41%;
+      transform: translateY(-50%) rotate(-45deg);
+      width: 8px;
+      height: 8px;
+      border-bottom: 2px solid #007aff;
+      border-left: 2px solid #007aff;
+      background: transparent;
+      transition: transform 0.3s ease;
+    }
+
+    &.open {
+      .dropdown-header:after {
+        transform: translateY(-50%) rotate(135deg);
+        top: 66%;
+      }
+    }
+    .Keydropdown-options {
+      display: none;
+      position: absolute;
+      width: 100%;
+      text-align: left;
+      border: 1px solid #ccc;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: #077fa8;
+      background: #fafafa;
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 2.4rem;
+      z-index: 999;
+    }
+    .Keydropdown-options li {
+      padding: 10px;
+      cursor: pointer;
+    }
+    .Keydropdown-options li:hover {
+      background: #f0f0f0;
+    }
+  }
+}
+.financialDataRow {
+  display: none;
+  overflow: hidden;
+}
+.financialDataRow.active {
+  display: block;
+  position: relative;
+}
+
+.financialDataRowInner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  /*   @include below(sm1) {
+    flex: none;
+    flex-wrap: unset;
+    gap: unset;
+    justify-content: flex-start;
+  } */
+  .financialDatacol {
+    height: auto !important;
+    flex: 1 1 calc(33.33% - 13.33px);
+    max-width: 33.33%;
+    /*       border-radius: 10px;    padding: 36px;  background-blend-mode: color-dodge;
+    background: linear-gradient(
+      90deg,
+      rgba(178, 196, 200, 0.4) 0%,
+      rgba(200, 221, 216, 0.4) 100%
+    );
+    background: linear-gradient(
+      242.84deg,
+      #cf6396 1.12%,
+      #176bba 56.08%,
+      #004ca8 82.53%,
+      #0b0314 102.89%
+    ); */
+    /*     &:nth-child(-n + 3) {
+      flex: 1 1 calc(33.33% - 13.33px);
+      background-blend-mode: color-dodge;
+      background: linear-gradient(
+        90deg,
+        rgba(178, 196, 200, 0.4) 0%,
+        rgba(200, 221, 216, 0.4) 100%
+      );
+      background: linear-gradient(
+        242.84deg,
+        #cf6396 1.12%,
+        #176bba 56.08%,
+        #004ca8 82.53%,
+        #0b0314 102.89%
+      );
+    } */
+    /*     &:nth-child(n + 4) {
+      flex: 1 1 calc(25% - 15px);
+      background: #10233b;
+      background-blend-mode: color-dodge;
+      background: linear-gradient(
+        90deg,
+        rgba(178, 196, 200, 0.4) 0%,
+        rgba(200, 221, 216, 0.4) 100%
+      );
+      background: linear-gradient(
+        242.84deg,
+        #cf6396 1.12%,
+        #176bba 56.08%,
+        #004ca8 82.53%,
+        #0b0314 102.89%
+      );
+    } */
+    /*    @include below(lgMid) {
+      min-height: 378px;
+    } */
+    @include below(sm1) {
+      max-width: 50%;
+      flex: 1 1 calc(50% - 13.33px);
+    }
+    @include below(sm) {
+      max-width: 100%;
+      flex: 100%;
+    }
+
+    .financialDatacolInner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      gap: 6rem;
+      align-items: center;
+
+      padding: 3.6rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: #10233b;
+      /*    align-items: flex-start; */
+      img {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(100%)
+          saturate(0) hue-rotate(309deg) brightness(105%) contrast(102%);
+      }
+      @include below(sm1) {
+        gap: 6.8rem;
+        padding: 2.5rem;
+      }
+
+      @include below(sm) {
+        gap: 4rem;
+      }
+
+      .financialDataContent {
+        text-align: center;
+        .financialDataCount {
+          font-size: 5rem;
+          font-weight: 400;
+          line-height: 100%;
+          color: #fff;
+          margin-bottom: 2rem;
+          @include below(tb4) {
+            font-size: 4rem;
+          }
+        }
+        .financialDataName {
+          color: #fff;
+          font-size: 2rem;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+
+.financialDataWrapper {
+  position: relative;
+
+  @include below(sm1) {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .custom-prev,
+  .custom-next {
+    width: 45px;
+    height: 45px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    display: block;
+  }
+  .custom-prev {
+    background-image: url(../images/prev.svg);
+    left: -74px;
+    @include below(lgMid) {
+      left: 0px;
+    }
+    @include below(sm1) {
+      display: none;
+    }
+  }
+  .custom-next {
+    background-image: url(../images/next.svg);
+    right: -74px;
+    @include below(lgMid) {
+      right: 0px;
+    }
+    @include below(sm1) {
+      display: none;
+    }
+  }
+  .swiper-slide {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out; /* Smooth fade effect */
+  }
+}
+
+.customAccordian {
+  width: 100%;
+
+  margin-top: 4rem;
+
+  overflow: hidden;
+  @include below(sm1) {
+    margin-top: 4rem;
+  }
+  .accordionInner {
+    .accordianSingleLine {
+      font-size: 2rem;
+      line-height: 3.4rem;
+    }
+  }
+  .accodianRow {
+    margin-bottom: 4rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @include below(sm1) {
+      margin-bottom: 4rem;
+    }
+    .accordionHead {
+      color: #007aff;
+      font-size: 3.2rem;
+      font-weight: 400;
+      line-height: 3.4rem;
+      padding-bottom: 2rem;
+      cursor: pointer;
+      position: relative;
+      text-align: left;
+      border-bottom: 0.5px solid #007aff;
+      transition: background-color 0.3s ease;
+      @include below(sm) {
+        font-size: 2.6rem;
+        line-height: normal;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        transform: translateY(-50%);
+        width: 8px;
+        right: 3px;
+        height: 8px;
+        border-bottom: 2px solid #007aff;
+        border-left: 2px solid #007aff;
+        background: 0 0;
+        transform: rotate(-45deg);
+        margin-left: 12px;
+        top: 12px;
+        transition: margin-left 0.3s ease;
+      }
+      &.active {
+        &:after {
+          transform: rotate(135deg);
+        }
+      }
+
+      &.active {
+        color: #007aff;
+      }
+    }
+
+    .accordionContentSec {
+      display: none;
+      padding-top: 2rem;
+
+      @include below(sm1) {
+        margin-bottom: 4rem;
+      }
+      .accordionContenInner {
+        .accordionContenCol {
+          padding-bottom: 0px;
+          flex: 1;
+          @include below(sm1) {
+            padding-bottom: 0px;
+          }
+        }
+        .accordionContenThreeRow {
+          display: flex;
+          gap: 6rem;
+          flex-direction: row;
+          @include below(md1) {
+            gap: 4.5rem;
+          }
+          @include below(md) {
+            gap: 2rem;
+          }
+          @include below(sm1) {
+            flex-direction: column;
+            gap: 5rem;
+          }
+        }
+        h3 {
+          font-size: 2.4rem;
+          font-weight: 500;
+          line-height: 100%;
+
+          margin-bottom: 2rem;
+        }
+        p {
+          line-height: 2.8rem;
+          font-size: 2.2rem;
+          font-weight: 300;
+
+          span {
+            font-weight: 400;
+          }
+        }
+        ul {
+          margin-top: 2rem;
+          list-style: disc inside;
+          li {
+            line-height: 2.8rem;
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  }
+  &.no-accrodian {
+    .accodianRow {
+      .accordionHead {
+        pointer-events: none;
+        &::after {
+          display: none;
+        }
+      }
+      .accordionContentSec {
+        display: block !important;
+        .accordionContenInner {
+          ul {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Custom Tabs Container */
+.custom-tabs {
+  margin-top: 5rem;
+  .custom-tabs-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9;
+    position: relative;
+    .more-link {
+      color: #077fa8;
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 2.376rem;
+      text-transform: capitalize;
+      position: relative;
+      transition: color 0.3s ease;
+      padding-right: 30px;
+      text-decoration: none;
+      &:after {
+        content: "";
+        position: absolute;
+        transform: translateY(-50%);
+        width: 8px;
+        right: auto;
+        height: 8px;
+        border-bottom: 2px solid #077fa8;
+        border-left: 2px solid #077fa8;
+        background: 0 0;
+        transform: rotate(-135deg);
+        margin-left: 16px;
+        top: 8px;
+        transition: margin-left 0.3s ease;
+      }
+      &:hover::after {
+        margin-left: 20px;
+      }
+    }
+    &.tab-border {
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
+      padding-bottom: 4rem;
+      @include below(sm) {
+        padding-bottom: 1rem !important;
+      }
+    }
+  }
+  /* Tab List */
+  .customTab-list {
+    display: flex;
+    gap: 5rem; /* Individual Tabs */
+    .customTab {
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 2.4rem;
+      cursor: pointer;
+      padding-bottom: 3px;
+      transition: background-color 0.3s;
+      @include below(sm) {
+        display: none;
+      }
+      &.active {
+        color: #007aff !important;
+        font-weight: 500;
+        border-bottom: 2px solid #007aff;
+      }
+    }
+  }
+
+  /* More Dropdown */
+  .more-dropdown {
+    position: relative;
+
+    .more-customTab {
+      color: #007aff;
+      cursor: pointer;
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 2.4rem;
+      transition: background-color 0.3s;
+
+      &.active {
+        background-color: #007bff;
+        color: white;
+        border-color: #007bff;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: -20px;
+        top: 36%;
+        transform: translateY(-50%) rotate(-45deg);
+        width: 8px;
+        height: 8px;
+        border-bottom: 2px solid #077fa8;
+        border-left: 2px solid #077fa8;
+        background: transparent;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &.open {
+      .more-customTab::after {
+        transform: translateY(-50%) rotate(135deg); // Reverse the arrow when open
+      }
+
+      .dropdown-options {
+        display: block !important;
+      }
+    }
+
+    .dropdown-options {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #10233b;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 0 0 5px 5px;
+      z-index: 10;
+      width: 200px;
+
+      .customTab {
+        padding: 1rem;
+        color: #fff;
+        @include below(sm1) {
+          display: block;
+        }
+        &:hover {
+          background-color: #000;
+        }
+      }
+    }
+  }
+
+  /* Tab Content */
+  .customTab-content {
+    .content {
+      display: none;
+      &.single {
+        display: block !important;
+      }
+      &.active {
+        display: block;
+      }
+
+      .customTabRow {
+        display: flex;
+        flex-direction: row;
+        gap: 5rem;
+        margin-top: 4rem;
+        @include below(tb2) {
+          flex-wrap: wrap;
+          gap: 2rem;
+          row-gap: 4rem;
+        }
+        @include below(sm) {
+          flex-direction: column;
+        }
+        .customTabCol {
+          position: relative;
+          width: 25%;
+          @include below(tb2) {
+            flex: 0 0 calc(50% - 1rem);
+            box-sizing: border-box;
+            row-gap: 3rem;
+          }
+          @include below(sm) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+.calenderSingleLine {
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3.4rem;
+  margin-top: 5rem;
+  @include below(sm1) {
+    margin-top: 4rem;
+  }
+}
+.bg-investor-ralation {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+
+  @include below(tb4) {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 100%
+    ) !important;
+  }
+  .heading-sec {
+    z-index: 9;
+    position: relative;
+  }
+}
+
+.bg-investor-ralation .investor-ralation-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+.horizontal-accordion {
+  display: flex;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  gap: 3rem;
+  margin-top: 40px;
+  flex-direction: row;
+  z-index: 9;
+  position: relative;
+  @include below(lg) {
+    gap: 20px;
+  }
+  @include below(tb4) {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .horizontal-accordion-item {
+    flex: 1;
+    transition: flex 1s ease;
+
+    display: flex;
+    min-width: 269.33px;
+    background: #10233bcc;
+
+    border-radius: 12px;
+    text-align: left;
+    overflow: hidden;
+    padding: 40px 30px 40px 20px;
+    @include below(lg) {
+      min-width: 200px;
+    }
+    @include below(tb4) {
+      width: 100%;
+      flex: none;
+      padding: 0px;
+      border-radius: 8px;
+    }
+    &.active,
+    &:hover {
+      /* flex: 3; */
+      background-color: #077fa8;
+
+      .horizontalaccordian-content {
+        ul {
+          /*  padding-left: 20px;
+          border-left: 1px solid #ffffff; */
+          /*         &:before {
+            height: 100%;
+            transition: height 0.5s ease-in-out;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0.5px;
+            height: 0;
+            background: #ffffff;
+            animation: borderGrow 1s ease-in-out forwards;
+          } */
+        }
+      }
+      @include below(tb4) {
+        .horizontal-accordion-header {
+          min-height: auto;
+        }
+      }
+    }
+
+    .horizontal-accordion-header {
+      position: relative;
+
+      width: 100%;
+      min-height: 400px;
+      @include below(md2) {
+        min-height: 300px;
+      }
+      @include below(tb4) {
+        min-height: unset;
+        padding: 3rem;
+      }
+      .horizontal-accordian-heading {
+        margin-bottom: 3rem;
+        @include below(tb4) {
+          margin-bottom: 0px;
+        }
+        h3 {
+          font-size: 2.4rem;
+          font-weight: 600;
+          line-height: 100%;
+          color: $bggray;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .horizontalaccordian-content {
+      display: block;
+      ul {
+        position: relative;
+
+        li {
+          font-size: 2rem;
+          font-weight: 400;
+          line-height: 100%;
+          margin-bottom: 3rem;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          a {
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+            display: block;
+            transition: 0.3s;
+            color: #fafafa;
+            text-decoration: none;
+            &:after {
+              content: "";
+              position: absolute;
+              transform: translateY(-50%);
+              width: 8px;
+
+              height: 8px;
+              border-bottom: 2px solid #fff;
+              border-left: 2px solid #fff;
+              background: 0 0;
+              transform: rotate(-135deg);
+              margin-left: 16px;
+              top: 8px;
+              right: -12px;
+              transition: right 0.3s ease;
+            }
+          }
+        }
+      }
+
+      @include below(tb4) {
+        display: none;
+      }
+    }
+    .horizontal-accordion-img {
+      position: absolute;
+      bottom: 0px;
+      display: none;
+    }
+    &.active {
+      ul {
+        li {
+          a {
+            &:hover {
+              text-decoration: underline;
+              &:after {
+                right: -15px;
+              }
+            }
+          }
+        }
+      }
+      .horizontal-accordion-img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        @include below(tb4) {
+          position: relative;
+          margin-top: 40px;
+        }
+      }
+      @include below(tb4) {
+        .horizontalaccordian-content {
+          display: block;
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}
+@keyframes borderGrow {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.contact-details-sec {
+  margin-top: 40px;
+  .contact-details-row {
+    display: flex;
+    gap: 40px;
+    @include below(sm1) {
+      flex-direction: column;
+      gap: 20px;
+      &.mg-b-40 {
+        margin-bottom: 20px;
+      }
+    }
+    .contact-details-col {
+      width: 50%;
+      border: 0.3px solid #393939;
+      border-radius: 12px;
+      @include below(sm1) {
+        width: 100%;
+      }
+      .contact-details-col-inner {
+        padding: 20px;
+
+        .title {
+          font-size: 2.4rem;
+          line-height: 2.851rem;
+          font-weight: 500;
+
+          margin-bottom: 20px;
+        }
+        .contact-details-add {
+          p {
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 2.138rem;
+
+            margin-bottom: 20px;
+          }
+          &.font-diff {
+            margin-bottom: 27px;
+            p {
+              font-size: 2rem;
+              line-height: 2.376rem;
+              margin-bottom: 25px;
+            }
+          }
+          &.font-diff2 {
+            margin-bottom: 20px;
+            p {
+              font-size: 2rem;
+              line-height: 2.376rem;
+              margin-bottom: 20px;
+            }
+          }
+        }
+        .contact-details-links {
+          border-bottom: 0.6px solid #393939;
+          margin-bottom: 20px;
+          a {
+            color: #077fa8;
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 2.138rem;
+            display: block;
+            padding-bottom: 20px;
+          }
+          &.gapdiff {
+            margin-bottom: 27px;
+            a {
+              padding-bottom: 27px;
+            }
+          }
+
+          p {
+            gap: 5px;
+
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 2.138rem;
+          }
+          @include below(sm1) {
+            &.border-bt-none {
+              margin-bottom: 0;
+              a {
+                &:last-child {
+                  padding-bottom: 0;
+                }
+              }
+            }
+          }
+        }
+        .contact-details-person {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          .name {
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 2.376rem;
+            margin-bottom: 16px;
+          }
+          p {
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.493rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.bg-investor-contact-form {
+  background:
+    linear-gradient(
+      242deg,
+      #cf6396 -13.16%,
+      #176bba 56.56%,
+      #004ca8 90.12%,
+      #0b0314 115.94%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(178, 196, 200, 0.4) 0%,
+      rgba(200, 221, 216, 0.4) 100%
+    ),
+    var(--H1-Dark, #10233b) !important;
+  background-blend-mode: hard-light, color-dodge, normal;
+
+  .contact-heading-sec {
+    .font30 {
+      color: $bggray;
+      font-size: 3rem;
+      font-weight: 300;
+      line-height: normal;
+    }
+  }
+  .contact-horizontal {
+    margin-top: 30px;
+  }
+  .contact-form-row {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    @include below(sm1) {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .contact-form-col {
+      flex: 1;
+    }
+  }
+  .contact-form-group {
+    position: relative;
+    width: 100%;
+    .form-control {
+      padding: 13px 16px;
+      border: 0.5px solid rgba(255, 255, 255, 0.5);
+      background: rgba(0, 0, 0, 0.2);
+      color: #fafafa;
+      font-size: 1.8rem;
+      line-height: 100%;
+      font-weight: 400;
+      width: 100%;
+      border-radius: 4px;
+      &.textarea {
+        min-height: 80px;
+        height: 100%;
+
+        @include below(sm1) {
+          min-height: 120px;
+        }
+      }
+      &.textarea-contact-us-form {
+        max-width: 1121px;
+      }
+    }
+    ::placeholder {
+      color: rgba(250, 250, 250, 0.4);
+      opacity: 1;
+    }
+
+    ::-ms-input-placeholder {
+      color: rgba(250, 250, 250, 0.4);
+    }
+    .submit-btn {
+      background: transparent;
+      padding: 20px 50px;
+      border-radius: 8px;
+      border: 1px solid $whitecolor;
+      font-weight: 500;
+      font-size: 2rem;
+      color: $whitecolor;
+      line-height: 100%;
+      min-width: 181px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      cursor: pointer;
+      &:hover {
+        letter-spacing: unset !important;
+      }
+      @include below(sm1) {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        padding: 15px 37px;
+        max-width: 200px;
+        min-width: unset;
+      }
+
+      &.contact-us-btn {
+        min-width: 347px;
+      }
+      @include below(sm) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+  .contact-form-row-two-col {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    align-items: end;
+    @include below(sm1) {
+      flex-direction: column;
+      gap: 30px;
+      align-items: flex-start;
+    }
+    .contact-form-col {
+      display: flex;
+      flex: 1;
+      &:first-child {
+        flex-grow: 1; /* Allows the textarea to take up the remaining space */
+        @include below(sm1) {
+          width: 100%;
+        }
+      }
+      &:last-child {
+        flex-grow: 0; /* Prevents the button from growing */
+        @include below(sm1) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.stock {
+  background: #2c2c2d;
+  .transition-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.9) 0,
+        rgba(0, 0, 0, 0.9) 100%
+      );
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .heading-sec {
+    position: relative;
+    z-index: 9;
+  }
+}
+
+.stock-information {
+  margin-top: 60px;
+  background: transparent;
+  position: relative;
+  z-index: 9;
+  .stock-info-wrapper {
+    .stock-info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 200px;
+      @include below(lgMid) {
+        gap: 100px;
+      }
+      @include below(md2) {
+        gap: 50px;
+      }
+      @include below(sm1) {
+        gap: 60px;
+      }
+
+      .stock-info-sec {
+        width: 504px;
+        @include below(md1) {
+          width: 454px;
+        }
+        @include below(sm1) {
+          width: 100%;
+        }
+        .stock-tab-header {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          p {
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 3.4rem;
+            text-transform: uppercase;
+          }
+          .stock-tab-list {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            .stock-tab {
+              font-size: 1.2rem;
+              font-weight: 500;
+              line-height: 100%;
+              padding: 10px 24px;
+              border-radius: 4px;
+              cursor: pointer;
+              display: flex;
+              background: transparent;
+
+              transition: background-color 0.3s;
+              border: 0.67px solid #fff;
+              @include below(sm1) {
+                padding: 20px 30px;
+              }
+              &.active {
+                background: $blue;
+                color: white;
+                border: 0.67px solid $blue;
+              }
+            }
+          }
+        }
+      }
+      .stock-graph-sec {
+        width: calc(100% - 704px);
+        @include below(lgMid) {
+          width: calc(100% - 604px);
+        }
+        @include below(md2) {
+          width: calc(100% - 554px);
+        }
+        @include below(md1) {
+          width: calc(100% - 504px);
+        }
+        @include below(sm1) {
+          width: 100%;
+        }
+      }
+      .stock-tab-content,
+      .stock-graph {
+        display: none;
+      }
+
+      .stock-tab-content {
+        margin-top: 50px;
+        @include below(sm1) {
+          margin-top: 40px;
+        }
+        .current-price-data {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          margin-bottom: 30px;
+          .current-value {
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 100%;
+            color: #fff;
+            span {
+              font-weight: 400;
+            }
+            @include below(sm1) {
+              font-size: 3rem;
+            }
+          }
+          .current-percentage {
+            background: rgba(0, 153, 93, 0.2);
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 1.6rem;
+            line-height: 100%;
+            font-weight: 400;
+          }
+          .current-change-value {
+            font-size: 1.6rem;
+            line-height: 100%;
+            font-weight: 400;
+          }
+        }
+        .current-date-info {
+          font-size: 2rem;
+          line-height: 3.4rem;
+          font-weight: 300;
+          @include below(sm) {
+            font-size: 2.2rem;
+          }
+          span {
+            &.small-font {
+              font-size: 1.2rem;
+              @include below(sm) {
+                font-size: 1.8rem;
+              }
+            }
+          }
+          @include below(sm) {
+            span {
+              &:first-child {
+                display: block;
+                width: 100%;
+              }
+              &:nth-child(2) {
+                display: none;
+              }
+              &:nth-child(3) {
+                display: block;
+                width: 100%;
+              }
+            }
+          }
+        }
+        .stock-table {
+          .table-title {
+            display: none;
+            color: #077fa8;
+            font-size: 2.4rem;
+            font-weight: 400;
+            line-height: 2.4rem;
+            margin-top: 40px;
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 20px;
+            &:after {
+              content: "";
+              position: absolute;
+              right: 10px;
+              top: 26%;
+              transform: translateY(-50%) rotate(-45deg);
+              width: 8px;
+              height: 8px;
+              border-bottom: 2px solid #077fa8;
+              border-left: 2px solid #077fa8;
+              background: 0 0;
+              transition: transform 0.3s ease;
+            }
+            &.active {
+              &:after {
+                transform: translateY(-50%) rotate(135deg);
+              }
+            }
+            @include below(sm1) {
+              display: block;
+              border-bottom: 1px solid #077fa8;
+              margin-bottom: 2rem;
+            }
+          }
+
+          .table-data {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 80px;
+            row-gap: 40px;
+            margin-top: 60px;
+            @include below(md1) {
+              gap: 30px;
+            }
+
+            @include below(sm1) {
+              flex-direction: column;
+              gap: 0;
+              margin-top: 0px;
+
+              padding-bottom: 20px;
+              display: none;
+            }
+            .table-cell {
+              flex: 1 1 calc(50% - 80px);
+              display: flex;
+              gap: 5px;
+              flex-direction: column;
+              @include below(sm1) {
+                width: 100%;
+                flex-direction: row;
+
+                margin-bottom: 0;
+                padding-bottom: 0 !important;
+              }
+              div {
+                display: flex;
+                justify-content: space-between;
+                justify-content: flex-start;
+                font-size: 2rem;
+                font-weight: 300;
+                line-height: 3.4rem;
+
+                gap: 10px;
+                @include below(sm1) {
+                  width: 50%;
+                  flex-direction: column;
+                  text-align: center;
+                  border: 1px solid #00000080;
+                  border-bottom: none;
+                  border-left: none;
+                  padding: 20px 5px;
+                  gap: 20px;
+                }
+                span {
+                  font-weight: 400;
+                  width: 115px;
+                  @include below(sm1) {
+                    width: 100%;
+                  }
+                }
+                @include below(sm1) {
+                  &:first-child {
+                    border-left: 1px solid #00000080;
+                  }
+                }
+              }
+              &.border {
+                border-bottom: 0.6px solid #fff;
+                padding-bottom: 40px;
+                @include below(sm1) {
+                  border-bottom: none;
+                }
+              }
+              @include below(sm1) {
+                &:last-child {
+                  div {
+                    border-bottom: 0.6px solid #00000080;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .stock-graph {
+        #chart-timeline,
+        #chart-timeline-one {
+          tspan {
+            font-size: 1.8rem;
+            color: rgba(0, 0, 0, 0.5);
+            font-weight: 300;
+            line-height: 100%;
+            @include below(sm1) {
+              font-size: 1.6rem;
+              line-height: 1.9rem;
+            }
+          }
+        }
+        .toolbar {
+          margin-top: 30px;
+          display: flex;
+          justify-content: flex-end;
+          gap: 5px;
+          border-top: 0.53px solid #fff;
+          border-bottom: 0.65px solid #fff;
+          padding: 10px;
+          .stocktab {
+            cursor: pointer;
+          }
+          button,
+          p {
+            font-size: 1.7rem;
+            color: #fff;
+            font-weight: 300;
+            font-family: Adani;
+            background: transparent;
+
+            &.active {
+              color: #007aff;
+              font-weight: 500;
+            }
+          }
+          @include below(sm1) {
+            button {
+              span {
+                display: none;
+              }
+            }
+          }
+        }
+        .apexcharts-toolbar {
+          display: none;
+        }
+      }
+    }
+  }
+  .table-format-sec {
+    border-top: 1px solid #fff;
+    padding-top: 60px;
+    margin-top: 60px;
+    .title {
+      font-size: 2.6rem;
+      font-weight: 500;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      line-height: 3rem;
+      background: rgba(0, 0, 0, 0.6);
+      width: auto;
+      float: left;
+      color: $whitecolor;
+      padding: 20px;
+      @include below(sm1) {
+        font-size: 2.2rem;
+      }
+    }
+    .table-format-wrapper {
+      position: relative;
+      overflow: hidden;
+
+      transition: height 0.3s ease-in-out;
+      @include below(sm1) {
+        padding: 20px 0px;
+      }
+
+      .table-responsive {
+        width: 100%;
+        @include below(sm1) {
+          overflow: hidden;
+          overflow: scroll;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          background: transparent;
+          /*   border: 2px solid rgba(0, 0, 0, 0.6); */
+          box-shadow: 0px 2px 8px 0px #fff;
+          border-top-left-radius: 0;
+          border-radius: 12px;
+          border-top-left-radius: 0px;
+          overflow: hidden;
+          border: 0px solid #fff;
+          @include below(sm1) {
+            min-width: 800px;
+          }
+
+          td {
+            border: 1px solid rgba(255, 255, 255, 1);
+            padding: 8px;
+            text-align: left;
+            &:first-child {
+              border-left: 1px solid rgba(255, 255, 255, 1) !important;
+            }
+            &:last-child {
+              border-right: 1px solid rgba(255, 255, 255, 1) !important;
+            }
+          }
+
+          th {
+            border: 1px solid rgba(255, 255, 255, 1);
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 1);
+            background: rgba(255, 255, 255, 0.2);
+
+            padding: 28px 20px;
+            font-size: 2.2rem;
+
+            line-height: 2.8rem;
+            font-weight: 500;
+            vertical-align: middle;
+            &:first-child {
+              border-left: 2px solid rgba(255, 255, 255, 0.6) !important;
+            }
+            &:last-child {
+              border-right: 2px solid rgba(255, 255, 255, 0.6) !important;
+            }
+            @include below(sm1) {
+              font-size: 1.8rem;
+              line-height: 2.138rem;
+            }
+            span {
+              font-weight: 300;
+              font-size: 1.6rem;
+            }
+          }
+          td {
+            padding: 23.5px 20px;
+            font-weight: 400;
+            line-height: 100%;
+            font-size: 1.8rem;
+            text-align: center;
+            @include below(sm1) {
+              padding: 20px;
+            }
+            &.bold {
+              font-weight: 500;
+            }
+          }
+          tr {
+            &:last-child {
+              td {
+                border-bottom: 2px solid rgba(255, 255, 255, 0.6) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.stock-tab-content.active,
+.stock-graph.active {
+  display: block;
+}
+
+.table-mobile-view {
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  .table-orentation {
+    display: none;
+    @include below(sm1) {
+      color: #077fa8;
+      margin-top: 30px;
+      font-size: 2rem;
+      line-height: 2.376rem;
+      display: flex;
+      gap: 8px;
+    }
+  }
+  &.rotated-table {
+    position: relative;
+    left: 100%;
+    transform: rotate(90deg);
+    transform-origin: left top;
+    .table-responsive {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      /*   @include below(sm2) {
+        height: 350px;
+      }
+      @include below(sm3) {
+        height: 300px;
+      }
+      @include below(sm4) {
+        height: 270px;
+      }
+      @include below(xs1) {
+        height: 230px;
+      }
+      @include below(xxs) {
+        height: 200px;
+      } */
+    }
+  }
+}
+
+.event-calender {
+  .heading-sec {
+    z-index: 9;
+    position: relative;
+    color: $whitecolor;
+    .view-all-link {
+      padding-right: 20px;
+    }
+  }
+
+  .event-calender-table {
+    z-index: 9;
+    position: relative;
+    color: $whitecolor;
+
+    .table-responsive {
+      width: 100%;
+      @include below(sm1) {
+        overflow: hidden;
+        overflow-x: scroll;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        background: transparent;
+        border-radius: 12px;
+        @include below(sm1) {
+          min-width: 800px;
+        }
+        th,
+        td {
+          border: 0.3px solid rgba(255, 255, 255, 0.5);
+          padding: 8px;
+          text-align: center;
+        }
+        th {
+          background: rgba(0, 0, 0, 0.2);
+          padding: 36px 20px;
+          font-size: 2.2rem;
+          line-height: 100%;
+          font-weight: 600;
+          vertical-align: middle;
+          @include below(sm1) {
+            font-weight: 500;
+          }
+        }
+        td {
+          padding: 24px 20px;
+          font-weight: 400;
+          line-height: 100%;
+          font-size: 1.8rem;
+          a {
+            color: #fff;
+            text-decoration: none;
+            @include below(sm) {
+              text-decoration: underline;
+            }
+          }
+          &.bold {
+            font-weight: 500;
+            font-size: 2.2rem;
+            @include below(sm1) {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+      table tr:first-child th:first-child,
+      table tr:first-child td:first-child {
+        border-top-left-radius: 12px;
+      }
+
+      table tr:first-child th:last-child,
+      table tr:first-child td:last-child {
+        border-top-right-radius: 12px;
+      }
+      table tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+      }
+
+      table tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
+      }
+    }
+    .table-orentation {
+      color: #fff;
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+    p {
+      color: #fff;
+      font-size: 1.6rem;
+      margin-top: 15px;
+    }
+  }
+
+  .event-calender-bg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      -o-object-fit: cover;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      @include below(sm) {
+        object-fit: unset;
+      }
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, #000000 0%, #000000 100%);
+      opacity: 0.6;
+
+      pointer-events: none;
+    }
+  }
+}
+
+.cta-strip {
+  background: #8e278f;
+  display: block;
+  float: left;
+  width: 100%;
+  padding: 6rem 0px;
+  position: relative;
+  .text {
+    font-weight: 400;
+    font-size: 3rem;
+    color: $whitecolor;
+
+    text-align: center;
+  }
+  .heading-sec {
+    @include below(sm) {
+      flex-direction: column;
+      gap: 3rem;
+    }
+    .view-all-link {
+      padding-right: 20px;
+    }
+  }
+}
+
+.investor-contact-details-sec {
+  .investor-contact-details-bg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #000;
+
+      pointer-events: none;
+    }
+    img {
+      -o-object-fit: cover;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .investor-contact-details {
+    z-index: 9;
+    position: relative;
+    .investor-contact-details-row {
+      display: flex;
+      gap: 10rem;
+      @include below(sm1) {
+        flex-direction: column;
+        gap: 4rem;
+      }
+      .investor-contact-details-content {
+        max-width: 1042px;
+        width: 100%;
+        .investor-contact-person-sec {
+          border-bottom: 1px solid $blue;
+          margin-bottom: 4rem;
+          padding-bottom: 2rem;
+
+          .investor-contact-title {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            .title {
+              font-weight: 500;
+              font-size: 2.4rem;
+              line-height: 100%;
+            }
+            p {
+              font-weight: 400;
+              font-size: 1.8rem;
+              line-height: 100%;
+            }
+          }
+          .investor-contact-profile-sec {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            .profile {
+              width: 40px;
+            }
+            .profile-name-sec {
+              .name {
+                font-weight: 500;
+                font-size: 2.4rem;
+                line-height: 100%;
+                margin-bottom: 1rem;
+              }
+              p {
+                font-weight: 400;
+                font-size: 1.6rem;
+                line-height: 100%;
+                margin-bottom: 2rem;
+              }
+              .email-details {
+                display: flex;
+                gap: 10px;
+                img {
+                  filter: brightness(0) saturate(100%) invert(100%);
+                }
+                a {
+                  font-size: 1.8rem;
+                  color: #007aff;
+                }
+              }
+            }
+          }
+        }
+        .investor-contact-adress-sec {
+          .investor-contact-adress-row {
+            display: flex;
+            flex-direction: row;
+            gap: 5rem;
+            @include below(sm1) {
+              flex-direction: column;
+            }
+            .investor-contact-adress-col {
+              display: flex;
+
+              flex-direction: column;
+              flex: 1;
+              .investor-contact-adress-title {
+                @include below(sm1) {
+                  border-bottom: 1px solid $blue;
+                  padding-bottom: 1rem;
+                  position: relative;
+                  cursor: pointer;
+                  &:after {
+                    content: "";
+                    position: absolute;
+                    right: 16px;
+                    top: 29%;
+                    transform: translateY(-50%) rotate(-45deg);
+                    width: 8px;
+                    height: 8px;
+                    border-bottom: 2px solid $blue;
+                    border-left: 2px solid $blue;
+                    background: 0 0;
+                    transition: transform 0.3s ease;
+                  }
+                  &.active {
+                    &:after {
+                      transform: translateY(-50%) rotate(135deg);
+                      top: 50%;
+                    }
+                  }
+                }
+                .title {
+                  font-weight: 500;
+                  font-size: 2rem;
+                  line-height: 100%;
+                }
+              }
+              .investor-contact-adress-details {
+                margin-top: 24px;
+                display: flex;
+                row-gap: 2.4rem;
+                flex-direction: column;
+                p {
+                  font-weight: 400;
+                  font-size: 1.6rem;
+                  line-height: 100%;
+
+                  &.icon-link {
+                    display: flex;
+                    gap: 1rem;
+                    align-items: center;
+                    img {
+                      filter: brightness(0) saturate(100%) invert(100%);
+                    }
+                    a {
+                      color: $whitecolor;
+                      text-decoration: none;
+                      &.blue {
+                        color: #007aff;
+                      }
+                    }
+                  }
+                }
+                .view-link {
+                  font-weight: 500;
+                  font-size: 2rem;
+                  color: #007aff;
+                  line-height: 100%;
+                  letter-spacing: 0%;
+                  text-align: center;
+                  vertical-align: middle;
+                  text-transform: capitalize;
+                  text-decoration: none;
+                  position: relative;
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%) rotate(45deg);
+                    width: 0.85rem;
+                    right: auto;
+                    height: 0.85rem;
+                    border-top: 2px solid $pri-skyblue;
+                    border-right: 2px solid $pri-skyblue;
+                    background: 0 0;
+
+                    margin-left: 6px;
+
+                    transition: margin-left 0.3s ease;
+                  }
+                  &:hover {
+                    &::after {
+                      margin-left: 12px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.light-mode {
+  .custom-tabs {
+    .customTab-list {
+      .customTab {
+        color: #10233b;
+        background-color: #fff;
+        &:hover {
+              color: #077fa8 !important;
+              background-color: #fff;
+            }
+      }
+      .more-dropdown {
+        .dropdown-options {
+          background: #fafafa;
+          border: 1px solid #10233b;
+          .custom-tab {
+            color: #10233b;
+            &:hover {
+              background-color: #fff;
+            }
+          }
+        }
+      }
+    }
+    .custom-tabs-row {
+      &.tab-border {
+        border-bottom: 0.5px solid #10233b;
+      }
+    }
+  }
+  .calenderSingleLine {
+    color: rgba(16, 35, 59, 0.6);
+  }
+  .customAccordian {
+    .accordionInner {
+      .accordianSingleLine {
+        color: rgba(16, 35, 59, 0.6);
+      }
+    }
+  }
+
+  .contact-details-sec {
+    .contact-details-row {
+      .contact-details-col {
+        .contact-details-col-inner {
+          .title {
+            color: #10233b;
+          }
+          .contact-details-add {
+            p {
+              color: #10233b;
+            }
+          }
+          .contact-details-person {
+            .name {
+              color: #10233b;
+            }
+            p {
+              color: #10233b;
+            }
+          }
+        }
+        .contact-details-links {
+          p {
+            color: #10233b;
+          }
+        }
+      }
+    }
+  }
+  .stock {
+    background: #ebeaef;
+    .transition-bg {
+      &:after {
+        background: unset;
+      }
+    }
+  }
+}
+
+.stock-graph-container {
+  position: relative;
+  width: 100%;
+
+  height: 400px;
+  /* Fixed height */
+  @include below(sm) {
+    height: 250px;
+  }
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.light-mode {
+  .event-calender {
+    .event-calender-bg {
+      &:after {
+        background: transparent;
+      }
+    }
+  }
+  .stock-information {
+    .stock-info-wrapper {
+      .stock-info-row {
+        .stock-tab-content {
+          .current-price-data {
+            .current-value {
+              color: #393939;
+            }
+            .current-percentage {
+              color: #393939;
+            }
+            .current-change-value {
+              color: #393939;
+            }
+          }
+        }
+      }
+    }
+  }
+  .investor-contact-details-sec {
+    .investor-contact-details-bg:after {
+      background: unset;
+    }
+
+    .investor-contact-details {
+      .investor-contact-details-row {
+        .investor-contact-details-content {
+          .investor-contact-person-sec {
+            .investor-contact-profile-sec {
+              .profile-name-sec {
+                .email-details {
+                  img {
+                    filter: unset;
+                  }
+                }
+              }
+            }
+          }
+          .investor-contact-adress-sec {
+            .investor-contact-adress-row {
+              .investor-contact-adress-col {
+                .investor-contact-adress-details {
+                  p.icon-link {
+                    a {
+                      color: #10233b;
+                    }
+                    img {
+                      filter: unset;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.title-small-font
+  .financialDataRowInner
+  .financialDatacol
+  .financialDatacolInner
+  .financialDataContent
+  .financialDataCount {
+  font-size: 2.6rem;
+  font-weight: 600;
+}
+
+/* .light-mode {
+  .financialDataRowInner {
+    .financialDatacol {
+      .financialDatacolInner {
+        img {
+          filter: brightness(0) saturate(100%) invert(0) sepia(75%)
+            saturate(7500%) hue-rotate(53deg) brightness(93%) contrast(102%);
+        }
+      }
+    }
+  }
+} */
+
+.bg-investor-ralation {
+  .main-heading {
+    color: #10233b !important;
+  }
+}
+.light-mode {
+  .cta-strip {
+    background: #10233b !important;
+  }
+  .bg-investor-ralation {
+    .main-heading {
+      color: #10233b !important;
+    }
+  }
+}
+
+.light-mode {
+  .stock-information .table-format-sec {
+    border-top: 1px solid $primary;
+    .table-format-wrapper .table-responsive {
+      table {
+        box-shadow: 0px 2px 8px 0px #00000026;
+
+        border: 0px solid #000;
+
+        td {
+          border: 2px solid rgba(16, 35, 59, 0.6) !important;
+          /* 
+        &:first-child {
+          border-left: 2px solid rgba(16, 35, 59, 0.6) !important;
+        }
+        &:last-child {
+          border-right: 2px solid rgba(16, 35, 59, 0.6) !important;
+        } */
+        }
+
+        th {
+          border: 2px solid rgba(16, 35, 59, 0.6) !important;
+
+          background: rgba(0, 0, 0, 0.2);
+
+          /*  &:first-child {
+          border-left: 2px solid rgba(16, 35, 59, 0.6) !important;
+        }
+        &:last-child {
+          border-right: 2px solid rgba(16, 35, 59, 0.6) !important;
+        } */
+        }
+
+        tr {
+          border: 2px solid rgba(16, 35, 59, 0.6) !important;
+          &:last-child {
+            td {
+              border: 2px solid rgba(16, 35, 59, 0.6) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.more-customTab.open::after {
+  transform: translateY(-50%) rotate(135deg) !important;
+  top: 53% !important;
+}
+.light-mode {
+  .stock-information .stock-info-wrapper .stock-info-row .stock-graph .toolbar {
+    border-top: 0.53px solid #077fa8;
+    border-bottom: 0.65px solid #077fa8;
+    p {
+      color: $primary;
+      &.active {
+        color: #077fa8;
+      }
+    }
+    button.active {
+      color: #077fa8;
+    }
+  }
+  .stock-information .stock-info-wrapper .stock-info-row .stock-graph .toolbar {
+    button {
+      color: $primary;
+    }
+  }
+  .stock-information
+    .stock-info-wrapper
+    .stock-info-row
+    .stock-tab-content
+    .stock-table
+    .table-data
+    .table-cell.border {
+    border-bottom: 0.6px solid #077fa8;
+  }
+}
+.light-mode {
+  .custom-tabs {
+    .more-dropdown .more-customTab {
+      color: #077fa8;
+    }
+    .customTab-list .customTab.active {
+      color: #077fa8 !important;
+      border-bottom: 2px solid #077fa8;
+    }
+  }
+  .dropdown-styling.custom-dropdown .dropdown-header {
+    color: #077fa8;
+    &::after {
+      border-bottom: 2px solid $blue;
+      border-left: 2px solid $blue;
+    }
+  }
+  .customAccordian .accodianRow .accordionHead {
+    color: #077fa8;
+    border-bottom: 0.5px solid #077fa8;
+    &:after {
+      border-bottom: 2px solid #077fa8;
+      border-left: 2px solid #077fa8;
+    }
+    &.active {
+      color: #077fa8;
+    }
+  }
+
+  .investor-contact-details-sec
+    .investor-contact-details
+    .investor-contact-details-row
+    .investor-contact-details-content {
+    .investor-contact-adress-sec
+      .investor-contact-adress-row
+      .investor-contact-adress-col
+      .investor-contact-adress-details {
+      p.icon-link a.blue {
+        color: #077fa8;
+      }
+      .view-link {
+        color: #006db6;
+      }
+    }
+    .investor-contact-person-sec
+      .investor-contact-profile-sec
+      .profile-name-sec
+      .email-details
+      a {
+      color: #077fa8;
+    }
+  }
+  .stock-information
+    .stock-info-wrapper
+    .stock-info-row
+    .stock-info-sec
+    .stock-tab-header
+    .stock-tab-list
+    .stock-tab {
+    border: 0.67px solid #10233b;
+  }
+}
+
+.light-mode {
+  .financialDataRowInner {
+    .financialDatacol {
+      .financialDatacolInner {
+        border: 1px solid rgba(16, 35, 59, 0.6);
+        background: #fafafa;
+        .financialDataContent {
+          .financialDataCount {
+            color: $primary;
+          }
+          .financialDataName {
+            color: $primary;
+          }
+        }
+        img {
+          filter: brightness(0) saturate(100%) invert(0) sepia(75%)
+            saturate(7500%) hue-rotate(53deg) brightness(93%) contrast(102%);
+        }
+      }
+    }
+  }
+}
+
+.table-mobile-view.rotated-table {
+  .table-responsive {
+    overflow: scroll;
+    height: 100%;
+  }
+}
+.event-calender {
+  overflow: hidden;
+}
+.event-disclaimer {
+  position: relative;
+  z-index: 99;
+  color: #fff !important;
+  font-size: 1.8rem;
+  margin-top: 2rem;
+}
+
+.disclosure-listWrap {
+  ul {
+    li {
+      a {
+        text-decoration: none !important;
+      }
+    }
+  }
+}

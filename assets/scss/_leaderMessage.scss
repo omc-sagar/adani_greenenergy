@@ -1,0 +1,141 @@
+.leaderMessageSection,
+.leaderMessageContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+
+/* =========================
+   Banner
+========================= */
+
+.leaderMessageBanner {
+  position: relative;
+  width: 100%;
+
+  overflow: hidden;
+  border-radius: 20px;
+  @include below(sm) {
+    overflow: unset;
+    background: #021b34;
+  }
+}
+
+/* =========================
+   Background Image
+========================= */
+
+.leaderMessageBackground {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 0;
+  @include below(sm) {
+    position: relative;
+    width: unset;
+    height: unset;
+  }
+}
+
+.leaderMessageBackground img {
+  display: block;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   Content
+========================= */
+.leaderMessageContent {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+}
+
+.leaderMessageInfo {
+  width: 55%;
+  margin-left: auto;
+
+  min-height: 62rem;
+  padding: 8rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: #fff;
+  box-sizing: border-box;
+  @include below(tb2) {
+    padding: 4rem;
+  }
+  @include below(sm1) {
+    padding: 2rem 3rem 2rem 1rem;
+  }
+  @include below(sm) {
+    width: 100%;
+    padding: 4rem;
+    min-height: auto;
+  }
+}
+
+.leaderMessageInfo h2 {
+  margin: 0;
+  padding-bottom: 4rem;
+
+  color: #fff;
+
+  font-size: 5rem;
+  font-weight: 300;
+  line-height: normal;
+
+  text-transform: capitalize;
+  @include below(sm1) {
+    font-size: 4rem;
+  }
+}
+
+.leaderMessageInfo .leaderMessageInfoContent {
+  margin: 0;
+  color: #fff;
+  font-size: 2.6rem;
+  font-weight: 400;
+  line-height: normal;
+  @include below(sm1) {
+    font-size: 2.2rem;
+  }
+}
+
+.leaderMessageAuthor {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 4rem;
+}
+
+.leaderMessageAuthor p {
+  margin: 0 0 0.5rem;
+
+  color: #fff;
+
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.leaderMessageAuthor span {
+  color: #fff;
+
+  font-size: 1.4rem;
+  line-height: normal;
+}

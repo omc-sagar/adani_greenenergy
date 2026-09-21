@@ -1,0 +1,59 @@
+@import "_var.scss";
+@import "_mixin.scss";
+@import "_media-queries.scss";
+
+/***********************
+Components SCSS
+************************/
+
+@import "_common.scss";
+@import "_header.scss";
+@import "_footer.scss";
+
+@import "_color_theme.scss";
+@import "_com_hindi.scss";
+
+// Sagar
+@import "_home_new.scss";
+@import "_solution_overview.scss";
+@import "_investor_overview.scss";
+@import "_financials-fillings";
+@import "_sustanibility_component";
+@import "_newsroom-media-releases-details";
+@import "media-library-overview";
+@import "_leadership-details";
+@import "_sustainability-detail";
+@import "_contact_us";
+@import "_leadership";
+@import "_green-credits-details";
+@import "_sustainability_overview";
+@import "_awards-listing";
+@import "_pi_chart.scss";
+@import "_home_chart.scss";
+
+//Gitika
+@import "_com_gallery.scss";
+@import "_com_about_us.scss";
+@import "_com_breadcrumb.scss";
+@import "_solar.scss";
+
+// Akshata
+@import "_investor_disclosure";
+@import "_corporate_governance";
+@import "_investor_fixed_income";
+@import "_investor-equity-investors";
+@import "_green-gallery";
+@import "_careers";
+@import "_media_kit";
+@import "_media-library-overview.scss";
+@import "_custom_tab.scss";
+@import "_map.scss";
+@import "_envOverviewSection.scss";
+@import "_three_col_component.scss";
+@import "_strategicPillarSection.scss";
+@import "_sustainableFuture.scss";
+@import "_leaderMessage.scss";
+@import "_policyOverview.scss";
+@import "_esgRating.scss";
+@import "_sustainability_framework.scss";
+@import "_board-committee.scss";
