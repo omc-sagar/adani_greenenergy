@@ -1224,6 +1224,7 @@
   width: 100%;
   position: relative;
   z-index: 10;
+  overflow: hidden;
   @include below(sm1) {
     padding-top: 8rem;
     padding-bottom: 14.8rem;

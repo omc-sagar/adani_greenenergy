@@ -90,6 +90,11 @@
           transition: transform 0.3s ease;
         }
       }
+      a {
+        @include below(sm) {
+          text-decoration: underline;
+        }
+      }
       a:hover {
         text-decoration: underline;
       }
@@ -128,10 +133,10 @@
     border-right: 2px solid #fff;
   }
   &.swiper-button-disabled {
-          opacity: 10%;
-          cursor: auto;
-          pointer-events: none;
-        }
+    opacity: 10%;
+    cursor: auto;
+    pointer-events: none;
+  }
 }
 /* NEXT → (Right arrow) */
 .reportingStandardsNext {

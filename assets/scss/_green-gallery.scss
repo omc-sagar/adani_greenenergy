@@ -211,14 +211,14 @@
       .singlecol {
         .location {
           @include below(sm) {
-            font-size: 2rem;
+            font-size: 2.2rem;
             left: 10px;
+            line-height: normal;
           }
 
           @include below(xs2) {
-            font-size: 1.6rem;
+            /*   font-size: 2rem; */
             bottom: 10px;
-            line-height: 1.8rem;
           }
         }
       }

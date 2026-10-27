@@ -130,6 +130,9 @@ function FnSimpleTabs(containerSelector) {
         }
 
         fnBusinessAni();
+        setTimeout(function () {
+          initReadMoreAwards(".awards-grid-col", 2);
+        }, 50);
       });
 
       // --------------------------------

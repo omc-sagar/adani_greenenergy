@@ -239,9 +239,12 @@
       transition: 0.5s ease;
       margin: 0 auto;
       width: 70px;
+      @include below(sm1) {
+        width: 46px;
+      }
     }
   }
 }
 .box-left-text p {
-  font-size: 1.5Crem;
+  font-size: 1.5rem;
 }

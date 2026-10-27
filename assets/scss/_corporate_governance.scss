@@ -244,7 +244,7 @@
     z-index: 999;
     gap: 130px;
     align-items: flex-end;
-
+    z-index: 1;
     @include below(sm1) {
       flex-wrap: wrap;
       gap: 80px;
@@ -401,10 +401,22 @@
           letter-spacing: -1%;
           display: flex;
           gap: 10px;
+          &:hover {
+            text-decoration: underline;
+          }
+          @include below(sm) {
+            text-decoration: underline;
+          }
         }
 
         .mail {
           color: #fff;
+          @include below(sm) {
+            text-decoration: underline;
+          }
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

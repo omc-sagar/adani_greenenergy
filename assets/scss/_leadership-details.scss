@@ -37,6 +37,12 @@
         align-items: center;
         text-decoration: none;
         gap: 8px;
+        &:hover {
+          text-decoration: underline;
+        }
+        @include below(sm) {
+          text-decoration: underline;
+        }
         img {
           width: auto;
         }

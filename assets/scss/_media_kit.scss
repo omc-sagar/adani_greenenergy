@@ -49,6 +49,12 @@
             align-items: center;
             text-decoration: none;
             gap: 8px;
+            &:hover {
+              text-decoration: underline;
+            }
+            @include below(sm) {
+              text-decoration: underline;
+            }
           }
         }
       }
@@ -87,7 +93,8 @@
             padding: 15px 15px;
           }
 
-          .icon { display: none;
+          .icon {
+            display: none;
             img {
               width: 18px;
               height: 18px;
@@ -96,16 +103,17 @@
             }
           }
 
-          p { position: relative;
+          p {
+            position: relative;
             font-size: 2rem;
             font-weight: 400;
             line-height: 100%;
             padding-left: 29px;
-            &::before{ 
+            &::before {
               content: "";
               position: absolute;
               top: 5px;
-              left:0px;
+              left: 0px;
               width: 9px;
               height: 9px;
               border-radius: 50%;
@@ -135,8 +143,8 @@
                 filter: unset;
               }
             }
-            p { 
-              &::before{ 
+            p {
+              &::before {
                 background-color: #002315;
               }
             }

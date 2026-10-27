@@ -8,13 +8,14 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 5.8rem;
   margin-bottom: 5.8rem;
+
   h2,
   .main-heading {
     font-size: 3.4rem;
     font-weight: 300;
   }
   &:last-of-type {
-    border-bottom: none;
+    border-bottom: none !important;
     margin-bottom: 0;
     padding-bottom: 0;
   }

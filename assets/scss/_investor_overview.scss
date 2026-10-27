@@ -798,7 +798,9 @@
           font-weight: 600;
           line-height: 100%;
           color: $bggray;
-          cursor: pointer;
+          @include below(sm1) {
+            cursor: pointer;
+          }
         }
       }
     }
@@ -824,6 +826,9 @@
             transition: 0.3s;
             color: #fafafa;
             text-decoration: none;
+            @include below(sm) {
+              text-decoration: underline;
+            }
             &:after {
               content: "";
               position: absolute;
@@ -1960,8 +1965,20 @@
                     a {
                       color: $whitecolor;
                       text-decoration: none;
+                      &:hover {
+                        text-decoration: underline;
+                      }
+                      @include below(sm) {
+                        text-decoration: underline;
+                      }
                       &.blue {
                         color: #007aff;
+                        @include below(sm) {
+                          text-decoration: underline;
+                        }
+                        &:hover {
+                          text-decoration: underline;
+                        }
                       }
                     }
                   }
@@ -2015,9 +2032,9 @@
         color: #10233b;
         background-color: #fff;
         &:hover {
-              color: #077fa8 !important;
-              background-color: #fff;
-            }
+          color: #077fa8 !important;
+          background-color: #fff;
+        }
       }
       .more-dropdown {
         .dropdown-options {

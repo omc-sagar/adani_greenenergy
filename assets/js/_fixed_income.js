@@ -115,6 +115,9 @@ function initLoadmorelist() {
     var sliceCount = $(window).width() > 767 ? desktopSlice : mobileSlice;
 
     loadItems($container, sliceCount);
+    setTimeout(function () {
+      initReadMoreAwards(".awards-grid-col", 2);
+    }, 50);
   });
 
   // Recalculate on resize

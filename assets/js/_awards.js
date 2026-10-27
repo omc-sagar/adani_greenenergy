@@ -48,15 +48,31 @@ function fnAwardSlider() {
     },
   });
 }
-
 function initReadMoreAwards(container = ".awards-grid-col", lines = 2) {
   const $container = $(container);
 
+  if (!$container.length) return;
+
   function setupReadMore() {
+    // Disable Read More functionality below 767px
+    if (window.innerWidth < 768) {
+      $container.find(".read-more-btn").remove();
+
+      $container
+        .find(".awards-bottom-content p")
+        .removeClass("expanded")
+        .css("max-height", "none");
+
+      return;
+    }
+
     $container.find(".read-more-btn").remove();
 
     $container.find(".awards-bottom-content p").each(function () {
       const $desc = $(this);
+
+      // Skip hidden tab content
+      if (!$desc.is(":visible")) return;
 
       let lineHeight = parseFloat($desc.css("line-height"));
 
@@ -75,7 +91,7 @@ function initReadMoreAwards(container = ".awards-grid-col", lines = 2) {
       // Apply collapsed height
       $desc.css("max-height", collapsedHeight - 5 + "px");
 
-      // Add button only if content is more than 3 lines
+      // Add button only if content exceeds required lines
       if (fullHeight > collapsedHeight + 5) {
         $desc.after('<span class="read-more-btn">Read More</span>');
       }
@@ -84,10 +100,11 @@ function initReadMoreAwards(container = ".awards-grid-col", lines = 2) {
 
   setupReadMore();
 
-  // Recalculate after images/fonts/layout are rendered
+  // Recalculate after layout/images/fonts
   setTimeout(setupReadMore, 100);
   setTimeout(setupReadMore, 500);
 
+  // READ MORE / READ LESS
   $(document)
     .off("click.readMoreAwards", ".awards-grid-col .read-more-btn")
     .on(
@@ -95,6 +112,9 @@ function initReadMoreAwards(container = ".awards-grid-col", lines = 2) {
       ".awards-grid-col .read-more-btn",
       function (e) {
         e.preventDefault();
+
+        // Prevent functionality below 767px
+        if (window.innerWidth < 768) return;
 
         const $btn = $(this);
         const $desc = $btn.prev(".awards-bottom-content p");

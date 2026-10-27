@@ -259,7 +259,7 @@
   }
   p {
     font-weight: 300;
-    font-size: 2rem;
+    font-size: 2rem !important;
     margin-bottom: 30px;
     line-height: 2.8rem;
     letter-spacing: 0;
@@ -301,6 +301,9 @@
   .video-overlay-text
   .video-text {
   font-size: 4.2rem;
+  @include below(sm) {
+    font-size: 3.2rem;
+  }
 }
 .newsroom-media-releases-details {
   div img {

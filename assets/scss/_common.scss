@@ -88,27 +88,45 @@ html {
       font-size: 64.5%;
     }
     @include between(md1, lg) {
-      font-size: 52.5%;
+      font-size: 48.5%;
     }
     @include between(md0, md1) {
-      font-size: 44%;
+      font-size: 40%;
     }
-    @include between(sm1, md0) {
-      font-size: 52.5%;
+    @include between(tb2, md0) {
+      font-size: 50%;
+    }
+    @include below(tb2) {
+      font-size: 48%;
+    }
+    @include below(sm1) {
+      font-size: 56%;
+    }
+    @include below(sm) {
+      font-size: 54%;
     }
     &.double-increase {
       font-size: 66%;
       @include above(lg3) {
-        font-size: 66%;
+        font-size: 66.5%;
       }
       @include between(md1, lg) {
-        font-size: 54.5%;
+        font-size: 50.5%;
       }
       @include between(md0, md1) {
-        font-size: 46%;
+        font-size: 42%;
       }
-      @include between(sm1, md0) {
-        font-size: 54.5%;
+      @include between(tb2, md0) {
+        font-size: 52%;
+      }
+      @include below(tb2) {
+        font-size: 50%;
+      }
+      @include below(sm1) {
+        font-size: 58%;
+      }
+      @include below(sm) {
+        font-size: 56%;
       }
     }
   }
@@ -118,13 +136,22 @@ html {
       font-size: 60.5%;
     }
     @include between(md1, lg) {
-      font-size: 48.5%;
+      font-size: 44.5%;
     }
     @include between(md0, md1) {
-      font-size: 40%;
+      font-size: 36%;
     }
-    @include between(sm1, md0) {
-      font-size: 48.5%;
+    @include between(tb2, md0) {
+      font-size: 46%;
+    }
+    @include below(tb2) {
+      font-size: 44%;
+    }
+    @include below(sm1) {
+      font-size: 52%;
+    }
+    @include below(sm) {
+      font-size: 50%;
     }
     &.double-decrease {
       font-size: 58.5%;
@@ -132,14 +159,22 @@ html {
         font-size: 58.5%;
       }
       @include between(md1, lg) {
-        font-size: 46.5%;
+        font-size: 42.5%;
       }
       @include between(md0, md1) {
-        font-size: 38%;
+        font-size: 34%;
       }
-
-      @include between(sm1, md0) {
-        font-size: 46.5%;
+      @include between(tb2, md0) {
+        font-size: 44%;
+      }
+      @include below(tb2) {
+        font-size: 42%;
+      }
+      @include below(sm1) {
+        font-size: 50%;
+      }
+      @include below(sm) {
+        font-size: 48%;
       }
     }
   }

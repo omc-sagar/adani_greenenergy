@@ -838,6 +838,11 @@
     transform 0.3s ease,
     background 0.3s ease;
   text-decoration: none;
+  &:hover {
+    background: #fff;
+    transition: 0.3s ease;
+    color: #8e278f !important;
+  }
 }
 
 /* Show overlay on hover (desktop) */

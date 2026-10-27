@@ -1166,7 +1166,7 @@ function setBannerHeight() {
     ).outerHeight();
 
     // Add 300px
-    var finalHeight = overlayHeight + 250;
+    var finalHeight = overlayHeight + 200;
 
     $(".short-banner-spotlight").css("height", finalHeight + "px");
   } else {
